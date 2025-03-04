@@ -46,3 +46,4 @@ npm run dev
 ## Wiki
 
 - [Environment](wiki/environment.md)
+- [Guides](wiki/guides.md)
