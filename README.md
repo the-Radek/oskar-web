@@ -1,6 +1,8 @@
 # Tábor Oskar Web
 
-Web aplication with React front-end and Node.js back-end.
+Web aplication with Next.js for Tábor Oskar.
+
+Summer camp Tábor Oskar offers adventure, games and fun in the beautiful nature near Rokycany for children of all ages. Every summer we organize several camps with a varied program.
 
 ## Development
 
@@ -16,8 +18,7 @@ Web aplication with React front-end and Node.js back-end.
    npm ci
    ```
 
-3. Get [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/) or install [Docker](https://docs.docker.com/engine/install/ubuntu/) in WSL.
-4. Setup [environment](wiki/environment.md).
+3. Setup [environment](wiki/environment.md).
 
 #### Debian/Ubuntu
 
@@ -30,8 +31,7 @@ Web aplication with React front-end and Node.js back-end.
    npm ci
    ```
 
-3. Get [Docker](https://docs.docker.com/engine/install/ubuntu/).
-4. Setup [environment](wiki/environment.md).
+3. Setup [environment](wiki/environment.md).
 
 ### Startup
 

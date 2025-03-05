@@ -4,11 +4,6 @@
 
 Secrets belong to the `secrets` directory. During local development, evironment variables for the server or harvester will not be prepared by docker. They will instead be loaded from the `.env` or `.env.local` file - see provided `.env.example`.
 
-## Docker compose
-
-For local development setup, use the `compose.override.yml` file to override docker compose - see provided
-`compose.override.yml.example`.
-
 ## Editor
 
 We recommend to use [VS Code](https://code.visualstudio.com/). Following tools might be installed as extensions for VS Code. [More infromation.](https://react.dev/learn/editor-setup)
