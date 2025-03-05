@@ -1,0 +1,5 @@
+html {
+  --theme-background: white;
+  --theme-foreground: black;
+  --theme-shadow: var(--color-gray-300);
+}

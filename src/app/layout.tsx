@@ -73,8 +73,8 @@ export default function RootLayout({
         <footer>
           <p>© {year} Přátelé LDT Oskar, z.s. Všechna práva vyhrazena.</p>
           <div>
-            <Link href="https://www.facebook.com/taborOskar.cz" className="fa fa-facebook"></Link>
-            <Link href="https://www.instagram.com/tabor_oskar/" className="fa fa-instagram"></Link>
+            <Link href="https://www.facebook.com/taborOskar.cz"></Link>
+            <Link href="https://www.instagram.com/tabor_oskar/"></Link>
           </div>
         </footer>
       </body>
