@@ -1,31 +1,43 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import Tabs from '@mui/material/Tabs';
+import Tab, { TabProps } from '@mui/material/Tab';
+
+function LinkTab(props: TabProps) {
+  const currentPath = usePathname();
+  return (
+    <Tab
+      component={Link}
+      href={props.value}
+      aria-current={props.value == currentPath ? 'page' : null}
+      textColor="inherit"
+      sx={{
+        padding: 'calc(var(--spacing) * 8) 0',
+        textTransform: 'none',
+        fontSize: '1.1rem',
+        fontWeight: props.value == currentPath ? 'bold' : null,
+        opacity: 1,
+      }}
+      {...props}
+    />
+  );
+}
 
 export default function Header() {
+  const currentPath = usePathname();
+
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">Úvodní stránka</Link>
-          </li>
-          <li>
-            <Link href="/taborova-hra">Celotáborová hra</Link>
-          </li>
-          <li>
-            <Link href="/turnusy">Turnusy</Link>
-          </li>
-          <li>
-            <Link href="/o-tabore">O táboře</Link>
-          </li>
-          <li>
-            <Link href="/galerie">Galerie</Link>
-          </li>
-          <li>
-            <Link href="/kontakty">Kontakty</Link>
-          </li>
-        </ul>
-      </nav>
+    <header className="secondary" style={{ borderRadius: '12px 12px 0 0' }}>
+      <Tabs value={currentPath} variant="fullWidth" sx={{ height: 'auto' }} textColor="inherit">
+        <LinkTab value="/" label="Úvodní stránka" />
+        <LinkTab value="/taborova-hra" label="Celotáborová hra" />
+        <LinkTab value="/turnusy" label="Turnusy" />
+        <LinkTab value="/o-tabore" label="O táboře" />
+        <LinkTab value="/galerie" label="Galerie" />
+        <LinkTab value="/kontakty" label="Kontakty" />
+      </Tabs>
       <Image
         src="/banner-2025.jpg"
         width={4724}

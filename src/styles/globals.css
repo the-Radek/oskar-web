@@ -8,7 +8,10 @@
 @import './theme.css';
 
 body {
+  display: flex;
+  flex-direction: column;
   max-width: 1280px;
+  min-height: 100vh;
   margin: 0 auto;
   background: var(--color-background);
   color: var(--color-foreground);
