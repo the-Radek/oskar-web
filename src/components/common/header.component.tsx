@@ -26,11 +26,17 @@ function LinkTab(props: TabProps) {
 }
 
 export default function Header() {
+  const paths = ['/', '/taborova-hra', '/turnusy', '/o-tabore', '/galerie', '/kontakty'];
   const currentPath = usePathname();
 
   return (
     <header className="secondary" style={{ borderRadius: '12px 12px 0 0' }}>
-      <Tabs value={currentPath} variant="fullWidth" sx={{ height: 'auto' }} textColor="inherit">
+      <Tabs
+        value={paths.includes(currentPath) && currentPath}
+        variant="fullWidth"
+        sx={{ height: 'auto' }}
+        textColor="inherit"
+      >
         <LinkTab value="/" label="Úvodní stránka" />
         <LinkTab value="/taborova-hra" label="Celotáborová hra" />
         <LinkTab value="/turnusy" label="Turnusy" />
