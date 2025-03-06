@@ -1,19 +1,11 @@
 @import 'tailwindcss';
 
-@theme {
+@theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
-  /* Colors */
-  --color-background: var(--theme-background);
-  --color-foreground: var(--theme-foreground);
-  --color-shadow: var(--theme-shadow);
 }
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-@import './themes/default.css';
-@import './themes/dark.css';
+@import './theme.css';
 
 body {
   max-width: 1280px;
@@ -22,5 +14,5 @@ body {
   color: var(--color-foreground);
   font-family: 'DM Sans', sans-serif;
   border-radius: 12px;
-  box-shadow: -8px 8px 16px var(--color-shadow), 8px -8px 16px var(--color-background);
+  box-shadow: -8px 8px 16px var(--color-shadow), 8px -8px 16px var(--color-primary-bg);
 }
