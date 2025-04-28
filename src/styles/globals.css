@@ -1,21 +1,9 @@
 @import 'tailwindcss';
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@import './theme.css';
-
 body {
   display: flex;
   flex-direction: column;
   max-width: 1280px;
   min-height: 100vh;
   margin: 0 auto;
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: 'DM Sans', sans-serif;
-  border-radius: 12px;
-  box-shadow: -8px 8px 16px var(--color-shadow), 8px -8px 16px var(--color-primary-bg);
 }

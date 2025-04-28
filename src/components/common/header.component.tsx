@@ -4,45 +4,59 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Tabs from '@mui/material/Tabs';
 import Tab, { TabProps } from '@mui/material/Tab';
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
-function LinkTab(props: TabProps) {
-  const currentPath = usePathname();
+function LinkTab(props: TabProps & { active?: boolean }) {
+  const { active, ...rest } = props;
+
   return (
     <Tab
       component={Link}
       href={props.value}
-      aria-current={props.value == currentPath ? 'page' : null}
+      aria-current={active ? 'page' : null}
       textColor="inherit"
       sx={{
-        padding: 'calc(var(--spacing) * 8) 0',
         textTransform: 'none',
-        fontSize: '1.1rem',
-        fontWeight: props.value == currentPath ? 'bold' : null,
+        fontWeight: active ? 'bold' : null,
         opacity: 1,
       }}
-      {...props}
+      {...rest}
     />
   );
 }
 
+const routes = [
+  { path: '/', label: 'Úvodní stránka' },
+  { path: '/taborova-hra', label: 'Celotáborová hra' },
+  { path: '/turnusy', label: 'Turnusy' },
+  { path: '/o-tabore', label: 'O táboře' },
+  { path: '/galerie', label: 'Galerie' },
+  { path: '/kontakty', label: 'Kontakty' },
+];
+
 export default function Header() {
-  const paths = ['/', '/taborova-hra', '/turnusy', '/o-tabore', '/galerie', '/kontakty'];
   const currentPath = usePathname();
+  const theme = useTheme();
 
   return (
-    <header className="secondary" style={{ borderRadius: '12px 12px 0 0' }}>
+    <Box
+      component={'header'}
+      sx={{
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+      }}
+    >
       <Tabs
-        value={paths.includes(currentPath) && currentPath}
-        variant="fullWidth"
-        sx={{ height: 'auto' }}
+        component={'nav'}
+        value={routes.find((x) => x.path == currentPath)?.path ?? false}
         textColor="inherit"
+        indicatorColor="secondary"
+        variant="fullWidth"
       >
-        <LinkTab value="/" label="Úvodní stránka" />
-        <LinkTab value="/taborova-hra" label="Celotáborová hra" />
-        <LinkTab value="/turnusy" label="Turnusy" />
-        <LinkTab value="/o-tabore" label="O táboře" />
-        <LinkTab value="/galerie" label="Galerie" />
-        <LinkTab value="/kontakty" label="Kontakty" />
+        {routes.map((x) => (
+          <LinkTab key={x.path} label={x.label} value={x.path} active={x.path == currentPath} />
+        ))}
       </Tabs>
       <Image
         src="/banner-2025.jpg"
@@ -52,6 +66,6 @@ export default function Header() {
         sizes="(max-width: 1280px) 100vw, 1280px"
         priority
       />
-    </header>
+    </Box>
   );
 }

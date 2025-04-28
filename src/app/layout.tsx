@@ -1,22 +1,12 @@
 import type { Metadata } from 'next';
 import type { Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import '@/styles/globals.css';
 import Link from 'next/link';
 import Button from '@mui/material/Button';
 import Footer from '@/components/common/footer.component';
 import Header from '@/components/common/header.component';
 import Container from '@mui/material/Container';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import GlobalTheme from '@/components/common/global-theme.component';
 
 export const metadata: Metadata = {
   title: 'Tábor oskar',
@@ -37,19 +27,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header />
-        <Container className="grow">
-          <Button
-            component={Link}
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfEIT4bl2GNx_M8fPmkToFuHEzBQ3a5OyF55v42VP4Y5cJvIA/viewform?fbclid=IwZXh0bgNhZW0CMTEAAR0i5LYQyHo2gWgMWiDFs6KlrdftrphopB9TR4996RAIX0hzgjSCdS9t8V4_aem_rkTRc9BnWRpgh-x3tR58ZQ"
-          >
-            Podat přihlášku
-          </Button>
-          {children}
-        </Container>
-        <Footer />
+      <body>
+        <GlobalTheme>
+          <Header />
+          <Container className="grow">
+            <Button
+              color="secondary"
+              component={Link}
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfEIT4bl2GNx_M8fPmkToFuHEzBQ3a5OyF55v42VP4Y5cJvIA/viewform?fbclid=IwZXh0bgNhZW0CMTEAAR0i5LYQyHo2gWgMWiDFs6KlrdftrphopB9TR4996RAIX0hzgjSCdS9t8V4_aem_rkTRc9BnWRpgh-x3tR58ZQ"
+            >
+              Podat přihlášku
+            </Button>
+            {children}
+          </Container>
+          <Footer />
+        </GlobalTheme>
       </body>
     </html>
   );

@@ -1,15 +1,26 @@
+'use client';
 import Link from 'next/link';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Fab from '@mui/material/Fab';
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const theme = useTheme();
 
   return (
-    <footer
-      className="flex items-center justify-between px-20 py-10 tertiary"
-      style={{ borderRadius: '0 0 12px 12px' }}
+    <Box
+      component={'footer'}
+      sx={{
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderRadius: '0 0 12px 12px',
+      }}
     >
       <p>© {year} Přátelé LDT Oskar, z.s. Všechna práva vyhrazena.</p>
       <div className="flex gap-4">
@@ -32,6 +43,6 @@ export default function Footer() {
           <InstagramIcon />
         </Fab>
       </div>
-    </footer>
+    </Box>
   );
 }
