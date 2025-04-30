@@ -1,18 +1,21 @@
 'use client';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { useTheme } from '@mui/material/styles';
-import defaultTheme from '@/theme/default';
 
-export default function GlobalTheme({
+function Wrapper({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  return children;
+}
+
+export default function GlobalTheme() {
   const theme = useTheme();
+
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <Wrapper>
       <CssBaseline />
       <GlobalStyles
         styles={{
@@ -20,14 +23,16 @@ export default function GlobalTheme({
             color: theme.palette.text.primary,
             background: theme.palette.background.default,
             borderRadius: theme.shape.borderRadius,
-            boxShadow: `
-              -8px 8px 16px ${theme.palette.divider},
-              8px -8px 16px ${theme.palette.background.default}
-            `,
+            boxShadow: theme.shadows[24],
+          },
+          header: {
+            borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+          },
+          footer: {
+            borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
           },
         }}
       />
-      {children}
-    </ThemeProvider>
+    </Wrapper>
   );
 }

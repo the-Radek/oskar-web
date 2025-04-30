@@ -14,12 +14,10 @@ export default function Footer() {
     <Box
       component={'footer'}
       sx={{
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.background.footer,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderRadius: '0 0 12px 12px',
       }}
     >
       <p>© {year} Přátelé LDT Oskar, z.s. Všechna práva vyhrazena.</p>

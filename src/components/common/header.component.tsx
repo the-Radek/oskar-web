@@ -43,15 +43,15 @@ export default function Header() {
     <Box
       component={'header'}
       sx={{
-        backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.main,
       }}
     >
       <Tabs
         component={'nav'}
         value={routes.find((x) => x.path == currentPath)?.path ?? false}
         textColor="inherit"
-        indicatorColor="secondary"
+        // indicatorColor="primary.dark"
         variant="fullWidth"
       >
         {routes.map((x) => (

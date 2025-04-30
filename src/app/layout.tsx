@@ -7,6 +7,8 @@ import Footer from '@/components/common/footer.component';
 import Header from '@/components/common/header.component';
 import Container from '@mui/material/Container';
 import GlobalTheme from '@/components/common/global-theme.component';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '@/theme/default';
 
 export const metadata: Metadata = {
   title: 'Tábor oskar',
@@ -28,7 +30,8 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body>
-        <GlobalTheme>
+        <ThemeProvider theme={theme}>
+          <GlobalTheme />
           <Header />
           <Container className="grow">
             <Button
@@ -42,7 +45,7 @@ export default function RootLayout({
             {children}
           </Container>
           <Footer />
-        </GlobalTheme>
+        </ThemeProvider>
       </body>
     </html>
   );

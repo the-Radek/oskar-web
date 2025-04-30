@@ -6,20 +6,18 @@ const theme = createTheme({
     mode: 'light',
     primary: {
       main: '#68d0ff',
+      dark: '#006bb7',
       contrastText: '#fff',
-    },
-    secondary: {
-      main: '#83c8ef',
     },
     background: {
       default: '#fff',
-      paper: '#68d0ff',
+      paper: '#bae3f6',
+      footer: '#83c8ef',
     },
     text: {
       primary: '#000',
-      secondary: '#000',
+      secondary: '#8cd5f7',
     },
-    divider: '#006bb7',
   },
   shape: {
     borderRadius: 12,
