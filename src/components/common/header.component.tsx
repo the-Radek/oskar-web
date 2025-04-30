@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Tabs from '@mui/material/Tabs';
 import Tab, { TabProps } from '@mui/material/Tab';
-import { useTheme } from '@mui/material/styles';
+import routes from './routes';
 import Box from '@mui/material/Box';
 
 function LinkTab(props: TabProps & { active?: boolean }) {
@@ -16,43 +16,43 @@ function LinkTab(props: TabProps & { active?: boolean }) {
       href={props.value}
       aria-current={active ? 'page' : null}
       textColor="inherit"
-      sx={{
+      sx={(theme) => ({
+        padding: `${theme.spacing(5)} 0`,
         textTransform: 'none',
-        fontWeight: active ? 'bold' : null,
+        fontWeight: active ? theme.typography.fontWeightBold : null,
+        fontSize: '1.1rem',
         opacity: 1,
-      }}
+        '&:hover, &.Mui-focusVisible': {
+          backgroundColor: theme.palette.primary.light,
+        },
+      })}
       {...rest}
     />
   );
 }
 
-const routes = [
-  { path: '/', label: 'Úvodní stránka' },
-  { path: '/taborova-hra', label: 'Celotáborová hra' },
-  { path: '/turnusy', label: 'Turnusy' },
-  { path: '/o-tabore', label: 'O táboře' },
-  { path: '/galerie', label: 'Galerie' },
-  { path: '/kontakty', label: 'Kontakty' },
-];
-
 export default function Header() {
   const currentPath = usePathname();
-  const theme = useTheme();
 
   return (
     <Box
       component={'header'}
-      sx={{
+      sx={(theme) => ({
         color: theme.palette.primary.contrastText,
         backgroundColor: theme.palette.primary.main,
-      }}
+      })}
     >
       <Tabs
         component={'nav'}
         value={routes.find((x) => x.path == currentPath)?.path ?? false}
         textColor="inherit"
-        // indicatorColor="primary.dark"
         variant="fullWidth"
+        sx={(theme) => ({
+          '& .MuiTabs-indicator': {
+            backgroundColor: theme.palette.primary.dark,
+            height: 3,
+          },
+        })}
       >
         {routes.map((x) => (
           <LinkTab key={x.path} label={x.label} value={x.path} active={x.path == currentPath} />

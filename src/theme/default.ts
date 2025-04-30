@@ -1,5 +1,14 @@
 'use client';
-import { createTheme } from '@mui/material/styles';
+import { alpha, createTheme, getContrastRatio } from '@mui/material/styles';
+
+function augmentColor(color: string) {
+  return {
+    main: color,
+    light: alpha(color, 0.5),
+    dark: alpha(color, 0.9),
+    contrastText: getContrastRatio(color, '#fff') > 4.5 ? '#fff' : '#111',
+  };
+}
 
 const theme = createTheme({
   palette: {
@@ -9,6 +18,7 @@ const theme = createTheme({
       dark: '#006bb7',
       contrastText: '#fff',
     },
+    meta: augmentColor('#3b5998'),
     background: {
       default: '#fff',
       paper: '#bae3f6',
