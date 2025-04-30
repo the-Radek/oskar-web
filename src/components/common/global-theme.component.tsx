@@ -20,16 +20,25 @@ export default function GlobalTheme() {
       <GlobalStyles
         styles={{
           body: {
-            color: theme.palette.text.primary,
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: theme.breakpoints.values.lg,
+            minHeight: '100vh',
+            margin: '0 auto',
             background: theme.palette.background.default,
-            borderRadius: theme.shape.borderRadius,
-            boxShadow: theme.shadows[24],
+            color: theme.palette.text.primary,
           },
-          header: {
-            borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
-          },
-          footer: {
-            borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
+          [theme.breakpoints.up('lg')]: {
+            body: {
+              borderRadius: theme.shape.borderRadius,
+              boxShadow: theme.shadows[24],
+            },
+            header: {
+              borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+            },
+            footer: {
+              borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
+            },
           },
         }}
       />

@@ -5,6 +5,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import Fab, { FabProps } from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 
+const year = new Date().getFullYear();
+
 function FabLink(
   props: FabProps &
     Readonly<{
@@ -33,8 +35,6 @@ function FabLink(
 }
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <Box
       component={'footer'}
@@ -42,8 +42,12 @@ export default function Footer() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        gap: theme.spacing(2),
         padding: theme.spacing(5),
         backgroundColor: theme.palette.background.footer,
+        [theme.breakpoints.down('sm')]: {
+          flexDirection: 'column',
+        },
       })}
     >
       <p>© {year} Přátelé LDT Oskar, z.s. Všechna práva vyhrazena.</p>
