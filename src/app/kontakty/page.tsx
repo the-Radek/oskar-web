@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tábor oskar | Kontakty',
+  title: 'Tábor Oskar | Kontakty',
 };
 
 export default function Contacts() {

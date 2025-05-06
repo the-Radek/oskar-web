@@ -11,7 +11,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/theme/default';
 
 export const metadata: Metadata = {
-  title: 'Tábor oskar',
+  title: 'Tábor Oskar',
   description:
     'Letní tábor Oskar nabízí dobrodružství, hry a zábavu v krásné přírodě u Rokycan pro děti všech věkových kategorií. Každé léto pořádáme několik turnusů s pestrým programem.',
 };

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tábor oskar | Táborová hra',
+  title: 'Tábor Oskar | Celotáborová hra',
 };
 
 export default function ThemedGame() {
