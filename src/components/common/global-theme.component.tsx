@@ -2,14 +2,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import { useTheme } from '@mui/material/styles';
-
-function Wrapper({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return children;
-}
+import Wrapper from '../utilities/wrapper';
 
 export default function GlobalTheme() {
   const theme = useTheme();

@@ -8,7 +8,8 @@ import MobileNav from './nav/mobile-nav';
 
 export default function Header() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // the negative of the media query is to ensure mobile first approach
+  const isMobile = !useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Box

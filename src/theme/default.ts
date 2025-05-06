@@ -15,7 +15,11 @@ const theme = createTheme({
     mode: 'light',
     primary: {
       main: '#68d0ff',
-      dark: '#006bb7',
+      // dark: '#006bb7',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#83c8ef',
       contrastText: '#fff',
     },
     meta: augmentColor('#3b5998'),
