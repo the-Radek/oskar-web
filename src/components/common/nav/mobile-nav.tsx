@@ -3,58 +3,16 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
-import { Fragment, ReactElement, ReactNode, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import List from '@mui/material/List';
 import routes from './routes';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton';
-import Link, { LinkProps } from 'next/link';
 import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
-import Slide from '@mui/material/Slide';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-
-function HideOnScroll({
-  children,
-}: Readonly<{
-  children: ReactElement;
-}>) {
-  const trigger = useScrollTrigger();
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
-
-function ListLink(
-  props: ListItemButtonProps &
-    LinkProps &
-    Readonly<{
-      children: ReactNode;
-    }> & { active?: boolean }
-) {
-  const { active, children, ...rest } = props;
-
-  return (
-    <ListItemButton
-      component={Link}
-      aria-current={active ? 'page' : null}
-      sx={(theme) => ({
-        padding: `${theme.spacing(2)} 0`,
-        '&:hover, &.Mui-focusVisible': {
-          backgroundColor: theme.palette.secondary.light,
-        },
-      })}
-      {...rest}
-    >
-      {children}
-    </ListItemButton>
-  );
-}
+import HideOnScroll from '@/components/utils/reactive/hide-on-scroll';
+import ListLink from '@/components/utils/merged/list-link';
 
 export default function MobileNav() {
   const currentPath = usePathname();

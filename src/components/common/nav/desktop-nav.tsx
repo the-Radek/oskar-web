@@ -1,32 +1,7 @@
-import Tab, { TabProps } from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import routes from './routes';
-
-function LinkTab(props: TabProps & { active?: boolean }) {
-  const { active, ...rest } = props;
-
-  return (
-    <Tab
-      component={Link}
-      href={props.value}
-      aria-current={active ? 'page' : null}
-      textColor="inherit"
-      sx={(theme) => ({
-        padding: `${theme.spacing(5)} 0`,
-        textTransform: 'none',
-        fontWeight: active ? theme.typography.fontWeightBold : null,
-        fontSize: '1.1rem',
-        opacity: 1,
-        '&:hover, &.Mui-focusVisible': {
-          backgroundColor: theme.palette.primary.light,
-        },
-      })}
-      {...rest}
-    />
-  );
-}
+import TabLink from '@/components/utils/merged/tab-link';
 
 export default function DesktopNav() {
   const currentPath = usePathname();
@@ -45,7 +20,7 @@ export default function DesktopNav() {
       })}
     >
       {routes.map((x) => (
-        <LinkTab key={x.path} label={x.label} value={x.path} active={x.path == currentPath} />
+        <TabLink key={x.path} label={x.label} value={x.path} active={x.path == currentPath} />
       ))}
     </Tabs>
   );
