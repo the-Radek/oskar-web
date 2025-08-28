@@ -4,6 +4,7 @@ import { Geist } from 'next/font/google';
 import Container from '@mui/material/Container';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import Footer from '@/components/common/footer.component';
 import Header from '@/components/common/header.component';
 import GlobalTheme from '@/components/common/global-theme.component';
@@ -33,23 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="cs" className={geist.variable}>
+    <html lang="cs" className={geist.variable} suppressHydrationWarning>
       <body>
+        <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <GlobalTheme />
             <Header />
-            <Container className="grow">
-              {/* <Button
-              color="secondary"
-              component={Link}
-              target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfEIT4bl2GNx_M8fPmkToFuHEzBQ3a5OyF55v42VP4Y5cJvIA/viewform?fbclid=IwZXh0bgNhZW0CMTEAAR0i5LYQyHo2gWgMWiDFs6KlrdftrphopB9TR4996RAIX0hzgjSCdS9t8V4_aem_rkTRc9BnWRpgh-x3tR58ZQ"
-            >
-              Podat přihlášku
-            </Button> */}
-              {children}
-            </Container>
+            <Container className="grow">{children}</Container>
             <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>

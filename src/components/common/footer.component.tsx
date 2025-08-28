@@ -1,8 +1,8 @@
-'use client';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Box from '@mui/material/Box';
 import FabLink from '@/components/utils/merged/fab-link';
+import theme from '@/theme/variables';
 
 const year = new Date().getFullYear();
 
@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <Box
       component={'footer'}
-      sx={(theme) => ({
+      sx={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -20,14 +20,14 @@ export default function Footer() {
         [theme.breakpoints.down('sm')]: {
           flexDirection: 'column',
         },
-      })}
+      }}
     >
       <p>© {year} Přátelé LDT Oskar, z.s. Všechna práva vyhrazena.</p>
       <Box
-        sx={(theme) => ({
+        sx={{
           display: 'flex',
           gap: theme.spacing(2),
-        })}
+        }}
       >
         <FabLink href="https://www.facebook.com/taborOskar.cz" aria-label="facebook">
           <FacebookIcon />
