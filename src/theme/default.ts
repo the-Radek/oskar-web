@@ -11,6 +11,10 @@ function augmentColor(color: string) {
 }
 
 const theme = createTheme({
+  cssVariables: true,
+  typography: {
+    fontFamily: 'var(--font-geist)',
+  },
   palette: {
     mode: 'light',
     primary: {
