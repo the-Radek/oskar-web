@@ -1,11 +1,8 @@
-'use client';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import { useTheme } from '@mui/material/styles';
+import theme from '@/theme/variables';
 
 export default function GlobalTheme() {
-  const theme = useTheme();
-
   return (
     <>
       <CssBaseline />

@@ -8,7 +8,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import Footer from '@/components/common/footer.component';
 import Header from '@/components/common/header.component';
 import GlobalTheme from '@/components/common/global-theme.component';
-import theme from '@/theme/default';
+import theme from '@/theme/classic';
 import './globals.css';
 
 export const metadata: Metadata = {

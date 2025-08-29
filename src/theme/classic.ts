@@ -1,5 +1,7 @@
 'use client';
-import { alpha, createTheme, getContrastRatio } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
+import themeOptions from './default-options';
+import { alpha, getContrastRatio } from '@mui/material/styles';
 
 function augmentColor(color: string) {
   return {
@@ -11,12 +13,7 @@ function augmentColor(color: string) {
 }
 
 const theme = createTheme({
-  cssVariables: {
-    colorSchemeSelector: 'class',
-  },
-  typography: {
-    fontFamily: 'var(--font-geist)',
-  },
+  ...themeOptions,
   palette: {
     mode: 'light',
     primary: {
@@ -38,9 +35,6 @@ const theme = createTheme({
       primary: '#000',
       secondary: '#8cd5f7',
     },
-  },
-  shape: {
-    borderRadius: 12,
   },
 });
 

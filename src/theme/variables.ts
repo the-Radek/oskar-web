@@ -1,8 +1,9 @@
 import { createTheme, Palette } from '@mui/material/styles';
+import themeOptions from './default-options';
 
 const PREFIX = 'mui';
 
-function fakePalette(prefix: string): Palette {
+function varsPalette(prefix: string): Palette {
   const colorHandler: ProxyHandler<{ prefix: string; parent: string | symbol }> = {
     get(target, prop: string | symbol) {
       return `var(--${target.prefix}-palette-${String(target.parent)}-${String(prop)})`;
@@ -18,17 +19,14 @@ function fakePalette(prefix: string): Palette {
   return new Proxy({ prefix }, paletteHandler) as unknown as Palette;
 }
 
+const defaultTheme = createTheme(themeOptions);
+
 /**
- * Theme helper for CSS variables.
+ * Theme helper for CSS variables. Available for server-side rendering.
  */
 const theme = {
-  ...createTheme({
-    cssVariables: {
-      colorSchemeSelector: 'class',
-    },
-  }),
-  palette: fakePalette(PREFIX),
-  spacing: (factor: number) => `calc(${factor} * var(--${PREFIX}-spacing));`,
+  ...defaultTheme,
+  palette: varsPalette(PREFIX),
 };
 
 export default theme;
