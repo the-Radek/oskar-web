@@ -78,7 +78,7 @@ export default function MobileNav() {
               </List>
             </nav>
           </SwipeableDrawer>
-          <Typography component="h1" variant="h6" noWrap sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
             {title}
           </Typography>
         </Toolbar>

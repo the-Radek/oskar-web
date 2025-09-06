@@ -8,28 +8,68 @@ function augmentColor(color: string) {
     main: color,
     light: alpha(color, 0.5),
     dark: alpha(color, 0.9),
-    contrastText: getContrastRatio(color, '#fff') > 4.5 ? '#fff' : '#111',
+    contrastText: getContrastRatio(color, '#fff') > 4.5 ? '#fff' : '#000',
   };
 }
 
 const theme = createTheme({
   ...themeOptions,
+  typography: {
+    ...themeOptions?.typography,
+    h1: {
+      fontSize: '2rem',
+      fontWeight: 600,
+      lineHeight: 1.25,
+      marginBottom: '0.5em',
+      color: '#1c9dd7',
+    },
+    h2: {
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      lineHeight: 1.3,
+      marginBottom: '0.5em',
+      color: '#1c9dd7',
+    },
+    h3: {
+      fontSize: '1.3rem',
+      fontWeight: 600,
+      lineHeight: 1.35,
+      marginBottom: '0.5em',
+      color: '#1c9dd7',
+    },
+    h4: {
+      fontSize: '1.25rem',
+      fontWeight: 500,
+      lineHeight: 1.4,
+      marginBottom: '0.5em',
+    },
+    h5: {
+      fontSize: '1.1rem',
+      fontWeight: 500,
+      lineHeight: 1.7,
+      marginBottom: '0.5em',
+    },
+    h6: {
+      fontSize: '1rem',
+      fontWeight: 500,
+      lineHeight: 1.75,
+      marginBottom: '0.5em',
+    },
+  },
   palette: {
     mode: 'light',
     primary: {
-      main: '#68d0ff',
-      // dark: '#006bb7',
+      main: '#1c9dd7',
       contrastText: '#fff',
     },
     secondary: {
       main: '#83c8ef',
-      contrastText: '#fff',
+      contrastText: '#000',
     },
     meta: augmentColor('#3b5998'),
     background: {
       default: '#fff',
       paper: '#bae3f6',
-      footer: '#83c8ef',
     },
     text: {
       primary: '#000',

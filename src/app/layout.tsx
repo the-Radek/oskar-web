@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import type { Viewport } from 'next';
 import { Geist } from 'next/font/google';
-import Container from '@mui/material/Container';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
@@ -41,7 +40,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <GlobalTheme />
             <Header />
-            <Container className="grow">{children}</Container>
+            {children}
             <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>

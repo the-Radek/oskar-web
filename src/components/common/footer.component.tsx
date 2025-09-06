@@ -16,7 +16,8 @@ export default function Footer() {
         alignItems: 'center',
         gap: theme.spacing(2),
         padding: theme.spacing(5),
-        backgroundColor: theme.palette.background.footer,
+        color: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.main,
         [theme.breakpoints.down('sm')]: {
           flexDirection: 'column',
         },

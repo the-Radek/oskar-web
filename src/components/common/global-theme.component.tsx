@@ -17,6 +17,10 @@ export default function GlobalTheme() {
             background: theme.palette.background.default,
             color: theme.palette.text.primary,
           },
+          main: {
+            flexGrow: 1,
+            padding: `${theme.spacing(6)} ${theme.spacing(4)}`,
+          },
           [theme.breakpoints.up('lg')]: {
             body: {
               borderRadius: theme.shape.borderRadius,
