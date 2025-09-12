@@ -6,7 +6,6 @@ export default async function Home() {
       <Typography variant="h1" component="h1">
         Aktuality
       </Typography>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <Typography variant="h2" component="h2">
         Heading 2
       </Typography>

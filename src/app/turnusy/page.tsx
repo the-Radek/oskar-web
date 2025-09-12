@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
+import routes from '../routes';
 
 export const metadata: Metadata = {
-  title: 'Tábor Oskar | Turnusy',
+  title: routes['/turnusy'].label,
 };
 
 export default function Turns() {

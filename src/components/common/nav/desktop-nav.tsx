@@ -1,6 +1,6 @@
 import Tabs from '@mui/material/Tabs';
 import { usePathname } from 'next/navigation';
-import routes from './routes';
+import routes from '@/app/routes';
 import TabLink from '@/components/utils/merged/tab-link';
 
 export default function DesktopNav() {
@@ -9,7 +9,7 @@ export default function DesktopNav() {
   return (
     <Tabs
       component={'nav'}
-      value={routes.find((x) => x.path == currentPath)?.path ?? false}
+      value={currentPath in routes && currentPath}
       textColor="inherit"
       variant="fullWidth"
       sx={(theme) => ({
@@ -19,8 +19,8 @@ export default function DesktopNav() {
         },
       })}
     >
-      {routes.map((x) => (
-        <TabLink key={x.path} label={x.label} value={x.path} active={x.path == currentPath} />
+      {Object.entries(routes).map(([path, route]) => (
+        <TabLink key={path} label={route.label} value={path} active={path == currentPath} />
       ))}
     </Tabs>
   );

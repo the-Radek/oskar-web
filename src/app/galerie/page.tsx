@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
+import routes from '../routes';
 
 export const metadata: Metadata = {
-  title: 'Tábor Oskar | Galerie',
+  title: routes['/galerie'].label,
 };
 
 export default function Gallery() {

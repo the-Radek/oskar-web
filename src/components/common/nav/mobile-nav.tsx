@@ -3,9 +3,9 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import List from '@mui/material/List';
-import routes from './routes';
+import routes from '@/app/routes';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
@@ -16,12 +16,7 @@ import ListLink from '@/components/utils/merged/list-link';
 
 export default function MobileNav() {
   const currentPath = usePathname();
-  const [title, setTitle] = useState('');
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setTitle(document.title);
-  }, [currentPath]);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -54,16 +49,16 @@ export default function MobileNav() {
           >
             <nav>
               <List sx={{ width: 250 }}>
-                {routes.map((x, index) => {
-                  const active = x.path == currentPath;
+                {Object.entries(routes).map(([path, route], index) => {
+                  const active = path == currentPath;
                   return (
-                    <Fragment key={x.path}>
+                    <Fragment key={path}>
                       {index > 0 && <Divider component="li" variant="middle" />}
                       <ListItem disablePadding>
-                        <ListLink href={x.path} active={active} onClick={toggleDrawer(false)}>
+                        <ListLink href={path} active={active} onClick={toggleDrawer(false)}>
                           <ListItemText
                             disableTypography
-                            primary={x.label}
+                            primary={route.label}
                             sx={(theme) => ({
                               fontWeight: active ? theme.typography.fontWeightBold : null,
                               fontSize: active ? '1.2rem' : '1.1rem',
@@ -78,8 +73,9 @@ export default function MobileNav() {
               </List>
             </nav>
           </SwipeableDrawer>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-            {title}
+          <Typography component="header" variant="h6" noWrap sx={{ flexGrow: 1 }}>
+            Tábor Oskar
+            {currentPath in routes && currentPath !== '/' && ` | ${routes[currentPath].label}`}
           </Typography>
         </Toolbar>
       </AppBar>

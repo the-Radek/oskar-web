@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
+import routes from '../routes';
 
 export const metadata: Metadata = {
-  title: 'Tábor Oskar | Celotáborová hra',
+  title: routes['/taborova-hra'].label,
 };
 
 export default function ThemedGame() {
