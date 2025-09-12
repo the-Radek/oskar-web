@@ -25,12 +25,15 @@ export default function GlobalTheme() {
             body: {
               borderRadius: theme.shape.borderRadius,
               boxShadow: theme.shadows[24],
+              overflow: 'hidden',
             },
-            header: {
+            'body > header': {
               borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+              overflow: 'hidden',
             },
-            footer: {
+            'body > footer': {
               borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
+              overflow: 'hidden',
             },
           },
         }}

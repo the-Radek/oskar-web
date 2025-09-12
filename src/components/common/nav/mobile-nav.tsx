@@ -73,7 +73,7 @@ export default function MobileNav() {
               </List>
             </nav>
           </SwipeableDrawer>
-          <Typography component="header" variant="h6" noWrap sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
             Tábor Oskar
             {currentPath in routes && currentPath !== '/' && ` | ${routes[currentPath].label}`}
           </Typography>

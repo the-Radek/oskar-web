@@ -7,7 +7,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import Footer from '@/components/common/footer.component';
 import Header from '@/components/common/header.component';
 import GlobalTheme from '@/components/common/global-theme.component';
-import theme from '@/theme/classic';
+import theme, { THEME_COLOR } from '@/theme/classic';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   initialScale: 1,
   width: 'device-width',
-  themeColor: '#68d0ff',
+  themeColor: THEME_COLOR,
 };
 
 const geist = Geist({
