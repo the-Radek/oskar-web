@@ -1,13 +1,10 @@
+'use client';
 import Link from 'next/link';
 import Fab, { FabProps } from '@mui/material/Fab';
-import theme from '@/theme/variables';
 
-export default function FabLink(
-  props: FabProps &
-    Readonly<{
-      children: React.ReactNode;
-    }>
-) {
+export type FabLinkProps = FabProps & Readonly<{ children: React.ReactNode }>;
+
+export default function FabLink(props: FabLinkProps) {
   const { children, ...rest } = props;
 
   return (
@@ -15,13 +12,13 @@ export default function FabLink(
       component={Link}
       target="_blank"
       size="large"
-      sx={{
+      sx={(theme) => ({
         backgroundColor: theme.palette.meta.main,
         color: theme.palette.meta.contrastText,
         '&:hover, &.Mui-focusVisible': {
           backgroundColor: theme.palette.meta.light,
         },
-      }}
+      })}
       {...rest}
     >
       {children}

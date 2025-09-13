@@ -1,7 +1,7 @@
 import Tabs from '@mui/material/Tabs';
 import { usePathname } from 'next/navigation';
 import routes from '@/app/routes';
-import TabLink from '@/components/utils/merged/tab-link';
+import TabLink from '@/components/widgets/link/tab-link';
 
 export default function DesktopNav() {
   const currentPath = usePathname();

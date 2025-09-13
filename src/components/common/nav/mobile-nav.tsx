@@ -11,8 +11,8 @@ import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
-import HideOnScroll from '@/components/utils/reactive/hide-on-scroll';
-import ListLink from '@/components/utils/merged/list-link';
+import HideOnScroll from '@/components/widgets/reactive/hide-on-scroll';
+import ListLink from '@/components/widgets/link/list-link';
 
 export default function MobileNav() {
   const currentPath = usePathname();
@@ -73,7 +73,7 @@ export default function MobileNav() {
               </List>
             </nav>
           </SwipeableDrawer>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
+          <Typography component="h1" variant="h6" noWrap sx={{ flexGrow: 1 }}>
             Tábor Oskar
             {currentPath in routes && currentPath !== '/' && ` | ${routes[currentPath].label}`}
           </Typography>
