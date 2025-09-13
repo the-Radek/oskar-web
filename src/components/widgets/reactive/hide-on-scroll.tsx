@@ -2,11 +2,7 @@ import { ReactElement } from 'react';
 import Slide from '@mui/material/Slide';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
-export default function HideOnScroll({
-  children,
-}: Readonly<{
-  children: ReactElement;
-}>) {
+export default function HideOnScroll({ children }: Readonly<{ children: ReactElement }>) {
   const trigger = useScrollTrigger();
 
   return (
