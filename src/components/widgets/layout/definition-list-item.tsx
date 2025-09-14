@@ -1,16 +1,36 @@
-import { PropsWithChildren } from 'react';
+'use client';
+import { styled } from '@mui/material/styles';
+import { PropsWithChildren, ReactNode } from 'react';
 
-export interface DefinitionListItemProps {
-  label: string;
+interface Props {
+  label: ReactNode;
 }
 
-export default function DefinitionListItem(props: PropsWithChildren<DefinitionListItemProps>) {
+export type DefinitionListItemProps = PropsWithChildren<Props>;
+
+const DefinitionListItemRoot = styled('div', { name: 'DefinitionListItem', slot: 'root' })(
+  ({ theme }) => ({
+    display: 'flex',
+    gap: theme.spacing(1),
+  })
+);
+
+const DefinitionListItemTerm = styled('dt', { name: 'DefinitionListItem', slot: 'term' })(
+  ({ theme }) => ({
+    fontWeight: theme.typography.fontWeightMedium,
+    '::after': { content: '":"' },
+  })
+);
+
+const DefinitionListItemData = styled('dd', { name: 'DefinitionListItem', slot: 'data' })();
+
+export default function DefinitionListItem(props: DefinitionListItemProps) {
   const { label, children } = props;
 
   return (
-    <>
-      <dt>{label}</dt>
-      <dd>{children}</dd>
-    </>
+    <DefinitionListItemRoot>
+      <DefinitionListItemTerm>{label}</DefinitionListItemTerm>
+      <DefinitionListItemData>{children}</DefinitionListItemData>
+    </DefinitionListItemRoot>
   );
 }

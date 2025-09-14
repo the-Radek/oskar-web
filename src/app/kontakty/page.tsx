@@ -3,6 +3,9 @@ import routes from '../routes';
 import Typography from '@mui/material/Typography';
 import DefinitionList from '@/components/widgets/layout/definition-list';
 import DefinitionListItem from '@/components/widgets/layout/definition-list-item';
+import Phone from '@/components/widgets/data/phone';
+import Email from '@/components/widgets/data/email';
+import theme from '@/theme/variables';
 
 export const metadata: Metadata = {
   title: routes['/kontakty'].label,
@@ -16,11 +19,12 @@ export default function Contacts() {
           Adresa pro dopisy
         </Typography>
         <address>
-          <span>Tábor Oskar – Holubí kout</span>
-          <span>
-            <i>jméno dítěte (doplňte číslo oddílu, které se dozvíte při odjezdu)</i>
-          </span>
-          <span>337 01 Veselá</span>
+          Tábor Oskar – Holubí kout
+          <br />
+          jméno dítěte (doplňte číslo oddílu, které se dozvíte při odjezdu)
+          <br />
+          337 01 Veselá
+          <br />
         </address>
       </section>
       <section aria-label="contact details">
@@ -29,10 +33,43 @@ export default function Contacts() {
         </Typography>
         <DefinitionList>
           <DefinitionListItem label="Telefon na tábor">
-            <a href="tel:+420602829892">602 829 892</a>
+            <Phone>602 829 892</Phone>
           </DefinitionListItem>
           <DefinitionListItem label="E-mail">
-            <a href="mailto:info@taboroskar.cz">spolek.oskar@gmail.com</a>
+            <Email>spolek.oskar@gmail.com</Email>
+          </DefinitionListItem>
+        </DefinitionList>
+      </section>
+      <section aria-label="camp's phone">
+        <Typography component="h2" variant="h2">
+          Telefon na tábor
+        </Typography>
+        <DefinitionList>
+          <DefinitionListItem label="I. turnus">
+            <Phone>602 829 892</Phone>
+          </DefinitionListItem>
+          <DefinitionListItem label="II. turnus">
+            <Phone>774 907 911</Phone>
+          </DefinitionListItem>
+          <DefinitionListItem label="III. turnus">
+            <Phone>732 350 322</Phone>
+          </DefinitionListItem>
+          <DefinitionListItem label="provozovatel areálu">
+            <Phone>602 829 892</Phone>
+          </DefinitionListItem>
+        </DefinitionList>
+      </section>
+      <section aria-label="organizer">
+        <Typography component="h2" variant="h2">
+          Organizátor
+        </Typography>
+        <Typography sx={{ fontWeight: theme.typography.fontWeightMedium }}>
+          Přátelé LDT Oskar, z. s.
+        </Typography>
+        <DefinitionList>
+          <DefinitionListItem label="předseda">Anna Puklová</DefinitionListItem>
+          <DefinitionListItem label="kontakt">
+            <Phone>732 350 322</Phone> / <Email>spolek.oskar@gmail.com</Email>
           </DefinitionListItem>
         </DefinitionList>
       </section>

@@ -2,35 +2,15 @@
 import { styled } from '@mui/material/styles';
 import { ReactNode } from 'react';
 
-export interface DefinitionListProps {
-  variant?: 'outlined';
-}
+export type DefinitionListProps = Readonly<{ children: ReactNode }>;
 
-const DefinitionListRoot = styled('dl', { name: 'OskarDefinitionList', slot: 'root' })(
-  ({ theme }) => ({
-    display: 'grid',
-    gridTemplateColumns: 'auto 1fr',
-    gridAutoRows: 'auto',
-    columnGap: theme.spacing(1),
-    rowGap: theme.spacing(2),
-    '& dt': {
-      fontWeight: theme.typography.fontWeightMedium,
-      '::after': { content: '":"' },
-    },
-    variants: [
-      {
-        props: {
-          variant: 'outlined',
-        },
-        style: {
-          border: `2px solid ${theme.palette.divider}`,
-          boxShadow: 'none',
-        },
-      },
-    ],
-  })
-);
+const DefinitionListRoot = styled('dl', { name: 'DefinitionList', slot: 'root' })(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(1),
+  margin: `${theme.spacing(1)} 0`,
+}));
 
-export default function DefinitionList({ children }: Readonly<{ children: ReactNode }>) {
+export default function DefinitionList({ children }: DefinitionListProps) {
   return <DefinitionListRoot>{children}</DefinitionListRoot>;
 }
