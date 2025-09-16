@@ -1,7 +1,3 @@
 {
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "tailwindCSS.experimental.classRegex": [["className\\s*:\\s*['\"]([^'\"]*)['\"]"]],
   "typescript.preferences.autoImportSpecifierExcludeRegexes": ["^@mui/[^/]+$"]
 }

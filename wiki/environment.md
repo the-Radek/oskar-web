@@ -21,7 +21,6 @@ In order to have an uniform code style, please make use of the following tools -
 
 These are not required, but make the development experience more comfortable
 
-- Tailwind CSS IntelliSense
 - Visual Studio IntelliCode
 - npm Intellisense
 - GraphQL
