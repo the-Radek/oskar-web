@@ -9,5 +9,11 @@ body {
 
 main {
   flex-grow: 1;
-  padding: calc(6 * var(--mui-spacing, 8px)) calc(4 * var(--mui-spacing, 8px));
+  padding: calc(4 * var(--mui-spacing, 8px));
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

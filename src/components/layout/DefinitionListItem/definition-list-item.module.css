@@ -10,3 +10,7 @@
 .term::after {
   content: ':';
 }
+
+.data {
+  margin: 0;
+}

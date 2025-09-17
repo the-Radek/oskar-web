@@ -3,7 +3,7 @@ import type { Viewport } from 'next';
 import { Geist } from 'next/font/google';
 import Footer from '@/components/common/Footer';
 import Header from '@/components/common/Header';
-import GlobalThemeProvider from '@/components/common/GlobalThemeProvider';
+import MuiProvider from '@/components/common/MuiProvider';
 import { themeColor } from '@/theme/classic';
 import './globals.css';
 
@@ -35,11 +35,11 @@ export default function RootLayout({
   return (
     <html lang="cs" className={geist.variable} suppressHydrationWarning>
       <body>
-        <GlobalThemeProvider>
+        <MuiProvider>
           <Header />
           {children}
           <Footer />
-        </GlobalThemeProvider>
+        </MuiProvider>
       </body>
     </html>
   );

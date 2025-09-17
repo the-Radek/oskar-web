@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
-import { MobileNavProps } from './mobile-nav.types';
+import type { MobileNavProps } from './mobile-nav.types';
 import HideOnScroll from '@/components/reactive/HideOnScroll';
 import ListLink from '@/components/link/ListLink';
 

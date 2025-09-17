@@ -7,6 +7,8 @@ import DefinitionList from '@/components/layout/DefinitionList';
 import DefinitionListItem from '@/components/layout/DefinitionListItem';
 import Phone from '@/components/data/Phone';
 import Email from '@/components/data/Email';
+import styles from './page.module.css';
+import MapyCz from '@/components/geo/MapyCz';
 
 export const metadata: Metadata = {
   title: routes['/kontakty'].label,
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Contacts() {
   return (
-    <main>
+    <main className={styles.root}>
       <section aria-label="post address">
         <Typography component="h2" variant="h2">
           Adresa pro dopisy
@@ -73,6 +75,9 @@ export default function Contacts() {
             <Phone>732 350 322</Phone> / <Email>spolek.oskar@gmail.com</Email>
           </DefinitionListItem>
         </DefinitionList>
+      </section>
+      <section aria-label="map">
+        <MapyCz mapUrl="https://mapy.com/s/fabumutazu" />
       </section>
     </main>
   );

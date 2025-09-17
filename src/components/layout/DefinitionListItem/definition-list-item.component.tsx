@@ -7,7 +7,7 @@ export default function DefinitionListItem(props: DefinitionListItemProps) {
   return (
     <div className={styles.root}>
       <dt className={styles.term}>{label}</dt>
-      <dd>{children}</dd>
+      <dd className={styles.data}>{children}</dd>
     </div>
   );
 }

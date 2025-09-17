@@ -34,9 +34,7 @@ export default function Email(props: EmailProps) {
         transition: { timeout: 0 },
       }}
     >
-      <Link href={href} color="inherit" underline="hover">
-        {children}
-      </Link>
+      <Link href={href}>{children}</Link>
     </Tooltip>
   );
 }

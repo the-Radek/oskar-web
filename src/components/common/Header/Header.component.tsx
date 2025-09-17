@@ -15,7 +15,6 @@ export default function Header() {
         alt="OSKAR"
         sizes="(max-width: 1280px) 100vw, 1280px"
         priority
-        style={{ width: '100%', height: 'auto', display: 'block' }}
       />
     </header>
   );
