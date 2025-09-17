@@ -1,2 +1,2 @@
-export { default } from './DesktopNav.component';
-export type * from './DesktopNav.types';
+export { default } from './desktop-nav.component';
+export type * from './dekstop-nav.types';

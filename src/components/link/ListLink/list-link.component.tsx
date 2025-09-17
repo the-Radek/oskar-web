@@ -1,18 +1,7 @@
 'use client';
-import { ReactNode } from 'react';
-import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton';
-import Link, { LinkProps } from 'next/link';
-
-interface Props {
-  active?: boolean;
-}
-
-export type ListLinkProps = Props &
-  ListItemButtonProps &
-  LinkProps &
-  Readonly<{
-    children: ReactNode;
-  }>;
+import ListItemButton from '@mui/material/ListItemButton';
+import Link from 'next/link';
+import type { ListLinkProps } from './list-link.types';
 
 export default function ListLink(props: ListLinkProps) {
   const { active, children, ...rest } = props;

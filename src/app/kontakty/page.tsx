@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import routes from '../routes';
 import Typography from '@mui/material/Typography';
-import DefinitionList from '@/components/widgets/layout/definition-list';
-import DefinitionListItem from '@/components/widgets/layout/definition-list-item';
-import Phone from '@/components/widgets/data/phone';
-import Email from '@/components/widgets/data/email';
 import theme from '@/theme/static';
 import Box from '@mui/material/Box';
+import DefinitionList from '@/components/layout/DefinitionList';
+import DefinitionListItem from '@/components/layout/DefinitionListItem';
+import Phone from '@/components/data/Phone';
+import Email from '@/components/data/Email';
 
 export const metadata: Metadata = {
   title: routes['/kontakty'].label,

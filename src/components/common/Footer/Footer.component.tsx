@@ -1,7 +1,7 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FabLink from '@/components/widgets/link/fab-link';
-import styles from './Footer.module.css';
+import styles from './footer.module.css';
+import FabLink from '@/components/link/FabLink';
 
 const year = new Date().getFullYear();
 

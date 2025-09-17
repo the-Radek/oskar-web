@@ -1,1 +1,1 @@
-export { default } from './GlobalThemeProvider.component';
+export { default } from './global-theme-provider.component';

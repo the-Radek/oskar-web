@@ -1,7 +1,6 @@
-import Slide, { SlideProps } from '@mui/material/Slide';
+import Slide from '@mui/material/Slide';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-
-export type HideOnScrollProps = SlideProps;
+import type { HideOnScrollProps } from './hide-on-scroll.types';
 
 export default function HideOnScroll(props: HideOnScrollProps) {
   const { children, ...otherProps } = props;

@@ -1,11 +1,5 @@
-import { PropsWithChildren, ReactNode } from 'react';
 import styles from './definition-list-item.module.css';
-
-interface Props {
-  label: ReactNode;
-}
-
-export type DefinitionListItemProps = PropsWithChildren<Props>;
+import type { DefinitionListItemProps } from './definition-list-item.types';
 
 export default function DefinitionListItem(props: DefinitionListItemProps) {
   const { label, children } = props;

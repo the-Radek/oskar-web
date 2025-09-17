@@ -1,2 +1,2 @@
-export { default } from './MobileNav.component';
-export type * from './MobileNav.types';
+export { default } from './mobile-nav.component';
+export type * from './mobile-nav.types';

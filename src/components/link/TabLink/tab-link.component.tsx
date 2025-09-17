@@ -1,8 +1,7 @@
 'use client';
 import Link from 'next/link';
-import Tab, { TabProps } from '@mui/material/Tab';
-
-export type TabLinkProps = TabProps & Readonly<{ active?: boolean }>;
+import Tab from '@mui/material/Tab';
+import type { TabLinkProps } from './tab-link.types';
 
 export default function TabLink(props: TabLinkProps) {
   const { active, ...rest } = props;

@@ -1,22 +1,18 @@
 'use client';
 import Link from '@mui/material/Link';
+import PhoneIcon from '@mui/icons-material/Phone';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import type { PhoneProps } from './phone.types';
 
-interface Props {
-  tooltip?: 'before' | 'after';
-}
-
-export type EmailProps = Props & Readonly<{ children: string }>;
-
-export default function Email(props: EmailProps) {
-  const { children, tooltip = 'before' } = props;
+export default function Phone(props: PhoneProps) {
+  const { children, idd = '+420', tooltip = 'before' } = props;
   const position = tooltip === 'before' ? 'left' : 'right';
-  const href = 'mailto:' + children;
+  const phone = children.includes('+') ? children : idd + children;
+  const href = 'tel:' + phone.replace(/[^\d+]/g, '');
 
   return (
     <Tooltip
-      title={<AlternateEmailIcon sx={{ fontSize: (theme) => theme.typography.caption.fontSize }} />}
+      title={<PhoneIcon sx={{ fontSize: (theme) => theme.typography.caption.fontSize }} />}
       placement={position}
       disableInteractive
       slotProps={{

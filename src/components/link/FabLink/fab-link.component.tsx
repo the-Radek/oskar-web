@@ -1,8 +1,7 @@
 'use client';
 import Link from 'next/link';
-import Fab, { FabProps } from '@mui/material/Fab';
-
-export type FabLinkProps = FabProps & Readonly<{ children: React.ReactNode }>;
+import Fab from '@mui/material/Fab';
+import type { FabLinkProps } from './fab-link.types';
 
 export default function FabLink(props: FabLinkProps) {
   const { children, ...rest } = props;

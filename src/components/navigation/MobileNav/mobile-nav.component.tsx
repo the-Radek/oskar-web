@@ -12,9 +12,9 @@ import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
-import HideOnScroll from '@/components/widgets/reactive/hide-on-scroll';
-import ListLink from '@/components/widgets/link/list-link';
-import { MobileNavProps } from './MobileNav.types';
+import { MobileNavProps } from './mobile-nav.types';
+import HideOnScroll from '@/components/reactive/HideOnScroll';
+import ListLink from '@/components/link/ListLink';
 
 export default function MobileNav(props: MobileNavProps) {
   const currentPath = usePathname();
