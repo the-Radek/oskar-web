@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(2 * var(--mui-spacing, 8px));
+  padding: calc(5 * var(--mui-spacing, 8px));
+  color: var(--mui-palette-secondary-contrastText);
+  background-color: var(--mui-palette-secondary-main);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.fabs {
+  display: flex;
+  gap: calc(2 * var(--mui-spacing, 8px));
+}

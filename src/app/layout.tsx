@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import type { Viewport } from 'next';
 import { Geist } from 'next/font/google';
-import Footer from '@/components/common/footer';
-import Header from '@/components/common/header';
-import GlobalThemeProvider, { themeColor } from '@/components/common/global-theme-provider';
+import Footer from '@/components/common/Footer';
+import Header from '@/components/common/Header';
+import GlobalThemeProvider from '@/components/common/GlobalThemeProvider';
+import { themeColor } from '@/theme/classic';
 import './globals.css';
 
 export const metadata: Metadata = {

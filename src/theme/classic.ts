@@ -12,7 +12,7 @@ function augmentColor(color: string) {
   };
 }
 
-export const THEME_COLOR = '#1c9dd7';
+export const themeColor = '#1c9dd7';
 
 const theme = createTheme({
   ...themeOptions,
@@ -24,7 +24,7 @@ const theme = createTheme({
       lineHeight: 1.25,
       marginTop: '0.25em',
       marginBottom: '0.25em',
-      color: THEME_COLOR,
+      color: themeColor,
     },
     h2: {
       fontSize: '1.5rem',
@@ -32,7 +32,7 @@ const theme = createTheme({
       lineHeight: 1.3,
       marginTop: '0.25em',
       marginBottom: '0.25em',
-      color: THEME_COLOR,
+      color: themeColor,
     },
     h3: {
       fontSize: '1.3rem',
@@ -40,7 +40,7 @@ const theme = createTheme({
       lineHeight: 1.35,
       marginTop: '0.3em',
       marginBottom: '0.3em',
-      color: THEME_COLOR,
+      color: themeColor,
     },
     h4: {
       fontSize: '1.2rem',
@@ -67,7 +67,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: THEME_COLOR,
+      main: themeColor,
       contrastText: '#fff',
     },
     secondary: {

@@ -1,18 +1,13 @@
 import Image from 'next/image';
-import Box from '@mui/material/Box';
-import Navigation from './nav/navigation';
-import theme from '@/theme/static';
+import MobileNav from '@/components/navigation/MobileNav';
+import DesktopNav from '@/components/navigation/DesktopNav';
+import styles from './Header.module.css';
 
 export default function Header() {
   return (
-    <Box
-      component={'header'}
-      sx={{
-        color: theme.palette.primary.contrastText,
-        backgroundColor: theme.palette.primary.main,
-      }}
-    >
-      <Navigation />
+    <header className={styles.root}>
+      <MobileNav className={styles.mobileNav} />
+      <DesktopNav className={styles.desktopNav} />
       <Image
         src="/banner-2025.jpg"
         width={4724}
@@ -22,6 +17,6 @@ export default function Header() {
         priority
         style={{ width: '100%', height: 'auto', display: 'block' }}
       />
-    </Box>
+    </header>
   );
 }

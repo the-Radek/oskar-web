@@ -1,0 +1,18 @@
+.root {
+  color: var(--mui-palette-primary-contrastText);
+  background-color: var(--mui-palette-primary-main);
+}
+
+.mobileNav {
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+.desktopNav {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}

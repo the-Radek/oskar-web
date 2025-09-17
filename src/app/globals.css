@@ -1,13 +1,10 @@
-@layer theme, base, mui, components, utilities;
-
 body {
-  max-width: 1200px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0 auto;
   color: var(--mui-palette-text-primary);
-  background: var(--mui-palette-background-default);
+  background-color: var(--mui-palette-background-default);
 }
 
 main {

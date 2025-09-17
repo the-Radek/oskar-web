@@ -2,12 +2,10 @@ import { ReactNode } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
-import classicTheme, { THEME_COLOR } from '@/theme/classic';
+import classicTheme from '@/theme/classic';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import theme from '@/theme/static';
-
-export const themeColor = THEME_COLOR;
 
 export default function GlobalThemeProvider({ children }: Readonly<{ children: ReactNode }>) {
   return (
@@ -23,6 +21,9 @@ export default function GlobalThemeProvider({ children }: Readonly<{ children: R
                 '--font-weight-regular': theme.typography.fontWeightRegular,
                 '--font-weight-medium': theme.typography.fontWeightMedium,
                 '--font-weight-bold': theme.typography.fontWeightBold,
+              },
+              body: {
+                maxWidth: theme.breakpoints.values.lg,
               },
               [theme.breakpoints.up('lg')]: {
                 body: {

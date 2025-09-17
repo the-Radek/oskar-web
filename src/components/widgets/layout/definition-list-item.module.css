@@ -1,6 +1,6 @@
 .root {
   display: flex;
-  gap: var(--mui-spacing);
+  gap: var(--mui-spacing, 8px);
 }
 
 .term {

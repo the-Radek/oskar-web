@@ -1,9 +1,11 @@
+'use client';
 import Tabs from '@mui/material/Tabs';
 import { usePathname } from 'next/navigation';
 import routes from '@/app/routes';
 import TabLink from '@/components/widgets/link/tab-link';
+import { DesktopNavProps } from './DesktopNav.types';
 
-export default function DesktopNav() {
+export default function DesktopNav(props: DesktopNavProps) {
   const currentPath = usePathname();
 
   return (
@@ -18,6 +20,7 @@ export default function DesktopNav() {
           height: 3,
         },
       })}
+      {...props}
     >
       {Object.entries(routes).map(([path, route]) => (
         <TabLink key={path} label={route.label} value={path} active={path == currentPath} />

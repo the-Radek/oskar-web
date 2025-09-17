@@ -1,3 +1,4 @@
+'use client';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,8 +14,9 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Divider from '@mui/material/Divider';
 import HideOnScroll from '@/components/widgets/reactive/hide-on-scroll';
 import ListLink from '@/components/widgets/link/list-link';
+import { MobileNavProps } from './MobileNav.types';
 
-export default function MobileNav() {
+export default function MobileNav(props: MobileNavProps) {
   const currentPath = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -24,7 +26,7 @@ export default function MobileNav() {
 
   return (
     <HideOnScroll>
-      <AppBar position="sticky">
+      <AppBar component="div" position="sticky" {...props}>
         <Toolbar>
           <IconButton
             size="large"
