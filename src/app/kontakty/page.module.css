@@ -5,3 +5,7 @@
     margin-bottom: calc(4 * var(--mui-spacing, 8px));
   }
 }
+
+.logo {
+  width: 100px;
+}

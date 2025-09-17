@@ -9,6 +9,8 @@ import Phone from '@/components/data/Phone';
 import Email from '@/components/data/Email';
 import styles from './page.module.css';
 import MapyCz from '@/components/geo/MapyCz';
+import Paper from '@mui/material/Paper';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: routes['/kontakty'].label,
@@ -79,6 +81,27 @@ export default function Contacts() {
       <section aria-label="map">
         <MapyCz mapUrl="https://mapy.com/s/fabumutazu" />
       </section>
+      <Paper component="section" aria-label="cooperation">
+        <Typography component="h2" variant="caption">
+          Ve spolupráci
+        </Typography>
+        <Image
+          src="/logo/casopis.png"
+          width={1600}
+          height={1500}
+          alt="Časopis Tábor Oskar"
+          sizes="100px"
+          className={styles.logo}
+        />
+        <Image
+          src="/logo/oskar30let.png"
+          width={481}
+          height={484}
+          alt="Tábor Oskar 30 let"
+          sizes="100px"
+          className={styles.logo}
+        />
+      </Paper>
     </main>
   );
 }
