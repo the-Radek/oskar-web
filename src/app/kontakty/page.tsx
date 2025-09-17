@@ -5,7 +5,8 @@ import DefinitionList from '@/components/widgets/layout/definition-list';
 import DefinitionListItem from '@/components/widgets/layout/definition-list-item';
 import Phone from '@/components/widgets/data/phone';
 import Email from '@/components/widgets/data/email';
-import theme from '@/theme/variables';
+import theme from '@/theme/static';
+import Box from '@mui/material/Box';
 
 export const metadata: Metadata = {
   title: routes['/kontakty'].label,
@@ -63,9 +64,9 @@ export default function Contacts() {
         <Typography component="h2" variant="h2">
           Organizátor
         </Typography>
-        <Typography sx={{ fontWeight: theme.typography.fontWeightMedium }}>
+        <Box component="p" sx={{ fontWeight: theme.typography.fontWeightMedium }}>
           Přátelé LDT Oskar, z. s.
-        </Typography>
+        </Box>
         <DefinitionList>
           <DefinitionListItem label="předseda">Anna Puklová</DefinitionListItem>
           <DefinitionListItem label="kontakt">

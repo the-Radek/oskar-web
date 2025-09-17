@@ -26,6 +26,13 @@ const defaultTheme = createTheme(themeOptions);
  */
 const theme = {
   ...defaultTheme,
+  typography: {
+    ...defaultTheme.typography,
+    fontWeightLight: 'var(--font-weight-light)',
+    fontWeightRegular: 'var(--font-weight-regular)',
+    fontWeightMedium: 'var(--font-weight-medium)',
+    fontWeightBold: 'var(--font-weight-bold)',
+  },
   palette: varsPalette(PREFIX),
 };
 

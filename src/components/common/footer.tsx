@@ -2,7 +2,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Box from '@mui/material/Box';
 import FabLink from '@/components/widgets/link/fab-link';
-import theme from '@/theme/variables';
+import theme from '@/theme/static';
 
 const year = new Date().getFullYear();
 

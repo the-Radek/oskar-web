@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import Container from '@mui/material/Container';
-import theme from '@/theme/variables';
+import theme from '@/theme/static';
 
 export default function Error({
   error,

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Navigation from './nav/navigation';
-import theme from '@/theme/variables';
+import theme from '@/theme/static';
 
 export default function Header() {
   return (
@@ -20,6 +20,7 @@ export default function Header() {
         alt="OSKAR"
         sizes="(max-width: 1280px) 100vw, 1280px"
         priority
+        style={{ width: '100%', height: 'auto', display: 'block' }}
       />
     </Box>
   );

@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  gap: var(--mui-spacing);
+}
+
+.term {
+  font-weight: var(--font-weight-medium);
+}
+
+.term::after {
+  content: ':';
+}

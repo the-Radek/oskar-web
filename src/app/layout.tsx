@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 import type { Viewport } from 'next';
 import { Geist } from 'next/font/google';
-import { ThemeProvider } from '@mui/material/styles';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
-import Footer from '@/components/common/footer.component';
-import Header from '@/components/common/header.component';
-import GlobalTheme from '@/components/common/global-theme.component';
-import theme, { THEME_COLOR } from '@/theme/classic';
+import Footer from '@/components/common/footer';
+import Header from '@/components/common/header';
+import GlobalThemeProvider, { themeColor } from '@/components/common/global-theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   initialScale: 1,
   width: 'device-width',
-  themeColor: THEME_COLOR,
+  themeColor: themeColor,
 };
 
 const geist = Geist({
@@ -38,15 +34,11 @@ export default function RootLayout({
   return (
     <html lang="cs" className={geist.variable} suppressHydrationWarning>
       <body>
-        <InitColorSchemeScript attribute="class" />
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>
-            <GlobalTheme />
-            <Header />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <GlobalThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </GlobalThemeProvider>
       </body>
     </html>
   );
