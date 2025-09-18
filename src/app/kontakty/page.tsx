@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import routes from '../routes';
 import Typography from '@mui/material/Typography';
-import theme from '@/theme/static';
-import Box from '@mui/material/Box';
 import DefinitionList from '@/components/layout/DefinitionList';
 import DefinitionListItem from '@/components/layout/DefinitionListItem';
 import Phone from '@/components/data/Phone';
@@ -28,7 +26,7 @@ export default function Contacts() {
             Tábor Oskar – Holubí kout
             <br />
             <i>jméno dítěte</i>&nbsp;
-            <Typography variant="caption">
+            <Typography component="span" variant="body2" fontWeight="light">
               (doplňte číslo oddílu, které se dozvíte při odjezdu)
             </Typography>
             <br />
@@ -72,9 +70,7 @@ export default function Contacts() {
           <Typography component="h2" variant="h2">
             Organizátor
           </Typography>
-          <Box component="p" sx={{ fontWeight: theme.typography.fontWeightMedium }}>
-            Přátelé LDT Oskar, z.s.
-          </Box>
+          <Typography fontWeight="medium">Přátelé LDT Oskar, z.s.</Typography>
           <DefinitionList>
             <DefinitionListItem label="předseda">Anna Puklová</DefinitionListItem>
             <DefinitionListItem label="kontakt">
@@ -83,7 +79,7 @@ export default function Contacts() {
           </DefinitionList>
         </section>
         <section aria-label="map">
-          <MapyCz mapUrl="https://mapy.com/s/fabumutazu" />
+          <MapyCz src="https://mapy.com/s/fabumutazu" />
         </section>
       </div>
       <Paper component="section" className={styles.collab} aria-label="collaboration">

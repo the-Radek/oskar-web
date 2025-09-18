@@ -1,6 +1,7 @@
 .root {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: calc(4 * var(--mui-spacing, 8px));
 }
 

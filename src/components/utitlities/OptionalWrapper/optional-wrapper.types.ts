@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { ComponentType, ReactNode } from 'react';
 
-export interface OptionalWrapperProps<P = {}> {
+export interface OptionalWrapperProps<P = unknown> {
   enabled?: boolean;
   wrapper: ComponentType<P & { children: ReactNode }>;
   wrapperProps?: P;

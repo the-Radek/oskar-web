@@ -1,8 +1,12 @@
+import ProgressiveIframe from '@/components/reactive/ProgressiveIframe';
+import MapIcon from '@mui/icons-material/Map';
 import type { MapyCzProps } from './mapy-cz.types';
 import styles from './mapy-cz.module.css';
 import clsx from 'clsx';
 
 export default function MapyCz(props: MapyCzProps) {
   const { mapUrl, className, ...rest } = props;
-  return <iframe className={clsx(styles.root, className)} src={mapUrl} {...rest}></iframe>;
+  const classes = clsx(styles.root, className);
+
+  return <ProgressiveIframe className={classes} src={mapUrl} icon={<MapIcon />} {...rest} />;
 }
