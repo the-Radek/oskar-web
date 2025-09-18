@@ -1,9 +1,8 @@
 import type { MapyCzProps } from './mapy-cz.types';
 import styles from './mapy-cz.module.css';
+import clsx from 'clsx';
 
 export default function MapyCz(props: MapyCzProps) {
-  const { mapUrl, width = 500, height = 333, ...rest } = props;
-  return (
-    <iframe className={styles.root} src={mapUrl} width={width} height={height} {...rest}></iframe>
-  );
+  const { mapUrl, className, ...rest } = props;
+  return <iframe className={clsx(styles.root, className)} src={mapUrl} {...rest}></iframe>;
 }
