@@ -81,26 +81,28 @@ export default function Contacts() {
       <section aria-label="map">
         <MapyCz mapUrl="https://mapy.com/s/fabumutazu" />
       </section>
-      <Paper component="section" aria-label="cooperation">
-        <Typography component="h2" variant="caption">
+      <Paper component="section" className={styles.collab} aria-label="collaboration">
+        <Typography component="h2" variant="body2" align="center" gutterBottom>
           Ve spolupráci
         </Typography>
-        <Image
-          src="/logo/casopis.png"
-          width={1600}
-          height={1500}
-          alt="Časopis Tábor Oskar"
-          sizes="100px"
-          className={styles.logo}
-        />
-        <Image
-          src="/logo/oskar30let.png"
-          width={481}
-          height={484}
-          alt="Tábor Oskar 30 let"
-          sizes="100px"
-          className={styles.logo}
-        />
+        <div className={styles.logos}>
+          <Image
+            src="/logo/casopis.png"
+            width={1600}
+            height={1500}
+            alt="Časopis Tábor Oskar"
+            sizes="100px"
+            className={styles.logo}
+          />
+          <Image
+            src="/logo/oskar30let.png"
+            width={481}
+            height={484}
+            alt="Tábor Oskar 30 let"
+            sizes="100px"
+            className={styles.logo}
+          />
+        </div>
       </Paper>
     </main>
   );

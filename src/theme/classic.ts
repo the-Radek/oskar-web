@@ -66,14 +66,8 @@ const theme = createTheme({
   },
   palette: {
     mode: 'light',
-    primary: {
-      main: themeColor,
-      contrastText: '#fff',
-    },
-    secondary: {
-      main: '#83c8ef',
-      contrastText: '#000',
-    },
+    primary: { main: themeColor },
+    secondary: { main: '#83c8ef' },
     meta: augmentColor('#3b5998'),
     background: {
       default: '#fff',
