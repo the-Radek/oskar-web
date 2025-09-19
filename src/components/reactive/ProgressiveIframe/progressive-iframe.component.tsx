@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { ProgressiveIframeProps } from './progressive-iframe.types';
 import styles from './progressive-iframe.module.css';
 import clsx from 'clsx';
-import IconSkeleton from '../IconSkeleton/icon-skeleton.component';
+import IconSkeleton from '../IconSkeleton/';
 
 export default function ProgressiveIframe(props: ProgressiveIframeProps) {
   const { icon, className, width, height, ...rest } = props;

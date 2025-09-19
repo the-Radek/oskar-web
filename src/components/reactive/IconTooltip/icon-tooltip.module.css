@@ -1,0 +1,15 @@
+.popper[data-popper-placement*='left'] .tooltip {
+  margin-right: 3px;
+}
+
+.popper[data-popper-placement*='right'] .tooltip {
+  margin-left: 3px;
+}
+
+.tooltip {
+  padding: 2px;
+  color: var(--mui-palette-text-primary);
+  background-color: var(--mui-palette-background-default);
+  font-size: 0.75rem;
+  line-height: 1em;
+}
