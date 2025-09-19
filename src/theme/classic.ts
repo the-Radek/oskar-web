@@ -81,6 +81,9 @@ const theme = createTheme({
       selectedOpacity: 0.12,
     },
   },
+  shape: {
+    borderRadius: 12,
+  },
   components: {
     MuiLink: {
       defaultProps: {

@@ -7,9 +7,6 @@ const themeOptions: Parameters<typeof createTheme>[0] = {
   typography: {
     fontFamily: 'var(--font-geist)',
   },
-  shape: {
-    borderRadius: 12,
-  },
 };
 
 export default themeOptions;
