@@ -1,4 +1,4 @@
-import ProgressiveIframe from '@/components/reactive/ProgressiveIframe';
+import ProgressiveIframe from '@/components/progressive/ProgressiveIframe';
 import MapIcon from '@mui/icons-material/Map';
 import type { MapyCzProps } from './mapy-cz.types';
 import styles from './mapy-cz.module.css';
