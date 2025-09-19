@@ -1,0 +1,20 @@
+.indicator {
+  background-color: var(--mui-palette-primary-dark);
+  height: 3px;
+}
+
+.tab {
+  padding: calc(5 * var(--mui-spacing, 8px)) 0;
+  text-transform: none;
+  font-size: 1.1em;
+  opacity: 1;
+}
+
+.tab:hover,
+.tab.Mui-focusVisible {
+  background-color: var(--mui-palette-primary-light);
+}
+
+.tab[aria-current='page'] {
+  font-weight: var(--font-weight-bold);
+}

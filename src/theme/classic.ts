@@ -77,6 +77,9 @@ const theme = createTheme({
       primary: '#000',
       secondary: '#8cd5f7',
     },
+    action: {
+      selectedOpacity: 0.12,
+    },
   },
   components: {
     MuiLink: {

@@ -1,0 +1,8 @@
+.root {
+  padding: calc(2 * var(--mui-spacing, 8px)) 0;
+}
+
+.root:hover,
+.root.Mui-focusVisible {
+  background-color: var(--color-secondary-light);
+}

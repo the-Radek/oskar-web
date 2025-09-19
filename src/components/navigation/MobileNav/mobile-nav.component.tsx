@@ -4,20 +4,21 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import List from '@mui/material/List';
 import routes from '@/app/routes';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Divider from '@mui/material/Divider';
 import type { MobileNavProps } from './mobile-nav.types';
 import HideOnScroll from '@/components/reactive/HideOnScroll';
-import ListLink from '@/components/link/ListLink';
+import styles from './mobile-nav.module.css';
+import ListItemButton from '@mui/material/ListItemButton';
+import RouterLink from '../RouterLink';
 
 export default function MobileNav(props: MobileNavProps) {
-  const currentPath = usePathname();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -42,42 +43,35 @@ export default function MobileNav(props: MobileNavProps) {
             open={open}
             onOpen={toggleDrawer(true)}
             onClose={toggleDrawer(false)}
-            sx={(theme) => ({
-              '& .MuiDrawer-paper': {
-                backgroundColor: theme.palette.secondary.main,
-                color: theme.palette.secondary.contrastText,
-              },
-            })}
+            slotProps={{ paper: { component: 'nav' } }}
+            classes={{ paper: styles.drawer }}
           >
-            <nav>
-              <List sx={{ width: 250 }}>
-                {Object.entries(routes).map(([path, route], index) => {
-                  const active = path == currentPath;
-                  return (
-                    <Fragment key={path}>
-                      {index > 0 && <Divider component="li" variant="middle" />}
-                      <ListItem disablePadding>
-                        <ListLink href={path} active={active} onClick={toggleDrawer(false)}>
-                          <ListItemText
-                            disableTypography
-                            primary={route.label}
-                            sx={(theme) => ({
-                              fontWeight: active ? theme.typography.fontWeightBold : null,
-                              fontSize: active ? '1.2rem' : '1.1rem',
-                              textAlign: 'center',
-                            })}
-                          />
-                        </ListLink>
-                      </ListItem>
-                    </Fragment>
-                  );
-                })}
-              </List>
-            </nav>
+            <List>
+              {Object.entries(routes).map(([path, route]) => {
+                return (
+                  <ListItem key={path} className={styles.item} disablePadding>
+                    <ListItemButton
+                      component={RouterLink}
+                      href={path}
+                      onClick={toggleDrawer(false)}
+                      selected={path == pathname}
+                      className={styles.link}
+                    >
+                      <ListItemText
+                        primary={route.label}
+                        slotProps={{
+                          primary: { variant: 'h6', align: 'center', fontWeight: 'inherit' },
+                        }}
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                );
+              })}
+            </List>
           </SwipeableDrawer>
           <Typography component="h1" variant="h6" noWrap sx={{ flexGrow: 1 }}>
             Tábor Oskar
-            {currentPath in routes && currentPath !== '/' && ` | ${routes[currentPath].label}`}
+            {pathname in routes && pathname !== '/' && ` | ${routes[pathname].label}`}
           </Typography>
         </Toolbar>
       </AppBar>

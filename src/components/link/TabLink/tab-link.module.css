@@ -1,0 +1,15 @@
+.root {
+  padding: calc(5 * var(--mui-spacing, 8px)) 0;
+  text-transform: none;
+  font-size: 1.1em;
+  opacity: 1;
+}
+
+.root:hover,
+.root.Mui-focusVisible {
+  background-color: var(--mui-palette-primary-light);
+}
+
+.root.active {
+  font-weight: var(--font-weight-bold);
+}

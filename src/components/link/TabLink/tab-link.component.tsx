@@ -1,7 +1,8 @@
-'use client';
 import Link from 'next/link';
 import Tab from '@mui/material/Tab';
 import type { TabLinkProps } from './tab-link.types';
+import styles from './tab-link.module.css';
+import clsx from 'clsx';
 
 export default function TabLink(props: TabLinkProps) {
   const { active, ...rest } = props;
@@ -12,16 +13,7 @@ export default function TabLink(props: TabLinkProps) {
       href={props.value}
       aria-current={active ? 'page' : null}
       textColor="inherit"
-      sx={(theme) => ({
-        padding: `${theme.spacing(5)} 0`,
-        textTransform: 'none',
-        fontWeight: active ? theme.typography.fontWeightBold : null,
-        fontSize: '1.1rem',
-        opacity: 1,
-        '&:hover, &.Mui-focusVisible': {
-          backgroundColor: theme.palette.primary.light,
-        },
-      })}
+      className={clsx(styles.root, { [styles.active]: active })}
       {...rest}
     />
   );

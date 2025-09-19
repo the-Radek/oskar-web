@@ -2,28 +2,36 @@
 import Tabs from '@mui/material/Tabs';
 import { usePathname } from 'next/navigation';
 import routes from '@/app/routes';
-import TabLink from '@/components/link/TabLink';
 import type { DesktopNavProps } from './desktop-nav.types';
+import styles from './desktop-nav.module.css';
+import Tab from '@mui/material/Tab';
+import RouterLink from '../RouterLink';
 
 export default function DesktopNav(props: DesktopNavProps) {
-  const currentPath = usePathname();
+  const pathname = usePathname();
 
   return (
     <Tabs
       component={'nav'}
-      value={currentPath in routes && currentPath}
+      value={pathname in routes && pathname}
       textColor="inherit"
       variant="fullWidth"
-      sx={(theme) => ({
-        '& .MuiTabs-indicator': {
-          backgroundColor: theme.palette.primary.dark,
-          height: 3,
-        },
-      })}
+      classes={{
+        indicator: styles.indicator,
+      }}
       {...props}
     >
       {Object.entries(routes).map(([path, route]) => (
-        <TabLink key={path} label={route.label} value={path} active={path == currentPath} />
+        <Tab
+          component={RouterLink}
+          key={path}
+          label={route.label}
+          value={path}
+          href={path}
+          className={styles.tab}
+          underline="none"
+          color="inherit"
+        />
       ))}
     </Tabs>
   );

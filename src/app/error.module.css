@@ -1,0 +1,6 @@
+.actions {
+  display: flex;
+  justify-content: center;
+  padding: calc(4 * var(--mui-spacing, 8px)) 0;
+  gap: calc(2 * var(--mui-spacing, 8px));
+}
