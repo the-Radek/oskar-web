@@ -19,9 +19,7 @@ export default function Contacts() {
     <main className={styles.root}>
       <div className={styles.content}>
         <section aria-label="post address">
-          <Typography component="h2" variant="h2">
-            Adresa pro dopisy
-          </Typography>
+          <Typography variant="h2">Adresa pro dopisy</Typography>
           <address className={styles.address}>
             Tábor Oskar – Holubí kout
             <br />
@@ -35,9 +33,7 @@ export default function Contacts() {
           </address>
         </section>
         <section aria-label="contact details">
-          <Typography component="h2" variant="h2">
-            Kontakt
-          </Typography>
+          <Typography variant="h2">Kontakt</Typography>
           <DefinitionList>
             <DefinitionListItem label="Telefon na tábor">
               <Phone>602 829 892</Phone>
@@ -48,9 +44,7 @@ export default function Contacts() {
           </DefinitionList>
         </section>
         <section aria-label="camp's phone">
-          <Typography component="h2" variant="h2">
-            Telefon na tábor
-          </Typography>
+          <Typography variant="h2">Telefon na tábor</Typography>
           <DefinitionList>
             <DefinitionListItem label="I. turnus">
               <Phone>602 829 892</Phone>
@@ -67,9 +61,7 @@ export default function Contacts() {
           </DefinitionList>
         </section>
         <section aria-label="organizer">
-          <Typography component="h2" variant="h2">
-            Organizátor
-          </Typography>
+          <Typography variant="h2">Organizátor</Typography>
           <Typography fontWeight="medium">Přátelé LDT Oskar, z.s.</Typography>
           <DefinitionList>
             <DefinitionListItem label="předseda">Anna Puklová</DefinitionListItem>
