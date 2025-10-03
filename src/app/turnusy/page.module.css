@@ -1,0 +1,21 @@
+.paper {
+  padding: calc(4 * var(--mui-spacing, 8px));
+}
+
+.accordion {
+  background-color: var(--mui-palette-secondary-light);
+  overflow: hidden;
+}
+
+.accordion-content {
+  padding: 0;
+}
+
+.pencil {
+  width: 300px;
+  height: auto;
+
+  @media (max-width: 900px) {
+    width: 100px;
+  }
+}

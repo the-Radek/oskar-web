@@ -13,7 +13,7 @@ export default function Header() {
         width={4724}
         height={768}
         alt="OSKAR"
-        sizes="(max-width: 1280px) 100vw, 1280px"
+        sizes="(max-width: 1200px) 100vw, 1200px"
         priority
       />
     </header>

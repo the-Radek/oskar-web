@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <main>
-      <section aria-label="Tábor Oskar" className={styles.oskar}>
+      <div aria-label="Tábor Oskar" className={styles.oskar}>
         <Typography variant="h2">Tábor Oskar</Typography>
         <Typography align="justify">
           Letní tábor Oskar existuje více než 30 let. Každé léto nabízíme několik turnusů, na které
@@ -21,7 +21,7 @@ export default function About() {
           malebném prostředí přírodního parku Kamínky u Rokycan. Od roku 2023 tábor pořádá spolek
           Přátel LDT Oskar ve spolupráci se zakladatelem tábora.
         </Typography>
-      </section>
+      </div>
       <Paper className={styles.paper}>
         <section aria-label="area">
           <Image
@@ -29,7 +29,7 @@ export default function About() {
             width={211}
             height={211}
             alt="Disko koule"
-            sizes="100px"
+            sizes="80px"
             className={styles.icon}
           />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
@@ -48,7 +48,7 @@ export default function About() {
             width={211}
             height={211}
             alt="Tábor"
-            sizes="100px"
+            sizes="80px"
             className={styles.icon}
           />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
@@ -67,7 +67,7 @@ export default function About() {
             width={211}
             height={211}
             alt="Jídelna"
-            sizes="100px"
+            sizes="80px"
             className={styles.icon}
           />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
@@ -85,7 +85,7 @@ export default function About() {
             width={211}
             height={211}
             alt="Táborák"
-            sizes="100px"
+            sizes="80px"
             className={styles.icon}
           />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
@@ -103,7 +103,7 @@ export default function About() {
             width={211}
             height={211}
             alt="Mapa"
-            sizes="100px"
+            sizes="80px"
             className={styles.icon}
           />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
@@ -121,7 +121,7 @@ export default function About() {
             width={211}
             height={211}
             alt="Rozcestník"
-            sizes="100px"
+            sizes="80px"
             className={styles.icon}
           />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
