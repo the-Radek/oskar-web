@@ -11,7 +11,7 @@ import MapyCz from '@/components/geo/MapyCz';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: routes['/turnusy'].label,
+  title: routes['/pro-zajemce'].label,
 };
 
 export default function Turns() {
@@ -24,7 +24,7 @@ export default function Turns() {
           height={3300}
           alt="Tužka poutník"
           sizes="(max-width: 900px) 100px, 300px"
-          className={styles.pencil}
+          className={styles.illustration}
         />
         <p>
           Letní tábor Oskar nabízí tři turnusy, které jsou určeny pro děti ve věku od 5 do 16 let.

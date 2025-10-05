@@ -1,5 +1,9 @@
 .paper {
   padding: calc(4 * var(--mui-spacing, 8px));
+
+  :not(img) {
+    display: flow-root;
+  }
 }
 
 .accordion {
@@ -11,11 +15,12 @@
   padding: 0;
 }
 
-.pencil {
+.illustration {
+  float: left;
   width: 300px;
   height: auto;
 
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     width: 100px;
   }
 }

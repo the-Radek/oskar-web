@@ -6,8 +6,8 @@ import styles from './header.module.css';
 export default function Header() {
   return (
     <header className={styles.root}>
-      <MobileNav className={styles.mobileNav} />
-      <DesktopNav className={styles.desktopNav} />
+      <MobileNav className={styles.mobile} />
+      <DesktopNav className={styles.desktop} />
       <Image
         src="/banner-2025.jpg"
         width={4724}

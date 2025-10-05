@@ -3,7 +3,7 @@
   background-color: var(--mui-palette-primary-main);
 }
 
-.mobileNav {
+.mobile {
   display: none;
 
   @media (max-width: 600px) {
@@ -11,7 +11,7 @@
   }
 }
 
-.desktopNav {
+.desktop {
   @media (max-width: 600px) {
     display: none;
   }
