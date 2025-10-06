@@ -1,3 +1,1 @@
-export interface MapyCzProps extends React.IframeHTMLAttributes<HTMLIFrameElement> {
-  mapUrl?: string;
-}
+export type MapyCzProps = React.IframeHTMLAttributes<HTMLIFrameElement>;

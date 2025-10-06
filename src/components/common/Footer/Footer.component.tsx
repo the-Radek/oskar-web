@@ -14,6 +14,7 @@ export default function Footer() {
           color="meta"
           href="https://www.facebook.com/taborOskar.cz"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="facebook"
         >
           <FacebookIcon />
@@ -22,6 +23,7 @@ export default function Footer() {
           color="meta"
           href="https://www.instagram.com/tabor_oskar/"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="instagram"
         >
           <InstagramIcon />

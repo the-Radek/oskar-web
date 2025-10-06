@@ -9,6 +9,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MapyCz from '@/components/geo/MapyCz';
 import Image from 'next/image';
+import RouterLink from '@/components/navigation/RouterLink';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export const metadata: Metadata = {
   title: routes['/pro-zajemce'].label,
@@ -16,10 +20,10 @@ export const metadata: Metadata = {
 
 export default function Turns() {
   return (
-    <main>
+    <main className={styles.root}>
       <Paper className={styles.paper}>
         <Image
-          src="/pencil-wanderer.png"
+          src="/image/pencil-wanderer.png"
           width={1800}
           height={3300}
           alt="Tužka poutník"
@@ -28,7 +32,8 @@ export default function Turns() {
         />
         <p>
           Letní tábor Oskar nabízí tři turnusy, které jsou určeny pro děti ve věku od 5 do 16 let.
-          Pokud jste už vybrali termín, stačí jen vyplnit přihlášku.
+          Pokud jste už vybrali termín, stačí jen vyplnit{' '}
+          <RouterLink href="/prihlaska">přihlášku</RouterLink>.
         </p>
         <section aria-label="price">
           <Typography component="h2" variant="h4">
@@ -59,6 +64,17 @@ export default function Turns() {
           </Accordion>
         </section>
       </Paper>
+      <ButtonGroup variant="contained" size="large" fullWidth className={styles.actions}>
+        <Button component={RouterLink} href="pred-odjezdem">
+          Co si zabalit na tábor
+        </Button>
+        <Button href="/docs/Bezinfekcnost-GDPR.pdf" target="_blank" startIcon={<DownloadIcon />}>
+          Bezinfekčnost a GDPR
+        </Button>
+        <Button href="/docs/Lekarsky-posudek.pdf" target="_blank" startIcon={<DownloadIcon />}>
+          Lékařský posudek
+        </Button>
+      </ButtonGroup>
     </main>
   );
 }

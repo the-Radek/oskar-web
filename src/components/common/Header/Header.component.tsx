@@ -9,7 +9,7 @@ export default function Header() {
       <MobileNav className={styles.mobile} />
       <DesktopNav className={styles.desktop} />
       <Image
-        src="/banner-2025.jpg"
+        src="/image/banner-2025.jpg"
         width={4724}
         height={768}
         alt="OSKAR"

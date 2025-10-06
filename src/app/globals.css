@@ -6,9 +6,24 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 1200px;
   margin: 0 auto;
   color: var(--mui-palette-text-primary);
   background-color: var(--mui-palette-background-default);
+
+  @media (min-width: 1200px) {
+    border-radius: var(--border-radius, 8px);
+
+    > header {
+      border-radius: var(--border-radius, 8px) var(--border-radius, 8px) 0 0;
+      overflow: hidden;
+    }
+
+    > footer {
+      border-radius: 0 0 var(--border-radius, 8px) var(--border-radius, 8px);
+      overflow: hidden;
+    }
+  }
 }
 
 main {

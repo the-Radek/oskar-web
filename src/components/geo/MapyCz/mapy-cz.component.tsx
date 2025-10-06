@@ -5,8 +5,8 @@ import styles from './mapy-cz.module.css';
 import clsx from 'clsx';
 
 export default function MapyCz(props: MapyCzProps) {
-  const { mapUrl, className, ...rest } = props;
+  const { className, ...rest } = props;
   const classes = clsx(styles.root, className);
 
-  return <ProgressiveIframe className={classes} src={mapUrl} icon={<MapIcon />} {...rest} />;
+  return <ProgressiveIframe className={classes} icon={<MapIcon />} {...rest} />;
 }
