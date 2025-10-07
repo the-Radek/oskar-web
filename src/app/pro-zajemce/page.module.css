@@ -4,6 +4,11 @@
   gap: calc(4 * var(--mui-spacing, 8px));
 }
 
+.cards {
+  display: flex;
+  gap: calc(2 * var(--mui-spacing, 8px));
+}
+
 .paper {
   padding: calc(4 * var(--mui-spacing, 8px));
   display: grid;
