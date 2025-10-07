@@ -93,7 +93,10 @@ export default function Turns() {
         <p>
           Letní tábor Oskar nabízí tři turnusy, které jsou určeny pro děti ve věku od 5 do 16 let.
           Pokud jste už vybrali termín, stačí jen vyplnit{' '}
-          <RouterLink href="/prihlaska">přihlášku</RouterLink>.
+          <RouterLink href="/prihlaska" underline="always">
+            přihlášku
+          </RouterLink>
+          .
         </p>
         <section aria-label="price">
           <Typography component="h2" variant="h4">
