@@ -43,7 +43,11 @@ export default function Turns() {
             <Typography align="center">JIŽ OBSAZEN</Typography>
           </CardContent>
           <CardMedia>
-            <Image src={turnus1} alt="Turnus 1" sizes="(max-width: 1200px) 33vw, 400px" />
+            <Image
+              src={turnus1}
+              alt="Turnus 1"
+              sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
+            />
           </CardMedia>
         </Card>
         <Card variant="outlined">
@@ -61,7 +65,11 @@ export default function Turns() {
             <Typography align="center">Cena: 7 800,-</Typography>
           </CardContent>
           <CardMedia>
-            <Image src={turnus2} alt="Turnus 2" sizes="(max-width: 1200px) 33vw, 400px" />
+            <Image
+              src={turnus2}
+              alt="Turnus 2"
+              sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
+            />
           </CardMedia>
         </Card>
         <Card variant="outlined">
@@ -79,7 +87,11 @@ export default function Turns() {
             <Typography align="center">Cena: 7 800,-</Typography>
           </CardContent>
           <CardMedia>
-            <Image src={turnus3} alt="Turnus 3" sizes="(max-width: 1200px) 33vw, 400px" />
+            <Image
+              src={turnus3}
+              alt="Turnus 3"
+              sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
+            />
           </CardMedia>
         </Card>
       </div>
