@@ -5,14 +5,13 @@
 
 .mobile {
   display: none;
-
-  @media (max-width: 600px) {
-    display: block;
-  }
 }
 
-.desktop {
-  @media (max-width: 600px) {
+@media (max-width: 900px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
     display: none;
   }
 }
