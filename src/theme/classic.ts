@@ -91,6 +91,13 @@ const theme = createTheme({
         underline: 'hover',
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        gutterBottom: {
+          marginBottom: '0.75rem',
+        },
+      },
+    },
   },
 });
 

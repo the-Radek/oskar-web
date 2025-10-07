@@ -2,7 +2,7 @@ import Image from 'next/image';
 import MobileNav from '@/components/navigation/MobileNav';
 import DesktopNav from '@/components/navigation/DesktopNav';
 import styles from './header.module.css';
-import banner from '@/public/banner.jpg';
+import banner from '@/assets/img/banner.jpg';
 
 export default function Header() {
   return (

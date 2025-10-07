@@ -4,6 +4,12 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image';
 import styles from './page.module.css';
+import iconDiscoBall from '@/assets/icon/disco-ball.png';
+import iconNightTent from '@/assets/icon/night-tent.png';
+import iconShop from '@/assets/icon/shop.png';
+import iconCampfire from '@/assets/icon/campfire.png';
+import iconMap from '@/assets/icon/map.png';
+import iconSignpost from '@/assets/icon/signpost.png';
 
 export const metadata: Metadata = {
   title: routes['/o-tabore'].label,
@@ -24,14 +30,7 @@ export default function About() {
       </div>
       <Paper className={styles.paper}>
         <section aria-label="area">
-          <Image
-            src="/icon/disco-ball.png"
-            width={211}
-            height={211}
-            alt="Disko koule"
-            sizes="80px"
-            className={styles.icon}
-          />
+          <Image src={iconDiscoBall} alt="Disko koule" sizes="80px" className={styles.icon} />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
             Objekt
           </Typography>
@@ -43,14 +42,7 @@ export default function About() {
           </Typography>
         </section>
         <section aria-label="schedule">
-          <Image
-            src="/icon/night-tent.png"
-            width={211}
-            height={211}
-            alt="Tábor"
-            sizes="80px"
-            className={styles.icon}
-          />
+          <Image src={iconNightTent} alt="Tábor" sizes="80px" className={styles.icon} />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
             Táborový program
           </Typography>
@@ -62,14 +54,7 @@ export default function About() {
           </Typography>
         </section>
         <section aria-label="food">
-          <Image
-            src="/icon/shop.png"
-            width={211}
-            height={211}
-            alt="Jídelna"
-            sizes="80px"
-            className={styles.icon}
-          />
+          <Image src={iconShop} alt="Jídelna" sizes="80px" className={styles.icon} />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
             Stravování
           </Typography>
@@ -80,14 +65,7 @@ export default function About() {
           </Typography>
         </section>
         <section aria-label="day trip">
-          <Image
-            src="/icon/campfire.png"
-            width={211}
-            height={211}
-            alt="Táborák"
-            sizes="80px"
-            className={styles.icon}
-          />
+          <Image src={iconCampfire} alt="Táborák" sizes="80px" className={styles.icon} />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
             Celodenní výlet
           </Typography>
@@ -98,14 +76,7 @@ export default function About() {
           </Typography>
         </section>
         <section aria-label="scout game">
-          <Image
-            src="/icon/Map.png"
-            width={211}
-            height={211}
-            alt="Mapa"
-            sizes="80px"
-            className={styles.icon}
-          />
+          <Image src={iconMap} alt="Mapa" sizes="80px" className={styles.icon} />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
             Bojovka a orientační běh
           </Typography>
@@ -116,14 +87,7 @@ export default function About() {
           </Typography>
         </section>
         <section aria-label="bathing">
-          <Image
-            src="/icon/signpost.png"
-            width={211}
-            height={211}
-            alt="Rozcestník"
-            sizes="80px"
-            className={styles.icon}
-          />
+          <Image src={iconSignpost} alt="Rozcestník" sizes="80px" className={styles.icon} />
           <Typography variant="h3" color="inherit" gutterBottom={false}>
             Koupání v přírodě
           </Typography>

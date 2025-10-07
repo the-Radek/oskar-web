@@ -16,6 +16,10 @@ import DownloadIcon from '@mui/icons-material/Download';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import illustration from '@/assets/img/pencil-wanderer.png';
+import turnus1 from '@/assets/img/turnus-1.png';
+import turnus2 from '@/assets/img/turnus-2.png';
+import turnus3 from '@/assets/img/turnus-3.png';
 
 export const metadata: Metadata = {
   title: routes['/pro-zajemce'].label,
@@ -27,65 +31,61 @@ export default function Turns() {
       <div className={styles.cards}>
         <Card variant="outlined">
           <CardContent>
-            <Typography component="h2">TURNUS I.</Typography>
-            <Typography variant="caption">1. 7. 2025 - 7. 7. 2025</Typography>
-            <p>Na první turnus se letos můžete těšit pod vedením Oskárka.</p>
-            <p>JIŽ OBSAZEN</p>
+            <Typography component="h2" variant="h2" align="center">
+              TURNUS I.
+            </Typography>
+            <Typography component="p" variant="body2" align="center" color="primary.dark">
+              1. 7. 2025 - 7. 7. 2025
+            </Typography>
+            <Typography align="justify">
+              Na první turnus se letos můžete těšit pod vedením Oskárka.
+            </Typography>
+            <Typography align="center">JIŽ OBSAZEN</Typography>
           </CardContent>
-          {/* <CardMedia
-            component={Image}
-            image="/image/turnus-1.png"
-            alt="Turnus 1"
-            width={1122}
-            height={747}
-            fill
-          /> */}
-          <Image src="/image/turnus-1.png" alt="Turnus 1" width={1122} height={747} />
+          <CardMedia>
+            <Image src={turnus1} alt="Turnus 1" sizes="(max-width: 1200px) 33vw, 400px" />
+          </CardMedia>
         </Card>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
-            <Typography component="h2">TURNUS II.</Typography>
-            <Typography variant="caption">1. 7. 2025 - 7. 7. 2025</Typography>
-            <p>
+            <Typography component="h2" variant="h2" align="center">
+              TURNUS II.
+            </Typography>
+            <Typography component="p" variant="body2" align="center" color="primary.dark">
+              7. 7. 2025 - 19. 7. 2025
+            </Typography>
+            <Typography align="justify">
               Na druhý turnus se letos můžete těšit pod vedením Vojty Macháčka, Verči Ilkové, Šárky
               Večerníkové a Kuby Švihlíka.
-            </p>
-            <p>Cena: 7 800,-</p>
+            </Typography>
+            <Typography align="center">Cena: 7 800,-</Typography>
           </CardContent>
-          {/* <CardMedia
-            component={Image}
-            image="/image/turnus-2.png"
-            alt="Turnus 2"
-            width={779}
-            height={519}
-            fill
-          /> */}
+          <CardMedia>
+            <Image src={turnus2} alt="Turnus 2" sizes="(max-width: 1200px) 33vw, 400px" />
+          </CardMedia>
         </Card>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
-            <Typography component="h2">TURNUS III.</Typography>
-            <Typography variant="caption">1. 7. 2025 - 7. 7. 2025</Typography>
-            <p>
+            <Typography component="h2" variant="h2" align="center">
+              TURNUS III.
+            </Typography>
+            <Typography component="p" variant="body2" align="center" color="primary.dark">
+              19. 7. 2025 - 31. 7. 2025
+            </Typography>
+            <Typography align="justify">
               Na třetí turnus se letos můžete těšit pod vedením Aničky Puklové, Vojty Macháčka, Báry
               Navrátilové a Kačky Weberové.
-            </p>
-            <p>Cena: 7 800,-</p>
+            </Typography>
+            <Typography align="center">Cena: 7 800,-</Typography>
           </CardContent>
-          {/* <CardMedia
-            component={Image}
-            image="/image/turnus-3.png"
-            alt="Turnus 3"
-            width={1106}
-            height={737}
-            fill
-          /> */}
+          <CardMedia>
+            <Image src={turnus3} alt="Turnus 3" sizes="(max-width: 1200px) 33vw, 400px" />
+          </CardMedia>
         </Card>
       </div>
       <Paper className={styles.paper}>
         <Image
-          src="/image/pencil-wanderer.png"
-          width={1800}
-          height={3300}
+          src={illustration}
           alt="Tužka poutník"
           sizes="(max-width: 900px) 100px, 300px"
           className={styles.illustration}

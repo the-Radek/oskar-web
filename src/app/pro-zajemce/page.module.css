@@ -7,6 +7,31 @@
 .cards {
   display: flex;
   gap: calc(2 * var(--mui-spacing, 8px));
+  border: 5px;
+
+  > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-color: var(--mui-palette-primary-main);
+    background-color: transparent;
+
+    :first-child {
+      flex: 1;
+
+      h2 {
+        margin-bottom: 0;
+      }
+
+      :not(:first-child) {
+        margin-bottom: 0.8em;
+      }
+    }
+
+    :last-child {
+      padding: 1px;
+    }
+  }
 }
 
 .paper {

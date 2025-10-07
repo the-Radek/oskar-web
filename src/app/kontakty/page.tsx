@@ -75,7 +75,7 @@ export default function Contacts() {
         </section>
       </div>
       <Paper component="section" className={styles.collab} aria-label="collaboration">
-        <Typography component="h2" variant="body2" align="center" gutterBottom>
+        <Typography component="h2" variant="body2" align="center" color="primary.dark" gutterBottom>
           Ve spolupráci
         </Typography>
         <div className={styles.logos}>

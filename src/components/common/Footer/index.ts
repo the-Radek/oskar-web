@@ -1,1 +1,1 @@
-export { default } from './footer.component';
+export { default } from './Footer.component';
