@@ -27,7 +27,7 @@ export default function MobileNav(props: MobileNavProps) {
 
   return (
     <HideOnScroll>
-      <AppBar component="div" position="sticky" {...props}>
+      <AppBar position="sticky" {...props} sx={{ top: 0, position: 'sticky' }}>
         <Toolbar>
           <IconButton
             size="large"

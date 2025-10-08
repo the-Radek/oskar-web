@@ -4,8 +4,8 @@ export interface RouteInfo {
 
 const routes: Record<string, RouteInfo> = {
   '/': { label: 'Úvodní stránka' },
-  '/galerie': { label: 'Galerie' },
   '/taborova-hra': { label: 'Celotáborová hra' },
+  '/galerie': { label: 'Galerie' },
   '/pro-zajemce': { label: 'Pro zájemce' },
   '/o-tabore': { label: 'O táboře' },
   '/kontakty': { label: 'Kontakty' },
