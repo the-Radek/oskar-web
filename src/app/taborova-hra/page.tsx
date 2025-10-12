@@ -16,7 +16,12 @@ export default function ThemedGame() {
   return (
     <main>
       <section className={styles.game}>
-        <Image alt={alt} {...imgProps} sizes="300px" className={styles.img} />
+        <Image
+          alt={alt}
+          {...imgProps}
+          sizes="(max-width: 600px) 33vw, (max-width: 900px) 200px, 300px"
+          className={styles.img}
+        />
         <Typography variant="h2">{config['2025'].title}</Typography>
         <Typography align="justify">{config['2025'].description}</Typography>
       </section>

@@ -13,3 +13,27 @@
 .paper {
   padding: calc(4 * var(--mui-spacing, 8px));
 }
+
+@media (max-width: 900px) {
+  .game {
+    padding: 0 calc(3 * var(--mui-spacing, 8px));
+  }
+
+  .img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .game {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .img {
+    float: none;
+    width: 33vw;
+    align-self: center;
+  }
+}
