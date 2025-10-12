@@ -1,5 +1,6 @@
 .oskar {
-  padding: calc(4 * var(--mui-spacing, 8px));
+  padding: 0 calc(4 * var(--mui-spacing, 8px));
+  margin-bottom: calc(4 * var(--mui-spacing, 8px));
 }
 
 .paper {

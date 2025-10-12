@@ -1,0 +1,15 @@
+.game {
+  padding: 0 calc(6 * var(--mui-spacing, 8px));
+  margin-bottom: calc(4 * var(--mui-spacing, 8px));
+  overflow: hidden;
+}
+
+.img {
+  float: right;
+  width: 300px;
+  margin-left: calc(4 * var(--mui-spacing, 8px));
+}
+
+.paper {
+  padding: calc(4 * var(--mui-spacing, 8px));
+}
