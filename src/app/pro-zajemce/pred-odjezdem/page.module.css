@@ -1,7 +1,21 @@
-.accordion {
-  overflow: hidden;
+.checklist {
+  display: column;
+  columns: 2;
+  list-style: none;
+  padding: 0;
+  font-size: 0.95em;
 
-  .details {
-    padding: 0;
+  > li {
+    break-inside: avoid;
+    margin-left: 1ch;
+  }
+
+  > li::marker {
+    color: var(--mui-palette-primary-main);
+    content: '• ';
+  }
+
+  @media (max-width: 900px) {
+    columns: 1;
   }
 }

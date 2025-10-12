@@ -1,13 +1,10 @@
 import MapyCz from '@/components/geo/MapyCz';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
 import { Metadata } from 'next';
-import styles from './page.module.css';
 import Link from '@mui/material/Link';
 import appConfig from '../../app.config.json';
+import styles from './page.module.css';
+import config from './page.config.json';
 
 export const metadata: Metadata = {
   title: 'Před odjezdem',
@@ -18,13 +15,18 @@ export default function ThemedGame() {
     <main>
       <section>
         <Typography variant="h2">Orientační seznam věcí potřebných na táboře</Typography>
+        <ul className={styles.checklist}>
+          {config.checklist.map((item, index) => {
+            return <li key={index}>{item}</li>;
+          })}
+        </ul>
         <Typography>
           Doporučené kapesné 500 Kč. (Pro uhrazení případných nákladů s celodenním výletem – lístek
           na vlak/vstupné či drobný nákup.)
         </Typography>
         <Typography>Seznam je pouze orientační. Doplňte dle potřeb Vašeho dítěte.</Typography>
         <Typography>
-          Cenné věci na tábor nedoporučujeme a neneseme za ně žádnou zodpovědnost.
+          <strong>Cenné věci na tábor nedoporučujeme a neneseme za ně žádnou zodpovědnost.</strong>
         </Typography>
       </section>
       <section>
@@ -38,14 +40,7 @@ export default function ThemedGame() {
         </Typography>
         <Typography>Prosíme o příchod nejpozději 45 minut předem (tzn. 11:45).</Typography>
         <Typography gutterBottom>Návrat z tábora je na stejné místo v cca 11:30h.</Typography>
-        <Accordion className={styles.accordion}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel-content">
-            <Typography component="span">Mapa místa odjezdu</Typography>
-          </AccordionSummary>
-          <AccordionDetails className={styles.details}>
-            <MapyCz src={appConfig.maps.departure} />
-          </AccordionDetails>
-        </Accordion>
+        <MapyCz src={appConfig.maps.departure} />
       </section>
     </main>
   );
