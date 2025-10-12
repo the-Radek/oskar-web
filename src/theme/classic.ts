@@ -88,7 +88,6 @@ const theme = createTheme({
     MuiLink: {
       defaultProps: {
         color: 'inherit',
-        underline: 'hover',
       },
     },
     MuiTypography: {

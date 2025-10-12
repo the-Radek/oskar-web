@@ -10,7 +10,9 @@ export default function Phone(props: PhoneProps) {
 
   return (
     <IconTooltip icon={<PhoneIcon />} tooltip={tooltip}>
-      <Link href={href}>{children}</Link>
+      <Link href={href} underline="hover">
+        {children}
+      </Link>
     </IconTooltip>
   );
 }

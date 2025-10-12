@@ -9,6 +9,7 @@ import styles from './page.module.css';
 import MapyCz from '@/components/geo/MapyCz';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image';
+import appConfig from '../app.config.json';
 
 export const metadata: Metadata = {
   title: routes['/kontakty'].label,
@@ -71,7 +72,7 @@ export default function Contacts() {
           </DefinitionList>
         </section>
         <section aria-label="map">
-          <MapyCz src="https://mapy.com/s/fabumutazu" />
+          <MapyCz src={appConfig.maps.camp} />
         </section>
       </div>
       <Paper component="section" className={styles.collab} aria-label="collaboration">

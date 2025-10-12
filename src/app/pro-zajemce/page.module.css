@@ -78,11 +78,10 @@
 .accordion {
   background-color: var(--mui-palette-secondary-light);
   overflow: hidden;
-  margin-top: calc(2 * var(--mui-spacing, 8px));
-}
 
-.accordion-content {
-  padding: 0;
+  .details {
+    padding: 0;
+  }
 }
 
 .actions {

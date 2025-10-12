@@ -9,7 +9,9 @@ export default function Email(props: EmailProps) {
 
   return (
     <IconTooltip icon={<EmailIcon />} tooltip={tooltip}>
-      <Link href={href}>{children}</Link>
+      <Link href={href} underline="hover">
+        {children}
+      </Link>
     </IconTooltip>
   );
 }

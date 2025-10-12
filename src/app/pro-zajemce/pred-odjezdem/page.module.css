@@ -1,0 +1,7 @@
+.accordion {
+  overflow: hidden;
+
+  .details {
+    padding: 0;
+  }
+}
