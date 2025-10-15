@@ -36,7 +36,12 @@ def harvest(url, config, path):
             year: {
                 "title": title,
                 "description": txt.text,
-                "image": {"width": width, "height": height, "alt": img["alt"]},
+                "image": {
+                    "src": f"/taborova-hra/{year}.jpg",
+                    "width": width,
+                    "height": height,
+                    "alt": img["alt"] or title,
+                },
             }
         }
     save_json(config, metadata)

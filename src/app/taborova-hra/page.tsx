@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function ThemedGame() {
-  const { alt, ...imgProps } = config['2025'].image;
+  const year = '2025';
+  const { alt, ...imgProps } = config[year].image;
 
   return (
     <main>
@@ -22,8 +23,8 @@ export default function ThemedGame() {
           sizes="(max-width: 600px) 33vw, (max-width: 900px) 200px, 300px"
           className={styles.img}
         />
-        <Typography variant="h2">{config['2025'].title}</Typography>
-        <Typography align="justify">{config['2025'].description}</Typography>
+        <Typography variant="h2">{config[year].title}</Typography>
+        <Typography align="justify">{config[year].description}</Typography>
       </section>
       <Paper className={styles.paper}>
         <Typography align="justify">
