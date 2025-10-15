@@ -3,10 +3,290 @@
     "title": "Po stopách amuletu",
     "description": "Kam zmizel amulet faraona Oskarubia s motivem holubice, který mu má podle pradávné legendy pomoct zajistit v království egyptském mír a spokojenost všech obyvatel a utvrdit jeho lásku k princezně Oskartiti? Všechno napovídá tomu, že byl amulet ukraden. Zlodějové za sebou nechali nějaké stopy, ale zatím je faraonova stráž nedopadla. V sázce je budoucnost království, a tak požádali všechny o pomoc. Myslíte, že by se to mohlo letos v létě povést nám? Přenesme se společně do starověkého Egypta a pokusme se tuto detektivku mezi pyramidami vyřešit!",
     "image": {
-      "src": "/taborove-hra/2025.jpg",
+      "src": "/taborova-hra/2025.jpg",
       "width": 1312,
       "height": 1402,
       "alt": "Faraon a Kleopatra"
+    }
+  },
+  "2023": {
+    "title": "Höskar",
+    "description": "HÖSKAR, a jeho kamarádi Vikingové\nNeuvěřitelná dobrodružství Höskara a jeho kamarádů, ovlivněná severskou mytologií. Setkáme se s legračními skřítky, zákeřnými trolly, severskými Bohy a od Vikingů se naučíme plout na rozbouřeném moři či lovit velryby.\n",
+    "image": {
+      "src": "/taborova-hra/2023.jpg",
+      "width": 1280,
+      "height": 295,
+      "alt": "Höskar"
+    }
+  },
+  "2022": {
+    "title": "POLÁRKA",
+    "description": "Bláznivá expedice na severní pól.Z našeho tábora vyrazí týmy, které\nse budou snažit najít co nejkratší cestu na severní pól. Použijeme psí spřežení,\nobujeme sněžnice, budeme po cestě zápasit s nepřízní počasí, hladovými\nledními medvědy, pomateným Yettim, zkusíme ochutnat eskymácké pochoutky\nanebo si zahrajeme vodní pólo s tuleni. No a ten, kdo bude první, postaví na\nnejbližším ostrově novou výzkumnou stanici. A víte, co na nás v cíli čeká? To\nuvidíte až na táboře.\n",
+    "image": {
+      "src": "/taborova-hra/2022.jpg",
+      "width": 729,
+      "height": 1280,
+      "alt": "POLÁRKA"
+    }
+  },
+  "2021": {
+    "title": "OskaRescue",
+    "description": "Tento rok se tábor Oskar přemění v mezinárodní výcvikové středisko záchranářů OskaRescue.\nJde o mezinárodní středisko, které bude školit a vychovávat nové záchranáře a další specialisty, které bude vysílat na záchranné akce po celém světě.\nV centru OskaRescue působí lékaři, požárníci, potápěči, piloti vrtulníků a dronů, psovodi a ostatní velmi důležité logistické skupiny, jako specialisté na podmořské mapy, historici, geodeti, meteorologové ale i kuchaři.\nBude-li třeba, nasadíme pro záchranů lidí i zvířat naše specialisty.\nJsme schopni zásáhnout:\n- při rozsáhlých požárech\n- při ochraně obyvatel v extrémních podmínkách\n- při evakuaci lidí před tsunami\n- po vyhodnocení rizika ohrožení při oživení vulkánu\n- při vyprošťování lidí ze zasypaných měst\n- při záchraně zvířat\n",
+    "image": {
+      "src": "/taborova-hra/2021.jpg",
+      "width": 979,
+      "height": 135,
+      "alt": "OskaRescue"
+    }
+  },
+  "2020": {
+    "title": "Los Oskaritos",
+    "description": "Oskarijci\nU jezera Catemaco ležícího poblíž Mexického zálivu žil už od 10. století národ, který si říkal Oskarijci, tedy Los Oskaritos. Nepatřil sice k větším etnickým skupinám, ale dokázal se velmi rychle prosazovat díky svým schopnostem. K jeho náboženským symbolům patřil Bůh slunce, kterého uctívali a nosili mu k jeho pyramidě na pohoří Sierra de Santa Martha především rostlinné oběti. Na tomto místě se také dokázali ukrýt i při vylodění španělských dobyvatelů začátkem 16. století. Proto nebyl tento národ nalezen a zdecimovám. Ale pak celý národ zmizel a nikdo neví kam odešel.\nPřestěhoval se?\nSloučil se s jiným kmenem?\nZahynul při přírodní katastrofě?\nNajdeme alespoň symboly jeho existence?\nZkusme si zahrát na táboře Oskar na Aztéky a využít některých jejich zvyklostí a her.\n",
+    "image": {
+      "src": "/taborova-hra/2020.jpg",
+      "width": 591,
+      "height": 689,
+      "alt": "Los Oskaritos"
+    }
+  },
+  "2019": {
+    "title": "Oskarda",
+    "description": "Letos přijedeme do tábora a budeme překvapeni, že je v něm  spousta hraček, stavebnic, deskových her, hracích karet a také nová hra Oskarda. Zdánlivé to vypadá, že vás hračky nevnímají, ale opak je pravdou. Vědí o všech vašich krocích. Protože na nás celý rok čekali tak se těší, že si s nimi každý den budeme hrát.\n A já, protože jsem tužka, budu vše zapisovat. Každému z vás, kdo si bude hrát, a tím i soutěžit, věnuji malou hračku na památku. Tak si pojďte hrát.\n",
+    "image": {
+      "src": "/taborova-hra/2019.jpg",
+      "width": 1209,
+      "height": 898,
+      "alt": "Oskarda"
+    }
+  },
+  "2018": {
+    "title": "Labyrint",
+    "description": "My z tábora Oskar víme, že i les a příroda má své srdce. Jaké je? No především zelené. A tohle srdce se ocitne v ohrožení. A když přestane tlouci zelené srdce, mohlo by přestat i to naše.  Cesta k jeho záchraně vede přes labyrint. Při bloudění jeho spletitými stezkami budeme zachraňovat oživlé rostliny, vodu v potocích i rozmanité tvory. Určitě se nám to podaří. Osvobodíme zelené srdce.\n",
+    "image": {
+      "src": "/taborova-hra/2018.jpg",
+      "width": 1379,
+      "height": 1514,
+      "alt": "Labyrint"
+    }
+  },
+  "2017": {
+    "title": "Tajemné legendy",
+    "description": "Celotáborová hra Tajemné legendy bude inspirována dochovanými příběhy z okolí našeho tábora Oskar. Takže se setkáte s permoníky z okolních železných dolů a lomů, lesními vílami, čertíky i chechtavými houbami, vodníkem z našeho rybníka, tajemným vojákem z hájovny a spoustou dalších pohádkových bytostí, které tu nejen byly, ale i jsou.\n",
+    "image": {
+      "src": "/taborova-hra/2017.jpg",
+      "width": 300,
+      "height": 109,
+      "alt": "Tajemné legendy"
+    }
+  },
+  "2016": {
+    "title": "Ostrov pokladů",
+    "description": "Celotáborová hra je plná dobrodružství a nepředvídatelných překážek. Vylodíme se na zdánlivě pustém ostrově a budeme hledat poklad legendárního piráta Johna Silvera. Budeme čelit nejen nástrahám džungle, ale i domorodcům a krvelačným pirátům.\n",
+    "image": {
+      "src": "/taborova-hra/2016.jpg",
+      "width": 295,
+      "height": 174,
+      "alt": "Ostrov pokladů"
+    }
+  },
+  "2015": {
+    "title": "Oskar Trophy",
+    "description": "2015",
+    "image": {
+      "src": "/taborova-hra/2015.jpg",
+      "width": 110,
+      "height": 110,
+      "alt": "Oskar Trophy"
+    }
+  },
+  "2014": {
+    "title": "Manitou ",
+    "description": "Stavění indiánského týpí, lov medvěda grizzlyho, tesání a zdobení totemu vlastního kmene, vysílání kouřových signálů, zápolení v lakrosu nebo křepčení u indiánských ohňů. To můžete prožít na našem táboře Oskar. Přidejte se k nám a staňte se indiány!\n",
+    "image": {
+      "src": "/taborova-hra/2014.jpg",
+      "width": 2362,
+      "height": 612,
+      "alt": "Manitou "
+    }
+  },
+  "2013": {
+    "title": "Oskarius",
+    "description": "\n\t„Po několika měsících naší plavby vesmírem se blížíme k cíli naší výpravy. K vylodění na nedotčené planetě Oskarius. Byla objevena před mnoha lety a hned od začátku budila senzaci svou barevností. Je totiž zelená. Všichni jsme byli před chvílí probuzeni z umělého spánku a teď se připravujeme na přistání. Sestoupili jsme na hladinu osmi tisíc metrů, ale planeta se přibližuje velmi rychle. Alespoň jak vidíme na monitorech. Za pár minut dosedáme. Stabilizační bloky se noří do povrchu. Po krátké chvíli odepínáme bezpečnostní pásy. V následujících hodinách a dnech nás čeká řada pokusů a testů, které ověří možnost opustit loď. Napjatě vyčkáváme, až se otevřou ochranné kryty prosklené kabiny a my konečně uvidíme novou planetu zblízka. Žaluzie se pomalu zvedají a před námi se otevírá... To snad ne?!!! Všichni třeštíme oči. To není možné! Vždyť to je...“\n\n\tCo šokovalo astronauty po přistání na planetě Oskarius, se dozvíte, pokud se s námi letos vypravíte na Tábor Oskar. Čeká vás tam i spousta dalších objevů a zážitků.\n",
+    "image": {
+      "src": "/taborova-hra/2013.jpg",
+      "width": 2362,
+      "height": 2362,
+      "alt": "Oskarius"
+    }
+  },
+  "2012": {
+    "title": "Domino",
+    "description": "\n\tDomino je název celotáborové hry, ve které se děti staly součástí společenských her. A tak si v lese zahrály třeba Domino, na louce Pexeso a u rybníka Dámu. Staly se z nich například figurky z Člověče, nezlob se, šachové figurky anebo hrací karty z Kvarteta.\n",
+    "image": {
+      "src": "/taborova-hra/2012.jpg",
+      "width": 354,
+      "height": 445,
+      "alt": "Domino"
+    }
+  },
+  "2011": {
+    "title": "Aurion - Říše fantazie",
+    "description": "\n\tŘÍše fantazie je opředena tajemstvím. Podle toho, co víme, je to místo, kde potkáte obry i trpaslíky, kde dobro zápasí se zlem, kde rostou modré muchomůrky a červené stromy, kde zvířata mluví lidskou řečí, kde 1+1 nemusí být 2, kde sloni mají křídla a ptáci rohy, kde v poledne pendlovky odbíjejí 13 hodin. Děti vstoupily do říše fantazie a zažily neuvěřitelná dobrodružství, vkročily do místa, kde je možné úplně všechno. A vše musely stihnout za 13 dní. Pak se vrátily šťastní a spokojení domů.\n",
+    "image": {
+      "src": "/taborova-hra/2011.jpg",
+      "width": 1653,
+      "height": 621,
+      "alt": "Aurion - říše fantazie logo"
+    }
+  },
+  "2010": {
+    "title": "Expedice Virunga",
+    "description": "\n\tSourozenci Honzík a Bára jsou právě na prázdninách u svého otce v Kongu. Ten pracuje pro mezinárodní organizaci IUFCON. To je Organizace na ochranu ohrožených druhů zvířat. Děti se nejvíce těší na návštěvu Národního parku Virunga. O zvířatech vědí hodně z encyklopedií, ale to se samozřejmě nedá srovnat se živými. Několik dalších dnů cestují po Národním parku a setkávají s gorilami, slony, žirafím stádem a dalšími zvířaty.\n\n\tDěti jsou tak nadšeny z africké přírody, že otec vyslyší jejich přání zakoupit a starat se o malé zvíře po dobu jejich pobytu. A tak se jednoho dne vydají na trh ve městě Goma. Procházejí tržištěm a okukují opičky, hady, papoušky a ostatní dostupnou faunu. A pak se jim zatají dech. V jedné kleci se krčí tvor se smutnýma očima, trochu připomínající lemura. Lemur to ale není. Dlouho neváhají a domluví se s domorodcem o koupi. Když zvíře přinesou domů, překvapení se přenese na otce. Nejenže potvrdí neznámý druh, ale nedokáže pochopit, kde se tu zvíře vzalo. Vyfotí ho a pošle kolegům na Karlovu univerzitu, aby se k nálezu vyjádřili. Netuší však, jakou odezvu jeho dotaz vyvolá. Informace prosákne do médií a už večer se snímky zvířete objeví na CNN. Služební mobil nepřestává zvonit a i on brzy pochopí, že medializace tvora spíše zahubí. Obrátí se tedy na spolupracovníky z mezinárodní organizace, aby se pokusili tvora zachránit tím, že ho vrátí do jeho přirozeného prostředí. A tak vznikne Expedice Virunga.\n\n\tPřipojte se k týmu, který zmapuje výskyt druhů na tomto území a pomůže nalézt to správné místo pro neznámé zvíře. Ten, komu se to podaří, má právo ho pojmenovat. Děti budou zařazeny do jednotlivých expedicí, se kterými se budou snažit dosáhnout vytčeného cíle. Do hry budou zapojeny i ostatní témata jako Opičí dráha, Proč má zebra pruhy a ne tečky?, Komu je gorila podobná?, Uvařte si žirafí guláš a další legrace.\n",
+    "image": {
+      "src": "/taborova-hra/2010.jpg",
+      "width": 140,
+      "height": 45,
+      "alt": "Expedice Virunga"
+    }
+  },
+  "2009": {
+    "title": "Odysseus",
+    "description": "\n\tCelotáborová hra Odysseus (2009) bude ovlivněna mýtickým příběhem řeckého vůdce Odyssea a jeho přátel při jejich strastiplné cestě na rodný ostrov Ithaku. Cesta ze Sparty, která by trvala jen pár dní, se protáhla na několik let a provázely ji těžkosti. Zápas s Kyklopem, kouzelný prut kouzelnice Kirké, vábení Sirén, boj se Skyllou či neustálé zápolení s mořským bohem Poseidonem. Díky bohyni Athéně byl nakonec návrat úspěšný a Odysseus se setkal jak se svou ženou Penelopou, tak i se svým synem a otcem. I děti se poplaví po \"Středozemním moři na řeckých lodích\" a budou překonávat nastražené překážky. Jejich cílem bude Odysseův vysněný ostrov, kde mohou získat odměnu od bohyně Athény.\n",
+    "image": {
+      "src": "/taborova-hra/2009.jpg",
+      "width": 140,
+      "height": 36,
+      "alt": "Odysseus"
+    }
+  },
+  "2008": {
+    "title": "Oskar Film",
+    "description": "\n\tPro rok 2008 je připravena celotáborová hra s názvem OSKAR FILM, umožní dětem vniknout do atraktivní práce filmařů. Stanou se z nich režiséři, scénaristé, kameramani či herci a jejich úkolem bude vytvořit filmová představení, která předvedou v závěrečné přehlídce. Součástí programu bude i promítání atraktivních dětských pohádek. Nejlepší z tvůrců získají zlatou sošku Oscara, kterou jim předá některá „osobnost” filmového světa.\n",
+    "image": {
+      "src": "/taborova-hra/2008.jpg",
+      "width": 140,
+      "height": 79,
+      "alt": "Oskar Film"
+    }
+  },
+  "2007": {
+    "title": "Pigeon Town",
+    "description": "\n\tV letošním roce připravujeme celotáborovou hru PIGEON TOWN, Holubí město, situovanou do konce 18. století, do období osídlování Divokého západu. Děti se ocitnou ve westernovém městečku jako kovboji, farmáři, či zlatokopové a budou v něm žít a budovat ho. Dále se všichni seznámí s širokou nabídkou táborových her, orientačními závody, hrami se zaměřením na znalost přírody, uzlování, výlety, sportem či noční bojovkou.\n",
+    "image": {
+      "src": "/taborova-hra/2007.jpg",
+      "width": 157,
+      "height": 118,
+      "alt": "Pigeon Town"
+    }
+  },
+  "2006": {
+    "title": "Vodní svět",
+    "description": "\n\tV našem táborovém rybníku se to hemží spoustou živočichů. Ryby, žáby, raci, po hladině se klouže vodoměrka, nad rybníkem se vznáší vážka, a nad tím vším krouží čáp. Nejvíce je v rybníce samozřejmě ryb. Jenže u nás se v roce 2006 objevila rybka zlatá. Byla velice chytrá, uměla vše vyřešit, poradit a byla velmi oblíbená. A ještě jednu vlastnost měla. Splnila všechna přání. A tak se děti na táboře setkaly nejen s ní, ale i s ostatními obyvateli rybníka. Vodním králem (král všeho sladkovodstva a dravých řek), královnou vodních rostlin a ranní mlhy, nadrybnýn i podrybným. Zlatá rybka dávala hejnům (oddílům) každý den úkoly. První úkol byl zhotovit prut pro porybného. V dalších dnech si děti vylovily na svou udici úkol dne. Po dohodě s porybným (vedoucím oddílu) ho plnily. Pokud se jim to podařilo, zlatá rybka jim věnovala leknín na důkaz toho, že je úkol splněn. Děti mohly získat až 10 leknínů. Pokud během tábora získaly plný počet leknínů, zlatá rybka jim splnila jejich vymyšlená přání. Pokud se ale nepodařilo úkol splnit, část vybraného přání obdržel král sladkovodstva.Potřebné vybavení: pevná obuv, vybavení do deště, batoh a spacák.\n",
+    "image": {
+      "src": "/taborova-hra/2006.jpg",
+      "width": 157,
+      "height": 43,
+      "alt": "Vodní svět"
+    }
+  },
+  "2005": {
+    "title": "Bílý mamut",
+    "description": "\n\tZačalo to vlastně úplně nevinně. Robin se přehraboval na půdě u své babičky a objevil tam staré noviny s názvem Zpravodaj. Nejprve je chtěl odložit, ale do oka mu padl výrazný titulek „Návrat ztracených dětí!“ Článek popisoval okolnosti, za kterých se děti tehdy ztratily a nebyly několik měsíců k nalezení. V novinách stálo: \"…po škole si jako každý den šly hrát na pahorek. A tam se to stalo. Týden hustě pršelo, vodou nasáklá půda pod pahorkem se zřejmě sesula a odkryla vstup do podzemí. Zvědavé děti se neubránily zvědavosti a do propadliny ještě to odpoledne společně vstoupily. Na další otázky, které by objasnily, co se s dětmi dělo dál, co viděly a zažily, proaztím vypovídají dost zmateně. Většinou vůbec nemluví, dorozumívají se v posuncích, ale přesto vypadají vcelku spokojeně. Už jen to, že se do obce vrátily po pěti měsících oblečené v kožešinách, s náhrdelníkem z kostí, vrhá na tuto záležitosti poněkud nejasné světlo. Největší radost mají samozřejmě rodiče, sourozenci a ostatní příbuzní, kteří už své blízké dávno oplakali. Vrásky na tváři jim ale stále dělá chování dětí. Když se jich jejich blízcí na něco ptají, odpovídají, že se poradí s bílým mamutem. Tohoto prehistorického chobotnatce (a přímého předka dnešních slonů) totiž děti stále kreslí. Určitě se k této neuvěřitelné příhodě v našich novinách vrátíme, neboť nás i naše čtenáře bude zajímat, co vlastně děti zažily.\" Robinovi se rozšířily oči a zběsile hledal další čísla starého Zpravodaje. Ani si nevšiml, že za ním příšla jeho spolužačka Renáta, a tak trochu si z něj začala utahovat, co že to předvádí? Když jí přečetl článek ze starých novin, se zájmem se zamyslela a začala mu s hledáním pomáhat. Ale přestože převrátili půdu vzhůru nohama, další čísla nenašli. A tak dostali nápad, zeptat se starousedlíků, jestli o této události něco vědí, zvláště když se stala v jejich kraji. Celé odpoledne pak chodili po obci a okolí, a ptali se na tu podivnou událost. Moc úspěšní nebyli, ale nedalekému kopci Čtvrťák se prý v minulosti říkalo Mamut. Že by přece jen stopa? Vydají se ke Čtvrťáku? Vezmou s sebou kamarády? Není to nebezpečné? Najdou také vstup do podzemí, kterým se dostanou do jiného časového pásma? Nebo tam děti tenkrát zabloudily a ve tmě se jim jen vytvořily určité představy? A co ten BÍLÝ MAMUT, kterého stále kreslí?\n",
+    "image": {
+      "src": "/taborova-hra/2005.jpg",
+      "width": 157,
+      "height": 171,
+      "alt": "Bílý mamut"
+    }
+  },
+  "2004": {
+    "title": "Oskar Bus Rallye",
+    "description": "\n\tTo, co dosud nikdo neuskutečnil, o to se pokusíme společně v letním rychlostním závodě Oskar Bus Rallye, který povede po trase, která svým obrysem připomíná obra. Na cestě, po níž pojedeme celý závod, se setkáme na neuvěřitelných místech s neuvěřitelnými věcmi. Některé nás překvapí, jiné rozesmějí. V každém případě jste ale něco takového dosud nezažili! Až se s námi vydáte na rallye (rychlostí závod), stanete se posádkou autobusu a zcela určitě získáte některou z důležitých funkcí na palubě jako jsou řidič, navigátor, mechanik, kameraman, fotograf, asistentka, kosmetička a další. Ale ani vedoucí nezůstanou stranou a v průběhu celé hry se s nimi budete potkávat. Jestli je poznáte? Kdo ví! A kdo by se snad bál, že nebude stačit tempu rychlostních autobusů, nemusí mít vůbec obavy. Úspěšnost posádky se sice měří časem (trestné minuty, bonusové minuty) - to znamená, že posádka musí projet v co nejkratší době stanovenou trasu, ale musí také splnit požadované úkoly! A tehdy se spěchat nemusí vyplatit?\n",
+    "image": {
+      "src": "/taborova-hra/2004.jpg",
+      "width": 157,
+      "height": 74,
+      "alt": "Oskar Bus Rallye"
+    }
+  },
+  "2003": {
+    "title": "Ptačí říše - Yaykuri",
+    "description": "\n\tV 15. století se z kmenů Huari a Čimú odtrhla skupina domorodců a odešla na východ k pramenům Amazonky. Když našli místo, které mělo dostatek pitné vody a místo ke stavbě chatrčí, usadili se tam. Překvapilo je soustředění velkého množství barevných ptáků, jako jsou rorýsi, tukani, kolibříci, či mucholovky a další nepřeberné množství jiných druhů, a proto ho nazvali Ptačí říše. Kmen sestával z několika rodů, které mají ve znaku jeden druh ptáka, kterého uctívají a zásadně ho neloví. Každý rok se připravují na slavnost bůžka slunce a snaží se ho získat. Každý z rodů už bůžka získal několikrát, ale každý rok se snaží znovu ho získat. Vědí, že to chce velkou přípravu a pak mají šanci stát se jeho vlastníkem. V tomto roce se hrála podobná hru, ve které měl jeden z rodů získat tuto trofej. Tábor se tedy rozdělil na rody (oddíly) a každý druhý den se zapojil do etapy, při níž oslovil 10 démonů. Démoni připravili úkoly a rod je musel splnit. Démoni byli rozmístěni po krajině a každý rod je musel nalézt. Pokud úkoly splnil, získal deset pírek a zaznamenal svůj výkon na magickou desku. Pokud nezískal všech 50 pírek, mohl je nahradit souběžnou soutěží o poledním klidu. Dostal-li se rod ke středu kruhu, mohl se ucházet o závěrečný boj o Bůžka slunce. Závěrečný závod byl rozdělen na dvě kategorie, ale bůžek byl jen jeden!\n",
+    "image": {
+      "src": "/taborova-hra/2003.jpg",
+      "width": 157,
+      "height": 156,
+      "alt": "Ptačí říše - Yaykuri"
+    }
+  },
+  "2002": {
+    "title": "Tyrkysové ostrovy",
+    "description": "\n\tV tomto roce jsme se rozhodli vyplout do dávno zapomenutých končin v Tichém oceáně. Námořník Mrk, který často pobýval na moři, objevil tyrkysové souostroví, na kterém se usadilo podivuhodné obyvatelstvo. Děly se tam neuvěřitelné věci. Naším úkolem bylo navštívit tamní lid a zmapovat jednotlivé ostrovy, naučit se jejich obyčeje, přiblížit se jejich stylu života a zanechat na nich nesmazatelnou stopu naší současné civilizace. Na každém ostrově jsme mohli strávit pouze jeden den a na některé jsme se vypravili i společně. Cestu si všichni námořníci zakreslovali do \"námořnické knížky\", kde byly ostrovy zakresleny.\n",
+    "image": {
+      "src": "/taborova-hra/2002.jpg",
+      "width": 157,
+      "height": 139,
+      "alt": "Tyrkysové ostrovy"
+    }
+  },
+  "2001": {
+    "title": "Tajemství perucké kroniky",
+    "description": "\n\tS celotáborovou hrou jsme se tento rok vrátili o několik století do minulosti. Inspirací nám bylo přímo táborové město Peruc a jeho okolí, které bylo vždy opředeno řadou tajemných pověstí. V dobách, kdy u studánky prala prádlo Božena a švarný Oldřich si ji odvezl na své panství, ale také v dalších staletích zažívali obyvatelé Peruce četná dobrodružství, o nichž existují nejen písemné prameny dodnes. Keltské hradiště v blízkosti tábora či temné katakomby pod peruským kostelem jsou toho důkazem. Jednotlivé oddíly odkrývaly postupně tato tajemství, učily se žít v době, kdy ještě nebyla elektřina a potraviny se neprodávaly v obchodech. Účastníci tábora v tomto roce zažily neuvěřitelné okamžiky plné napětí, radosti i poučení!\n",
+    "image": {
+      "src": "/taborova-hra/2001.jpg",
+      "width": 157,
+      "height": 122,
+      "alt": "Tajemství perucké kroniky"
+    }
+  },
+  "2000": {
+    "title": "Putování vesmírem",
+    "description": "\n\tTentokrát jsme se společně s příchodem magického roku 2000 vypravili za vesmírným dobrodružstvím! Stavěli jsme rakety a jiná vesmírná plavidla, bojovali jsme s vesmírnými piráty, luštili poselství a poznávali mimozemské civilizace, ale hlavně jsme se snažili dostat se na planetu OSKAR! A přestože nám tento rok počasí příliš nepřálo a sluníčko dovolilo až dětem na třetím turnusu pořádně vyzkoušet vodu v táborovém bazénu, nezabránilo nám to, abychom se společně skvěle bavili!\n",
+    "image": {
+      "src": "/taborova-hra/2000.jpg",
+      "width": 166,
+      "height": 107,
+      "alt": "Putování vesmírem"
+    }
+  },
+  "1999": {
+    "title": "Toulky Evropou",
+    "description": "\n\tPřibližování České republiky k Evropě a její připravovaný vstup do struktury Evropské unie byl inspirací pro táborovou hru tohoto roku. Nenásilnou a zábavnou formou se dětem představily nejzajímavější státy v Evropě. A byla to seznamování radostná, veselá ale také zajímavá a překvapivá. V jednotlivých etapách, ale i při večerních aktivitách děti poodhalovaly zvyky, obyčeje, nátury a životy lidí ze zemí, které jsou na stejném kontinentě jako Česko. Kurzy maďarštiny, bourání Berlínské zdi, hodiny jódlování nebo každodenní překračování hranic se speciálním pasem tábora Oskar přinesly příjemně strávený čas v horkém létě. Na Oskara se znovu přijeli podívat pracovníci Českého rozhlasu a z atmosféry tábora natočili zajímavé reportáže!\n",
+    "image": {
+      "src": "/taborova-hra/1999.jpg",
+      "width": 142,
+      "height": 150,
+      "alt": "Toulky Evropou"
+    }
+  },
+  "1998": {
+    "title": "Královna Kleopetra",
+    "description": "\n\tNedejte se zmást špatným písmenem ve jménu královny, jedná se totiž o současnou průvodkyni v Egyptském muzeu. Je sice přímým potomkem legendární Kleopatry, ale má dnešní moderní názory. Táboroví přátele Oskara si dali za cíl seznámit děti s půvabnou a z části tajuplnou egyptskou kulturou a naučit celý tábor komunikovat přes tajné hieroglyfy. A to věru nebyl snadný úkol! A protože Egypt ? to není jen pouhá poušť, pohybovali se děti na táboře v různých prostředích a situacích, které často velmi věrně simulovali prostředí na africkém kontinentě. Poklad královny Kleopatry byl však jen jeden jedinečný a přestože nebylo snadné najít k němu cestu, vítězům se to podařilo. Na táboře natáčel Český rozhlas.\n",
+    "image": {
+      "src": "/taborova-hra/1998.jpg",
+      "width": 197,
+      "height": 188,
+      "alt": "Královna Kleopetra"
+    }
+  },
+  "1997": {
+    "title": "Šaškova rolnička",
+    "description": "\n\tHra se odehrávala ve vymyšlené pohádce, kde se děti mohly setkat jak s králem a princeznou, tak s šaškem a ostatními postavami z pohádek. Oddíloví vedoucí byli namaskováni podle jednotlivých pohádkových bytostí. Na úplný závěr čekal soutěžní skupiny nelehký úkol: v přilehlém potoce byly schovány poklady s šaškovskou rolničkou pro každého. Domů se tak děti vydávaly za veselého zvonění, které některým vydrželo až do Prahy.\n",
+    "image": {
+      "src": "/taborova-hra/1997.jpg",
+      "width": 142,
+      "height": 200,
+      "alt": "Šaškova rolnička"
+    }
+  },
+  "1996": {
+    "title": "Indián Vitula",
+    "description": "\n\tHistoricky první celotáborová hra tábora Oskar se inspirovala okouzlujícím životem indiánů. Cílem hry bylo seznámení s jejich životem a vztahem člověka a přírody vůbec. Hojně jsme využili okolní lesy, které jako by pro naši hru v Peruci právě vyrostly. Nezapomněli jsme samozřejmě ani na areál tábora s hřištěm s umělým povrchem a přírodní bazén. První hra byla pro Oskara natolik úspěšná, že podle ní dokonce i do dnešních dnů zůstávají pojmenována některá místa. Tak například indián Mohariša seděl na dnes legendárním rozcestí, které po něm získalo jméno. Typický byl pro tuto hru pozdrav: haw cola pila! Odpověď: haw cola!\n",
+    "image": {
+      "src": "/taborova-hra/1996.jpg",
+      "width": 102,
+      "height": 152,
+      "alt": "Indián Vitula"
     }
   }
 }
