@@ -8,7 +8,7 @@ from lib.utils import download, hq_image, open_json, save_json, image_dim
 
 
 PATH = Path(__file__) / "../../public/taborova-hra"
-CONFIG = Path(__file__) / "../../src/app/taborova-hra/page.config.json"
+CONFIG = Path(__file__) / "../../src/app/taborova-hra/[year]/page.config.json"
 URL = "https://www.tabor-oskar.cz"
 
 
@@ -19,7 +19,7 @@ def page_walk(url=URL):
     for link in tqdm(links):
         year, title = link.text.split(" - ", 1)
         response = requests.get(url + link["href"])
-        yield year, title, BeautifulSoup(response.content, "html.parser")
+        yield year, title.strip(), BeautifulSoup(response.content, "html.parser")
 
 
 def harvest(url, config, path):

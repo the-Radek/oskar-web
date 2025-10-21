@@ -1,0 +1,36 @@
+import Image from 'next/image';
+import styles from './page.module.css';
+import config from './page.config.json';
+import Typography from '@mui/material/Typography';
+import { notFound } from 'next/navigation';
+
+type Year = keyof typeof config;
+
+function assertValidYear(year: string): asserts year is Year {
+  if (!(year in config)) notFound();
+}
+
+export async function generateStaticParams() {
+  return Object.keys(config).map((year) => ({ year }));
+}
+
+export default async function ThemedYearGame({ params }: PageProps<'/taborova-hra/[year]'>) {
+  const { year } = await params;
+  assertValidYear(year);
+
+  const themedGame = config[year as keyof typeof config];
+  const { alt, ...imgProps } = themedGame.image;
+
+  return (
+    <section className={styles.game}>
+      <Image
+        alt={alt}
+        {...imgProps}
+        sizes="(max-width: 600px) 33vw, (max-width: 900px) 200px, 300px"
+        className={styles.img}
+      />
+      <Typography variant="h2">{themedGame.title}</Typography>
+      <Typography align="justify">{themedGame.description}</Typography>
+    </section>
+  );
+}

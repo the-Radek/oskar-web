@@ -1,0 +1,3 @@
+.paper {
+  padding: calc(4 * var(--mui-spacing, 8px));
+}
