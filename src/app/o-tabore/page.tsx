@@ -2,13 +2,11 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import routes from '../routes';
 import styles from './page.module.css';
 import * as assets from './page.assets';
+import metadataJson from './metadata.json';
 
-export const metadata: Metadata = {
-  title: routes['/o-tabore'].label,
-};
+export const metadata: Metadata = metadataJson;
 
 export default function About() {
   return (

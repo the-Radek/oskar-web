@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import routes from '../routes';
 import Typography from '@mui/material/Typography';
 import DefinitionList from '@/components/layout/DefinitionList';
 import DefinitionListItem from '@/components/layout/DefinitionListItem';
@@ -10,10 +9,9 @@ import MapyCz from '@/components/geo/MapyCz';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image';
 import appConfig from '../app.config.json';
+import metadataJson from './metadata.json';
 
-export const metadata: Metadata = {
-  title: routes['/kontakty'].label,
-};
+export const metadata: Metadata = metadataJson;
 
 export default function Contacts() {
   return (

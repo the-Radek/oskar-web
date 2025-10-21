@@ -1,12 +1,10 @@
 import { Metadata } from 'next';
 import Paper from '@mui/material/Paper';
-import routes from '../routes';
 import styles from './layout.module.css';
 import Typography from '@mui/material/Typography';
+import metadataJson from './metadata.json';
 
-export const metadata: Metadata = {
-  title: routes['/taborova-hra'].label,
-};
+export const metadata: Metadata = metadataJson;
 
 export default function ThemedGameLayout({ children }: LayoutProps<'/taborova-hra'>) {
   return (

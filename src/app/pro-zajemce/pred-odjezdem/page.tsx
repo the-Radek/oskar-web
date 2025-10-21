@@ -5,12 +5,11 @@ import Link from '@mui/material/Link';
 import appConfig from '../../app.config.json';
 import styles from './page.module.css';
 import config from './page.config.json';
+import metadataJson from './metadata.json';
 
-export const metadata: Metadata = {
-  title: 'Před odjezdem',
-};
+export const metadata: Metadata = metadataJson;
 
-export default function ThemedGame() {
+export default function BeforeDeparture() {
   return (
     <main>
       <section>

@@ -4,7 +4,8 @@
 }
 
 .tab {
-  padding: calc(5 * var(--mui-spacing, 8px)) var(--mui-spacing, 8px);
+  padding: 0 var(--mui-spacing, 8px);
+  min-height: calc(3em + 5 * var(--mui-spacing, 8px));
   text-transform: none;
   font-size: 1.1em;
   opacity: 1;

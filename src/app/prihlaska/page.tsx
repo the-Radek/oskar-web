@@ -1,12 +1,8 @@
 import { Metadata } from 'next';
-import { redirect } from 'next/navigation';
+import metadataJson from './metadata.json';
 
-export const metadata: Metadata = {
-  title: 'Přihláška',
-};
+export const metadata: Metadata = metadataJson;
 
-export default function ThemedGame() {
-  redirect(
-    'https://docs.google.com/forms/d/e/1FAIpQLSfEIT4bl2GNx_M8fPmkToFuHEzBQ3a5OyF55v42VP4Y5cJvIA/viewform'
-  );
+export default function Application() {
+  return <div>prihlaska works!</div>;
 }

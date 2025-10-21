@@ -5,25 +5,23 @@ import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
-import DownloadIcon from '@mui/icons-material/Download';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import DownloadIcon from '@mui/icons-material/Download';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MapyCz from '@/components/geo/MapyCz';
 import RouterLink from '@/components/navigation/RouterLink';
-import routes from '../routes';
 import styles from './page.module.css';
 import * as assets from './page.assets';
 import appConfig from '../app.config.json';
+import metadataJson from './metadata.json';
 
-export const metadata: Metadata = {
-  title: routes['/pro-zajemce'].label,
-};
+export const metadata: Metadata = metadataJson;
 
-export default function Turns() {
+export default function ForApplicants() {
   return (
     <main className={styles.root}>
       <div className={styles.cards}>
