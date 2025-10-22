@@ -6,12 +6,24 @@ import appConfig from '../../app.config.json';
 import styles from './page.module.css';
 import config from './page.config.json';
 import metadataJson from './metadata.json';
+import RouterLink from '@/components/navigation/RouterLink';
+import Button from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const metadata: Metadata = metadataJson;
 
 export default function BeforeDeparture() {
   return (
     <main>
+      <Button
+        component={RouterLink}
+        href="/pro-zajemce"
+        variant="outlined"
+        startIcon={<ArrowBackIcon />}
+        className={styles['go-back']}
+      >
+        Zpět
+      </Button>
       <section>
         <Typography variant="h2">Orientační seznam věcí potřebných na táboře</Typography>
         <ul className={styles.checklist}>

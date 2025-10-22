@@ -29,6 +29,7 @@ export default function MenuPagination(props: MenuPaginationProps) {
     <>
       <ButtonGroup component="nav" {...rest}>
         <Button
+          aria-label="previous"
           component={RouterLink}
           href={pages[current - 1]?.href ?? ''}
           disabled={current === 0}
@@ -45,6 +46,7 @@ export default function MenuPagination(props: MenuPaginationProps) {
           {label ?? pages[current].label}
         </Button>
         <Button
+          aria-label="next"
           component={RouterLink}
           href={pages[current + 1]?.href ?? ''}
           disabled={current === pages.length - 1}

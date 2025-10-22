@@ -1,3 +1,15 @@
+.go-back {
+  float: right;
+  margin-left: calc(2 * var(--mui-spacing, 8px));
+
+  @media (max-width: 600px) {
+    display: flex;
+    width: max-content;
+    float: none;
+    margin-left: auto;
+  }
+}
+
 .checklist {
   display: column;
   columns: 2;
