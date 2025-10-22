@@ -8,7 +8,7 @@ export const metadata: Metadata = metadataJson;
 
 export default function ThemedGameLayout({ children }: LayoutProps<'/taborova-hra'>) {
   return (
-    <main>
+    <main className={styles.root}>
       {children}
       <Paper className={styles.paper}>
         <Typography align="justify">

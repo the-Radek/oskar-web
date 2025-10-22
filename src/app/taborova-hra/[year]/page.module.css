@@ -1,6 +1,10 @@
+.pagination {
+  margin-right: calc(6 * var(--mui-spacing, 8px));
+  margin-left: auto;
+}
+
 .game {
   padding: 0 calc(6 * var(--mui-spacing, 8px));
-  margin-bottom: calc(4 * var(--mui-spacing, 8px));
   overflow: hidden;
 }
 
@@ -22,15 +26,17 @@
 }
 
 @media (max-width: 600px) {
+  .pagination {
+    margin: 0 auto;
+  }
+
   .game {
-    display: flex;
-    flex-direction: column;
     padding: 0;
   }
 
   .img {
     float: none;
     width: 33vw;
-    align-self: center;
+    margin: 0 auto;
   }
 }

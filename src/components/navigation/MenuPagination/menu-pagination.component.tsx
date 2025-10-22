@@ -1,6 +1,5 @@
 'use client';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Menu from '@mui/material/Menu';
@@ -8,9 +7,10 @@ import Button from '@mui/material/Button';
 import { MenuPaginationProps } from './menu-pagination.types';
 import { useId, useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
+import RouterLink from '../RouterLink';
 
 export default function MenuPagination(props: MenuPaginationProps) {
-  const { pages, current, label } = props;
+  const { pages, current, label, ...rest } = props;
 
   const id = useId();
   const buttonId = `button-${id}`;
@@ -27,10 +27,14 @@ export default function MenuPagination(props: MenuPaginationProps) {
 
   return (
     <>
-      <ButtonGroup variant="text">
-        <IconButton>
+      <ButtonGroup component="nav" {...rest}>
+        <Button
+          component={RouterLink}
+          href={pages[current - 1]?.href ?? ''}
+          disabled={current === 0}
+        >
           <ArrowBackIcon />
-        </IconButton>
+        </Button>
         <Button
           id={buttonId}
           aria-controls={open ? menuId : undefined}
@@ -40,9 +44,13 @@ export default function MenuPagination(props: MenuPaginationProps) {
         >
           {label ?? pages[current].label}
         </Button>
-        <IconButton>
+        <Button
+          component={RouterLink}
+          href={pages[current + 1]?.href ?? ''}
+          disabled={current === pages.length - 1}
+        >
           <ArrowForwardIcon />
-        </IconButton>
+        </Button>
       </ButtonGroup>
       <Menu
         id={menuId}
@@ -56,7 +64,12 @@ export default function MenuPagination(props: MenuPaginationProps) {
         }}
       >
         {pages.map((page, index) => (
-          <MenuItem key={index} selected={index === current} onClick={handleClose}>
+          <MenuItem
+            key={index}
+            component={RouterLink}
+            href={page.href}
+            selected={index === current}
+          >
             {page.label}
           </MenuItem>
         ))}
