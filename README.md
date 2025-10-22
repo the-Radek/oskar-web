@@ -46,4 +46,6 @@ npm run dev
 ## Wiki
 
 - [Environment](wiki/environment.md)
+- [Dependecies](wiki/dependecies.md)
 - [Guides](wiki/guides.md)
+- [Harvester](wiki/harvester.md)
