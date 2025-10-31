@@ -1,4 +1,14 @@
 import Typography from '@mui/material/Typography';
+import Markdown from '@/components/layout/Markdown';
+
+const markdown = `
+# Sample Markdown
+
+This is a paragraph in the sample markdown.
+
+[Click me](galerie)
+![Image](logo/casopis.png)
+`;
 
 export default async function Home() {
   return (
@@ -25,6 +35,7 @@ export default async function Home() {
         This is a sample paragraph to demonstrate the body text styling. It should be easy to read
         and visually appealing.
       </p>
+      <Markdown>{markdown}</Markdown>
     </main>
   );
 }
