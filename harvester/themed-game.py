@@ -12,6 +12,10 @@ CONFIG = Path(__file__) / "../../src/app/taborova-hra/[year]/page.config.json"
 URL = "https://www.tabor-oskar.cz"
 
 
+def sanitize_text(text: str) -> str:
+    return text.strip().replace("\r\n", "\n").replace("\n\t", "\n").replace("\n", "\n\n")
+
+
 def page_walk(url=URL):
     response = requests.get(f"{url}/taborove-hry")
     list_page = BeautifulSoup(response.content, "html.parser")
@@ -35,7 +39,7 @@ def harvest(url, config, path):
         metadata |= {
             year: {
                 "title": title,
-                "description": txt.text,
+                "description": sanitize_text(txt.text),
                 "image": {
                     "src": f"/taborova-hra/{year}.jpg",
                     "width": width,

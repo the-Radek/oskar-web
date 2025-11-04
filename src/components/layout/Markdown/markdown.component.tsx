@@ -26,7 +26,11 @@ export default function Markdown({ children, headingLevel = 1, ...rest }: Markdo
         h4: ({ children }) => heading(4, headingLevel, children),
         h5: ({ children }) => heading(5, headingLevel, children),
         h6: ({ children }) => heading(6, headingLevel, children),
-        p: ({ children }) => <Typography align="justify">{children}</Typography>,
+        p: ({ children }) => (
+          <Typography align="justify" sx={{ marginBottom: '0.5em' }}>
+            {children}
+          </Typography>
+        ),
         a: ({ children, href }) => {
           if (href === undefined) {
             return <Typography component="span">{children}</Typography>;
