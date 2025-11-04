@@ -1,3 +1,5 @@
 import { Options } from 'react-markdown';
 
-export type MarkdownProps = Options;
+export interface MarkdownProps extends Options {
+  headingLevel?: number;
+}

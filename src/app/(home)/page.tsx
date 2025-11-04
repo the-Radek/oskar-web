@@ -5,8 +5,11 @@ const markdown = `
 # Sample Markdown
 
 This is a paragraph in the sample markdown.
+- foo
+- bar
 
 [Click me](galerie)
+[Click me](mailto:example@example.com)
 ![Image](logo/casopis.png)
 `;
 
@@ -35,7 +38,7 @@ export default async function Home() {
         This is a sample paragraph to demonstrate the body text styling. It should be easy to read
         and visually appealing.
       </p>
-      <Markdown>{markdown}</Markdown>
+      <Markdown headingLevel={2}>{markdown}</Markdown>
     </main>
   );
 }
