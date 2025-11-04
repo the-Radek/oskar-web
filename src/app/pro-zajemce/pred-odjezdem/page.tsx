@@ -9,6 +9,7 @@ import metadataJson from './metadata.json';
 import RouterLink from '@/components/navigation/RouterLink';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import List from '@/components/layout/List';
 
 export const metadata: Metadata = metadataJson;
 
@@ -26,11 +27,11 @@ export default function BeforeDeparture() {
       </Button>
       <section>
         <Typography variant="h2">Orientační seznam věcí potřebných na táboře</Typography>
-        <ul className={styles.checklist}>
+        <List className={styles.checklist}>
           {config.checklist.map((item, index) => {
             return <li key={index}>{item}</li>;
           })}
-        </ul>
+        </List>
         <Typography>
           Doporučené kapesné 500 Kč. (Pro uhrazení případných nákladů s celodenním výletem – lístek
           na vlak/vstupné či drobný nákup.)

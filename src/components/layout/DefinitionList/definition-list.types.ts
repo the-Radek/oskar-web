@@ -1,3 +1,1 @@
-import { ReactNode } from 'react';
-
-export type DefinitionListProps = Readonly<{ children: ReactNode }>;
+export type DefinitionListProps = React.ComponentPropsWithoutRef<'dl'>;
