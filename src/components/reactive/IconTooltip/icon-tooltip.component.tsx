@@ -3,8 +3,8 @@ import type { IconTooltipProps } from './icon-tooltip.types';
 import { cloneElement } from 'react';
 import styles from './icon-tooltip.module.css';
 
-export default function Phone(props: IconTooltipProps) {
-  const { icon, tooltip = 'before', children, ...rest } = props;
+export default function IconTooltip(props: IconTooltipProps) {
+  const { children, icon, tooltip = 'after', ...rest } = props;
   const position = tooltip === 'before' ? 'left' : 'right';
 
   return (

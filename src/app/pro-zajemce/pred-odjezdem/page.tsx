@@ -1,7 +1,6 @@
 import MapyCz from '@/components/geo/MapyCz';
 import Typography from '@mui/material/Typography';
 import { Metadata } from 'next';
-import Link from '@mui/material/Link';
 import appConfig from '../../app.config.json';
 import styles from './page.module.css';
 import config from './page.config.json';
@@ -10,6 +9,7 @@ import RouterLink from '@/components/navigation/RouterLink';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import List from '@/components/layout/List';
+import OpenNew from '@/components/navigation/OpenNew';
 
 export const metadata: Metadata = metadataJson;
 
@@ -45,9 +45,9 @@ export default function BeforeDeparture() {
         <Typography variant="h2">Odjezd na tábor</Typography>
         <Typography>
           Odjíždět budeme <strong>dne 7. 7.</strong>{' '}
-          <Link href={appConfig.maps.departure} target="_blank" rel="noopener noreferrer">
+          <OpenNew href={appConfig.maps.departure}>
             z točny autobusů v ulici Oistrachova (Praha 13)
-          </Link>{' '}
+          </OpenNew>{' '}
           nedaleko zastávky metra Luka (linka B) <strong>ve 12:30h</strong>.
         </Typography>
         <Typography>Prosíme o příchod nejpozději 45 minut předem (tzn. 11:45).</Typography>

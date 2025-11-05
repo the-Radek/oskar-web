@@ -3,8 +3,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import type { EmailProps } from './email.types';
 import IconTooltip from '@/components/reactive/IconTooltip';
 
-export default function Email(props: EmailProps) {
-  const { children, tooltip = 'before' } = props;
+export default function Email({ children, tooltip = 'before' }: EmailProps) {
   const href = 'mailto:' + children;
 
   return (

@@ -8,8 +8,9 @@ This is a paragraph in the sample markdown.
 - foo
 - bar
 
-[Click me](galerie)
-[Click me](mailto:example@example.com)
+[Click me](https://www.example.com)
+[example@example.com](mailto:example@example.com)
+[123 45 67 89](tel:123456789)
 ![Image](logo/casopis.png)
 `;
 

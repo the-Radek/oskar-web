@@ -2,10 +2,10 @@ import ReactMarkdown from 'react-markdown';
 import { MarkdownProps } from './markdown.types';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import Email from '@/components/data/Email';
-import Phone from '@/components/data/Phone';
 import Link from '@mui/material/Link';
 import RouterLink from '@/components/navigation/RouterLink';
 import List from '../List';
+import OpenNew from '@/components/navigation/OpenNew';
 
 function heading(level: number, shift: number, children: React.ReactNode) {
   const newLevel = level + shift - 1;
@@ -27,7 +27,7 @@ export default function Markdown({ children, headingLevel = 1, ...rest }: Markdo
         h5: ({ children }) => heading(5, headingLevel, children),
         h6: ({ children }) => heading(6, headingLevel, children),
         p: ({ children }) => (
-          <Typography align="justify" sx={{ marginBottom: '0.5em' }}>
+          <Typography align="justify" gutterBottom>
             {children}
           </Typography>
         ),
@@ -35,11 +35,13 @@ export default function Markdown({ children, headingLevel = 1, ...rest }: Markdo
           if (href === undefined) {
             return <Typography component="span">{children}</Typography>;
           } else if (href.startsWith('mailto:')) {
-            return <Email>{href.slice(7)}</Email>;
-          } else if (href.startsWith('tel:')) {
-            return <Phone>{href.slice(4)}</Phone>;
+            if (typeof children === 'string' && children === href.slice(7)) {
+              return <Email>{children}</Email>;
+            } else {
+              return <Link href={href}>{children}</Link>;
+            }
           } else if (href.startsWith('http')) {
-            return <Link href={href}>{children}</Link>;
+            return <OpenNew href={href}>{children}</OpenNew>;
           } else {
             return <RouterLink href={href}>{children}</RouterLink>;
           }
