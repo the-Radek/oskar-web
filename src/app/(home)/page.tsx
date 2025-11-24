@@ -1,18 +1,5 @@
+import GoogleButton from '@/components/input/GoogleButton';
 import Typography from '@mui/material/Typography';
-import Markdown from '@/components/layout/Markdown';
-
-const markdown = `
-# Sample Markdown
-
-This is a paragraph in the sample markdown.
-- foo
-- bar
-
-[Click me](https://www.example.com)
-[example@example.com](mailto:example@example.com)
-[123 45 67 89](tel:123456789)
-![Image](logo/casopis.png)
-`;
 
 export default async function Home() {
   return (
@@ -39,7 +26,7 @@ export default async function Home() {
         This is a sample paragraph to demonstrate the body text styling. It should be easy to read
         and visually appealing.
       </p>
-      <Markdown headingLevel={2}>{markdown}</Markdown>
+      <GoogleButton />
     </main>
   );
 }
