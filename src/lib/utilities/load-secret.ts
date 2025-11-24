@@ -6,7 +6,7 @@ import * as fs from 'node:fs';
  * @throws if the environment variable is missing
  * @returns the secret
  */
-export function loadSecret(name: string) {
+export default function loadSecret(name: string) {
   const file = process.env[name];
   if (file === undefined) {
     throw new Error(`Invalid environment variable ${name}`);

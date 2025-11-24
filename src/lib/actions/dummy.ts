@@ -1,5 +1,5 @@
 'use server';
 
-export async function loadArticles() {
+export async function errorAction() {
   throw new Error('Not implemented');
 }

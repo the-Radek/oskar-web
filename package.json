@@ -16,7 +16,6 @@
     "@mui/icons-material": "^6.5.0",
     "@mui/material": "^6.5.0",
     "@mui/material-nextjs": "^7.3.0",
-    "ioredis": "^5.8.2",
     "iron-session": "^8.0.4",
     "next": "^15.5.2",
     "react": "^19.1.1",

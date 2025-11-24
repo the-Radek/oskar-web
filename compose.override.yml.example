@@ -4,10 +4,6 @@
 # use `volumes` to specify local data directory
 
 services:
-  redis:
-    ports:
-      - 127.0.0.1:6379:6379
-
   db:
     ports:
       - 127.0.0.1:5432:5432
