@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import styles from './google-button.module.css';
 import { GoogleButtonProps } from './google-button.types';
-import API_PATH from '@/app/api/api-path';
 
 export default function GoogleButton({ redirectUri, className, ...rest }: GoogleButtonProps) {
   const uri = encodeURIComponent(redirectUri || '/');
   const params = uri && uri !== '%2F' ? `?redirect_uri=${uri}` : '';
-  const href = `${API_PATH}auth/connect/google${params}`;
+  const href = `/api/v1/auth/connect/google${params}`;
 
   return (
     <a href={href} className={clsx(styles['gsi-material-button'], className)} {...rest}>
