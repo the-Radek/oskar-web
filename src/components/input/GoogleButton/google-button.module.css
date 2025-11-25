@@ -1,4 +1,6 @@
 .gsi-material-button {
+  display: inline-block;
+  text-decoration: none;
   user-select: none;
   appearance: none;
   background-color: WHITE;

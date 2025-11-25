@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
           'https://docs.google.com/forms/d/e/1FAIpQLSfEIT4bl2GNx_M8fPmkToFuHEzBQ3a5OyF55v42VP4Y5cJvIA/viewform',
         permanent: false,
       },
+      {
+        source: '/soukromi',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/podminky',
+        destination: '/',
+        permanent: false,
+      },
     ];
   },
   output: 'standalone',
