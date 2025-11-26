@@ -19,37 +19,70 @@ enum Role {
   MODERATOR
 }
 
+// Auth.js models
+// Learn more: https://next-auth.js.org/adapters/prisma
 model User {
-  id        Int            @id @default(autoincrement())
-  email     String         @unique
-  role      Role           @default(USER)
-  name      String?
-  photo     String?
-  openId    OpenIdConnect?
-  posts     Post[]
-  images    Image[]
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  posts         Post[]
+  images        Image[]
 }
 
-model OpenIdConnect {
-  id        Int      @id
-  user      User     @relation(fields: [id], references: [id])
-  strategy  String
-  username  String
-  provider  String
-  subject   String
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+// Application models
 model Post {
   id        Int       @id @default(autoincrement())
   title     String
   content   String
   published Boolean   @default(false)
-  authorId  Int
+  authorId  String
   author    User      @relation(fields: [authorId], references: [id])
+  images    Image[]
   deletedAt DateTime?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -62,8 +95,9 @@ model Image {
   width     Int
   height    Int
   published Boolean   @default(false)
-  authorId  Int
+  authorId  String
   author    User      @relation(fields: [authorId], references: [id])
+  posts     Post[]
   deletedAt DateTime?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
