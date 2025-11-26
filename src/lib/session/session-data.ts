@@ -3,6 +3,6 @@ export interface User {
   email: string;
 }
 
-export default interface SessionData {
+export interface SessionData {
   user?: User;
 }

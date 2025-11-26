@@ -1,6 +1,6 @@
 import { defineConfig } from 'prisma/config';
 import dotenv from 'dotenv';
-import postgresUrl from './src/lib/utilities/postgres-url';
+import { postgresUrl } from './src/lib/utilities/postgres-url';
 
 dotenv.config({ path: '.env' }); // hotfix for prisma.config.ts not loading .env automatically
 

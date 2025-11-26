@@ -1,8 +1,8 @@
 'use server';
 import { cookies } from 'next/headers';
 import { getIronSession, IronSession, SessionOptions } from 'iron-session';
-import loadSecret from '../utilities/load-secret';
-import SessionData from './session-data';
+import { loadSecret } from '../utilities/load-secret';
+import { SessionData } from './session-data';
 
 export const sessionOptions: SessionOptions = {
   password: loadSecret('SESSION_PASSWORD_FILE'),
