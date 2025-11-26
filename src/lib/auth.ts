@@ -5,12 +5,32 @@ import { loadSecret } from './utilities/load-secret';
 import { prisma } from './prisma';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  session: {
+    strategy: 'jwt',
+  },
   secret: loadSecret('AUTH_SECRET_FILE'),
   adapter: PrismaAdapter(prisma),
   providers: [
     Google({
       clientId: process.env['GOOGLE_CLIENT_ID'],
       clientSecret: loadSecret('GOOGLE_SECRET_FILE'),
+      authorization: {
+        params: {
+          scope: 'openid email profile',
+        },
+      },
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    session({ session, token }) {
+      session.user.id = token.id as string;
+      return session;
+    },
+  },
 });

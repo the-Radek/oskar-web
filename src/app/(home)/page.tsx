@@ -1,4 +1,4 @@
-import GoogleButton from '@/components/input/GoogleButton';
+import GoogleButton from '@/components/auth/GoogleButton';
 import Typography from '@mui/material/Typography';
 
 export default async function Home() {

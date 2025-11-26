@@ -1,14 +1,20 @@
 import clsx from 'clsx';
 import styles from './google-button.module.css';
 import { GoogleButtonProps } from './google-button.types';
+import { signIn } from '@/lib/auth';
 
-export default function GoogleButton({ redirectUri, className, ...rest }: GoogleButtonProps) {
-  const uri = encodeURIComponent(redirectUri || '/');
-  const params = uri && uri !== '%2F' ? `?redirect_uri=${uri}` : '';
-  const href = `/api/v1/auth/connect/google${params}`;
+export default function GoogleButton({ redirectTo = '/', className, ...rest }: GoogleButtonProps) {
+  async function handleClick() {
+    'use server';
+    await signIn('google', { callbackUrl: redirectTo });
+  }
 
   return (
-    <a href={href} className={clsx(styles['gsi-material-button'], className)} {...rest}>
+    <button
+      onClick={handleClick}
+      className={clsx(styles['gsi-material-button'], className)}
+      {...rest}
+    >
       <div className={styles['gsi-material-button-state']}></div>
       <div className={styles['gsi-material-button-content-wrapper']}>
         <div className={styles['gsi-material-button-icon']}>
@@ -41,6 +47,6 @@ export default function GoogleButton({ redirectUri, className, ...rest }: Google
         <span className={styles['gsi-material-button-contents']}>Pokračovat přes Google</span>
         <span style={{ display: 'none' }}>Pokračovat přes Google</span>
       </div>
-    </a>
+    </button>
   );
 }
