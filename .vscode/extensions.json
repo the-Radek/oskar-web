@@ -3,6 +3,7 @@
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig"
+    "EditorConfig.EditorConfig",
+    "prisma.prisma"
   ]
 }

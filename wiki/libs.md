@@ -13,4 +13,5 @@ Custom components are in directory `src/components/`.
 
 Custom features are in directory `src/lib/`.
 
+- [Prisma](https://www.prisma.io/docs/orm/reference)
 - [iron-session](https://github.com/vvo/iron-session)

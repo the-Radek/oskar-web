@@ -9,10 +9,8 @@ services:
       - 127.0.0.1:5432:5432
     volumes:
       - /var/lib/postgresql/data
-
   adminer:
     environment:
       ADMINER_DEFAULT_USER: oskar
-
   web:
     profiles: ["prod"]
