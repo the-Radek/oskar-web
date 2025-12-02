@@ -34,7 +34,7 @@ def harvest(url, config, path):
     for year, title, page in page_walk(url):
         txt = page.select_one("#md1")
         img = page.select_one("img.img-rounded")
-        size += download(hq_image(img["src"]), path, f"{year}.jpg")
+        size += download(hq_image(img["src"]), path, f"{year}.jpg")[0]
         width, height = image_dim(path / f"{year}.jpg")
         metadata |= {
             year: {

@@ -18,13 +18,22 @@ python -m pip install -r requirements.txt
 
 ## Reference
 
-### gallery.py
+### gallery.py (deprecated)
 
 To download all images from all articles.
 
 - **PATH** path where to save images
 - **URL** url of old Oskar website
-- **PAGES_N** number of pages with articles
+
+### posts
+
+Downloads all posts and saves them to database, additionaly downloads all images.
+
+- **PATH** path where to save images
+- **URL** url of old Oskar website
+- (in `utils/db.py`) **ADMIN_ID** user id of author of all added posts and images
+
+-
 
 ### themed-game.py
 

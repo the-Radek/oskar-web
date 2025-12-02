@@ -17,15 +17,17 @@ def sanitize_file_name(string):
     return "".join(x for x in lstrip_date(string).strip(". ") if x.isalnum() or x in " -_.()").replace(" ", "_").lower()
 
 
-def download(url, path=".", fname=None):
+def download(url, path=".", fname=None, stem=None):
     path = Path(path)
     if fname is None:
         fname = url.rsplit("/", 1)[-1].split("?", 1)[0]
+        if stem is not None:
+            fname = f"{stem}{Path(fname).suffix}"
     response = requests.get(url, stream=True)
     with open(path / fname, "wb") as fd:
         response.raw.decode_content = True
         shutil.copyfileobj(response.raw, fd)
-    return os.path.getsize(path / fname)
+    return os.path.getsize(path / fname), path / fname
 
 
 def image_dim(fname):
@@ -41,3 +43,11 @@ def open_json(path):
 def save_json(path, data):
     with open(path, "w", encoding="utf-8") as fd:
         json.dump(data, fd, ensure_ascii=False, indent=2)
+
+
+def next_file_index(path):
+    largest = 0
+    for p in Path(path).iterdir():
+        if p.is_file() and p.stem.isdecimal() and int(p.stem) > largest:
+            largest = int(p.stem)
+    return largest + 1

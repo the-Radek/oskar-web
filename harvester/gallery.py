@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import date
 
 import requests
-from tqdm import tqdm, trange
+from tqdm import tqdm
 from bs4 import BeautifulSoup
 
 from lib.utils import download, sanitize_file_name
@@ -11,11 +11,14 @@ from lib.utils import download, sanitize_file_name
 
 PATH = Path(__file__) / "../../public/galerie"
 URL = "https://www.tabor-oskar.cz"
-PAGES_N = 75
 
 
 def page_walk(url=URL):
-    for i in trange(PAGES_N, desc="Pages"):
+    response = requests.get(f"{url}?page={i}")
+    title_page = BeautifulSoup(response.content, "html.parser")
+    last_page_url = title_page.select(".pager-last > a:nth-child(1)")["href"]
+    last_page_num = int(re.search(r".*page=(\d+)", last_page_url).group(1))
+    for i in tqdm(range(last_page_num, -1, -1), desc="Pages"):
         response = requests.get(f"{url}?page={i}")
         yield BeautifulSoup(response.content, "html.parser")
 
@@ -45,7 +48,7 @@ def harvest(url, path, threshold=1_000_000_000):
             images = subpage.select_one(".node").select("img")
             for image in tqdm(images, desc=f"Images for {title}", leave=False):
                 hq_src = image["src"].replace("/styles/large/public/", "/").replace("/styles/medium/public/", "/")
-                size += download(hq_src, folder)
+                size += download(hq_src, folder)[0]
             i += 1
             if threshold and size > threshold:
                 break
