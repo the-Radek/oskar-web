@@ -1,6 +1,4 @@
 import { prisma } from '../prisma';
-import { auth } from '../auth';
-import { Role } from '@/prisma/enums';
 import z from 'zod';
 import { PostSchema } from '../validators/post';
 import { ImageSchema } from '../validators/image';
@@ -12,25 +10,15 @@ const CreatePostInputSchema = z.object({
 
 export type CreatePostInput = z.infer<typeof CreatePostInputSchema>;
 
-export async function createPost(input: CreatePostInput) {
-  const session = await auth();
-  if (!session?.user?.id /*|| session?.user?.role !== Role.ADMIN */) {
-    // console.log(session?.user?.id, session?.user?.role);
-    throw new Error('Unauthorized');
-  }
-
-  const result = CreatePostInputSchema.safeParse(input);
-  if (!result.success) {
-    console.error(result.error);
-    throw new Error('Invalid input data');
-  }
+export async function createPost(userId: string, input: CreatePostInput) {
+  const result = CreatePostInputSchema.parse(input);
 
   await prisma.post.create({
     data: {
-      ...result.data.post,
-      authorId: session.user.id,
+      ...result.post,
+      authorId: userId,
       images: {
-        create: result.data.images.map((image) => ({ ...image, authorId: session.user!.id! })),
+        create: result.images.map((image) => ({ ...image, authorId: userId })),
       },
     },
   });
