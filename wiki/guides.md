@@ -7,3 +7,4 @@
 - [Next.js](https://nextjs.org/learn)
 - [Prisma](https://www.prisma.io/docs/guides)
 - [Auth.js](https://authjs.dev/guides/debugging)
+- [Zod](https://zod.dev/)
