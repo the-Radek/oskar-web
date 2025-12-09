@@ -1,8 +1,12 @@
 import os
 from pathlib import Path
 import psycopg
+import dotenv
 
 ADMIN_ID = "cmintk4al0000loo1v5xlgkib"
+
+
+dotenv.load_dotenv("../.env")
 
 
 def db_connect():

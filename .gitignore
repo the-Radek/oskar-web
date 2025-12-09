@@ -46,3 +46,6 @@ compose.override*.yml
 
 # prisma
 /prisma/generated/
+
+# Oskar Web
+/public/galerie/
