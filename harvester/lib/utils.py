@@ -55,3 +55,7 @@ def next_file_index(path):
         if p.is_file() and p.stem.isdecimal() and int(p.stem) > largest:
             largest = int(p.stem)
     return largest + 1
+
+
+def capitalize_title(title: str):
+    return " ".join(word.capitalize() if word.isupper() else word for word in title.split(" "))

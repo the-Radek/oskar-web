@@ -27,13 +27,10 @@ To download all images from all articles.
 
 ### posts
 
-Downloads all posts and saves them to database, additionaly downloads all images.
+Downloads all posts and saves them to database, additionaly downloads all images. Script will as for cookie, please provide authenticated cookie from browser.
 
 - **PATH** path where to save images
 - **URL** url of old Oskar website
-- (in `utils/db.py`) **ADMIN_ID** user id of author of all added posts and images
-
--
 
 ### themed-game.py
 
