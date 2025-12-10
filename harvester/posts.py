@@ -12,11 +12,12 @@ PATH_PUBLIC = Path(__file__) / "../../public"
 PATH = PATH_PUBLIC / "galerie"
 URL = "https://www.tabor-oskar.cz"
 
+SKIP = False
 SKIP_DT = "2013-07-26"
 SKIP_TITLE = "Červí Díra"
 
 
-def harvest(url, path, threshold=None, skip=False):
+def harvest(url, path, threshold=None, skip=SKIP):
     api_init()
     size = 0
     prev_dt = None
@@ -73,4 +74,4 @@ def harvest(url, path, threshold=None, skip=False):
 
 
 if __name__ == "__main__":
-    harvest(url=URL, path=PATH, skip=True)
+    harvest(url=URL, path=PATH)

@@ -31,6 +31,9 @@ Downloads all posts and saves them to database, additionaly downloads all images
 
 - **PATH** path where to save images
 - **URL** url of old Oskar website
+- **SKIP** whether to skip
+- **SKIP_DT** date of the last skipped post
+- **SKIP_TITLE** title of the last skipped post
 
 ### themed-game.py
 
