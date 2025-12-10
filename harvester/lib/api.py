@@ -5,6 +5,12 @@ URL = "http://localhost:3000/api/post/new"
 cookie = None
 
 
+def api_init():
+    global cookie
+    if cookie is None:
+        cookie = input("Enter session cookie: ").strip()
+
+
 def add_post(post, images):
     global cookie
     if cookie is None:

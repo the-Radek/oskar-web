@@ -3,7 +3,7 @@ from pathlib import Path
 from tqdm import tqdm
 from markdownify import markdownify
 
-from lib.api import add_post
+from lib.api import add_post, api_init
 from lib.utils import download, image_dim, next_file_index
 from gallery import page_walk, news_walk
 
@@ -12,8 +12,12 @@ PATH_PUBLIC = Path(__file__) / "../../public"
 PATH = PATH_PUBLIC / "galerie"
 URL = "https://www.tabor-oskar.cz"
 
+SKIP_DT = "2013-07-26"
+SKIP_TITLE = "Červí Díra"
 
-def harvest(url, path, threshold=1_000_000_000):
+
+def harvest(url, path, threshold=None, skip=False):
+    api_init()
     size = 0
     prev_dt = None
     for page in page_walk(url):
@@ -22,9 +26,13 @@ def harvest(url, path, threshold=1_000_000_000):
                 dt = prev_dt
             else:
                 if dt.startswith("-"):
-                    year = prev_dt.lsplit("-", 1)[0]
+                    year = prev_dt.split("-", 1)[0]
                     dt = f"{year}{dt}"
                 prev_dt = dt
+            if skip:
+                if dt == SKIP_DT and title == SKIP_TITLE:
+                    skip = False
+                continue
             folder = Path(path) / dt.replace("-", "")
             folder.mkdir(parents=True, exist_ok=True)
             file_idx = next_file_index(folder)
@@ -46,7 +54,6 @@ def harvest(url, path, threshold=1_000_000_000):
                     "alt": alt,
                     "width": width,
                     "height": height,
-                    "published": False,
                     "createdAt": dt,
                 }
                 images.append(image_data)
@@ -55,8 +62,7 @@ def harvest(url, path, threshold=1_000_000_000):
             content = markdownify(str(article), heading_style="ATX")
             post = {
                 "title": title,
-                "content": content,
-                "published": False,
+                "content": content or "Lorem ipsum",
                 "createdAt": dt,
             }
             add_post(post, images)
@@ -67,4 +73,4 @@ def harvest(url, path, threshold=1_000_000_000):
 
 
 if __name__ == "__main__":
-    harvest(url=URL, path=PATH, threshold=None)
+    harvest(url=URL, path=PATH, skip=True)

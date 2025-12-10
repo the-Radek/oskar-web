@@ -6,6 +6,5 @@ export const ImageSchema = z.object({
   alt: z.string().min(1),
   width: z.number().min(1),
   height: z.number().min(1),
-  published: z.boolean().default(true),
   createdAt: dateSchema.default(new Date()),
 });

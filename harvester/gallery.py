@@ -18,7 +18,6 @@ def page_walk(url=URL):
     title_page = BeautifulSoup(response.content, "html.parser")
     last_page_url = title_page.select_one(".pager-last > a:nth-child(1)")["href"]
     last_page_num = int(re.search(r".*page=(\d+)", last_page_url).group(1))
-    last_page_num = 55
     for i in tqdm(range(last_page_num, -1, -1), desc="Pages"):
         response = requests.get(f"{url}?page={i}")
         yield BeautifulSoup(response.content, "html.parser")
@@ -30,22 +29,22 @@ def news_walk(page, root=URL):
         link = news.select_one("div:nth-child(1) > span:nth-child(1) > span:nth-child(1) > a:nth-child(1)")
         title = capitalize_title(link.text.strip())
         response = requests.get(root + link["href"])
-        matched = re.match(r"^\s*(\d{1,2})\s*\.\s*(\d{1,2})\s*\.\s*(\d{4})", title)
+        matched = re.match(r"^\s*(?P<day>\d{1,2})\s*\.\s*(?P<month>\d{1,2})\s*\.\s*(?P<year>\d{4})", title)
         if not matched:
-            matched = re.match(r"^\s*(\d{1,2})\s*\.\s*(\d{1,2})\s*\.", title)
+            matched = re.match(r"^\s*(?P<day>\d{1,2})\s*\.\s*(?P<month>\d{1,2})\s*\.", title)
         if not matched:
             img = news.select_one(
                 "div:nth-child(1) > span:nth-child(2) > span:nth-child(1) > a:nth-child(1) > img:nth-child(1)"
             )
-            matched = re.search(r".*/promo-foto/(\d{2})(\d{2})(\d{4})/.*", img["src"])
+            matched = re.search(r".*/promo-foto/(?P<month>\d{2})(?P<day>\d{2})(?P<year>\d{4})/.*", img["src"])
         else:
             title = title[matched.end() :].lstrip()
         dt = None
         if matched:
-            if matched.groups() == 3:
-                dt = f"{int(matched.group(3)):04d}-{int(matched.group(2)):02d}-{int(matched.group(1)):02d}"
+            if "year" in matched.re.groupindex:
+                dt = f"{int(matched.group('year')):04d}-{int(matched.group('month')):02d}-{int(matched.group('day')):02d}"
             else:
-                dt = f"-{int(matched.group(2)):02d}-{int(matched.group(1)):02d}"
+                dt = f"-{int(matched.group('month')):02d}-{int(matched.group('day')):02d}"
         yield dt, title or "Aktualita", BeautifulSoup(response.content, "html.parser")
 
 
