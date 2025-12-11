@@ -64,6 +64,8 @@ model Post {
   published Boolean   @default(false)
   authorId  String
   author    User      @relation(fields: [authorId], references: [id])
+  imageId   Int?      @unique
+  image     Image?    @relation("PostImage", fields: [imageId], references: [id])
   images    Image[]
   deletedAt DateTime?
   createdAt DateTime  @default(now())
@@ -79,8 +81,10 @@ model Image {
   published Boolean   @default(false)
   authorId  String
   author    User      @relation(fields: [authorId], references: [id])
+  post      Post?     @relation("PostImage")
   posts     Post[]
   deletedAt DateTime?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  postId    Int?
 }
