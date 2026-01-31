@@ -29,18 +29,25 @@ export default async function ThemedYearGame({ params }: PageProps<'/taborova-hr
   const index = pages.findIndex(({ href }) => href === `/taborova-hra/${year}`);
 
   const themedGame = config[year as keyof typeof config];
-  const { alt, ...imgProps } = themedGame.image;
+  let imageTemplate = null;
+
+  if (themedGame.image) {
+    const { alt, ...imgProps } = themedGame.image;
+    imageTemplate = (
+      <Image
+        alt={alt}
+        {...imgProps}
+        sizes="(max-width: 600px) 33vw, (max-width: 900px) 200px, 300px"
+        className={styles.img}
+      />
+    );
+  }
 
   return (
     <>
       <MenuPagination pages={pages} current={index} label={year} className={styles.pagination} />
       <section className={styles.game}>
-        <Image
-          alt={alt}
-          {...imgProps}
-          sizes="(max-width: 600px) 33vw, (max-width: 900px) 200px, 300px"
-          className={styles.img}
-        />
+        {imageTemplate}
         <Typography variant="h2">{themedGame.title}</Typography>
         <Markdown>{themedGame.description}</Markdown>
       </section>

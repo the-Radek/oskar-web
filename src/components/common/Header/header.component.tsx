@@ -3,7 +3,7 @@ import Image from 'next/image';
 import MobileNav from '@/components/navigation/MobileNav';
 import DesktopNav from '@/components/navigation/DesktopNav';
 import styles from './header.module.css';
-import banner from '@/assets/img/banner.jpg';
+import banner from '@/assets/img/banner-2026.jpg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Header() {
