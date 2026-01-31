@@ -1,9 +1,0 @@
-.root {
-  display: flex;
-  flex-direction: column;
-  gap: calc(4 * var(--mui-spacing, 8px));
-}
-
-.paper {
-  padding: calc(4 * var(--mui-spacing, 8px));
-}

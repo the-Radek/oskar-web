@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -18,12 +17,13 @@ import styles from './page.module.css';
 import * as assets from './page.assets';
 import appConfig from '../app.config.json';
 import metadataJson from './metadata.json';
+import Surface from '@/components/layout/Surface';
 
 export const metadata: Metadata = metadataJson;
 
 export default function ForApplicants() {
   return (
-    <main className={styles.root}>
+    <main>
       <div className={styles.cards}>
         <Card variant="outlined">
           <CardContent>
@@ -91,7 +91,7 @@ export default function ForApplicants() {
           </CardMedia>
         </Card>
       </div>
-      <Paper className={styles.paper}>
+      <Surface className={styles.paper}>
         <Image
           src={assets.illustration}
           alt="Tužka poutník"
@@ -131,7 +131,7 @@ export default function ForApplicants() {
             </AccordionDetails>
           </Accordion>
         </section>
-      </Paper>
+      </Surface>
       <ButtonGroup variant="contained" size="large" fullWidth className={styles.actions}>
         <Button component={RouterLink} href="pro-zajemce/pred-odjezdem">
           Co si zabalit na tábor

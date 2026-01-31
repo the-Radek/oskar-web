@@ -1,17 +1,17 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
 import styles from './page.module.css';
 import * as assets from './page.assets';
 import metadataJson from './metadata.json';
+import Surface from '@/components/layout/Surface';
 
 export const metadata: Metadata = metadataJson;
 
 export default function About() {
   return (
     <main>
-      <div aria-label="Tábor Oskar" className={styles.oskar}>
+      <Surface variant="container" aria-label="Tábor Oskar">
         <Typography variant="h2">Tábor Oskar</Typography>
         <Typography align="justify">
           Letní tábor Oskar existuje více než 30 let. Každé léto nabízíme několik turnusů, na které
@@ -20,8 +20,8 @@ export default function About() {
           malebném prostředí přírodního parku Kamínky u Rokycan. Od roku 2023 tábor pořádá spolek
           Přátel LDT Oskar ve spolupráci se zakladatelem tábora.
         </Typography>
-      </div>
-      <Paper className={styles.paper}>
+      </Surface>
+      <Surface className={styles.paper}>
         <section aria-label="area">
           <Image
             src={assets.iconDiscoBall}
@@ -94,7 +94,7 @@ export default function About() {
             nebo přírodních koupališť. V rybníku u tábora koupání není možné.
           </Typography>
         </section>
-      </Paper>
+      </Surface>
     </main>
   );
 }

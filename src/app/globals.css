@@ -28,6 +28,9 @@ body {
 
 main {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--mui-spacing, 8px));
   padding: calc(4 * var(--mui-spacing, 8px));
 }
 

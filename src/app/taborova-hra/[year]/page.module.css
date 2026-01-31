@@ -3,11 +3,6 @@
   margin-left: auto;
 }
 
-.game {
-  padding: 0 calc(6 * var(--mui-spacing, 8px));
-  overflow: hidden;
-}
-
 .img {
   float: right;
   width: 300px;

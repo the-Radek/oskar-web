@@ -16,16 +16,16 @@ export const metadata: Metadata = metadataJson;
 export default function BeforeDeparture() {
   return (
     <main>
-      <Button
-        component={RouterLink}
-        href="/pro-zajemce"
-        variant="outlined"
-        startIcon={<ArrowBackIcon />}
-        className={styles['go-back']}
-      >
-        Zpět
-      </Button>
       <section>
+        <Button
+          component={RouterLink}
+          href="/pro-zajemce"
+          variant="outlined"
+          startIcon={<ArrowBackIcon />}
+          className={styles['go-back']}
+        >
+          Zpět
+        </Button>
         <Typography variant="h2">Orientační seznam věcí potřebných na táboře</Typography>
         <List className={styles.checklist}>
           {config.checklist.map((item, index) => {

@@ -1,17 +1,7 @@
-.oskar {
-  padding: 0 calc(4 * var(--mui-spacing, 8px));
-  margin-bottom: calc(4 * var(--mui-spacing, 8px));
-
-  @media (max-width: 600px) {
-    padding: 0;
-  }
-}
-
 .paper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  padding: calc(4 * var(--mui-spacing, 8px));
   gap: calc(4 * var(--mui-spacing, 8px));
 
   section {

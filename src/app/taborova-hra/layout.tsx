@@ -1,16 +1,15 @@
 import { Metadata } from 'next';
-import Paper from '@mui/material/Paper';
-import styles from './layout.module.css';
 import Typography from '@mui/material/Typography';
 import metadataJson from './metadata.json';
+import Surface from '@/components/layout/Surface';
 
 export const metadata: Metadata = metadataJson;
 
 export default function ThemedGameLayout({ children }: LayoutProps<'/taborova-hra'>) {
   return (
-    <main className={styles.root}>
+    <main>
       {children}
-      <Paper className={styles.paper}>
+      <Surface>
         <Typography align="justify">
           Celotáborová hra (CTH) je hlavním programem našeho tábora a skládá se z několika etap.
           Děti jsou rozděleny do skupin napříč věkem. Jednotlivé etapy mohou být komplexní hry na
@@ -21,7 +20,7 @@ export default function ThemedGameLayout({ children }: LayoutProps<'/taborova-hr
           i napříč turnusy. Můžete se těšit na rozmanité kostýmy, hrané scénky, tematické večery a
           jiné zážitky.
         </Typography>
-      </Paper>
+      </Surface>
     </main>
   );
 }

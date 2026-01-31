@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { notFound } from 'next/navigation';
 import MenuPagination from '@/components/navigation/MenuPagination';
 import Markdown from '@/components/layout/Markdown/markdown.component';
+import Surface from '@/components/layout/Surface';
 
 type Year = keyof typeof config;
 
@@ -46,11 +47,11 @@ export default async function ThemedYearGame({ params }: PageProps<'/taborova-hr
   return (
     <>
       <MenuPagination pages={pages} current={index} label={year} className={styles.pagination} />
-      <section className={styles.game}>
+      <Surface component="section" variant="container">
         {imageTemplate}
         <Typography variant="h2">{themedGame.title}</Typography>
         <Markdown>{themedGame.description}</Markdown>
-      </section>
+      </Surface>
     </>
   );
 }
