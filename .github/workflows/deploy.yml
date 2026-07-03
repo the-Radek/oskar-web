@@ -1,0 +1,22 @@
+name: Build and Push
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - 'wiki/**'
+      - 'harvester/**'
+      - 'README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to registry
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login hub.vecernikovi.cz -u github --password-stdin
+
+      - name: Build and push
+        run: |
+          docker build -t hub.vecernikovi.cz/oskar/web:latest .
+          docker push hub.vecernikovi.cz/oskar/web:latest
