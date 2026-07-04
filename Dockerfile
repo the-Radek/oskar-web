@@ -52,6 +52,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 # Generate the Prisma client (creates @/prisma/client, @/prisma/enums, etc.)
 RUN npx prisma generate
+RUN npx esbuild prisma.config.ts \
+    --bundle --platform=node --format=esm \
+    --packages=external \
+    --outfile=prisma.config.mjs
 
 # Build Next.js application
 # If you want to speed up Docker rebuilds, you can cache the build artifacts
@@ -107,7 +111,7 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 # COPY --from=builder --chown=node:node /app/.next/cache ./.next/cache
 
 # Copy Prisma schema + migrations and install Prisma CLI
-COPY --from=builder --chown=node:node /app/prisma.config.ts ./
+COPY --from=builder --chown=node:node /app/prisma.config.mjs ./
 COPY --from=builder --chown=node:node /app/prisma/schema.prisma /app/prisma/migrations ./prisma/
 RUN npm install prisma --no-save
 
