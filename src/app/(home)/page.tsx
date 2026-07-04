@@ -1,4 +1,5 @@
 import GoogleButton from '@/components/auth/GoogleButton';
+import RouterLink from '@/components/navigation/RouterLink';
 import Typography from '@mui/material/Typography';
 
 export default async function Home() {
@@ -27,6 +28,7 @@ export default async function Home() {
         and visually appealing.
       </p>
       <GoogleButton />
+      <RouterLink href="/clanky">Články</RouterLink>
     </main>
   );
 }
