@@ -103,11 +103,15 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 # cached responses are available immediately on startup, uncomment this line:
 # COPY --from=builder --chown=node:node /app/.next/cache ./.next/cache
 
+# Copy Prisma schema + migrations and install Prisma CLI
+COPY --from=builder --chown=node:node /app/prisma/schema.prisma /app/prisma/migrations /prisma
+RUN npm install prisma --no-save
+
 # Switch to non-root user for security best practices
 USER node
 
 # Expose port 3000 to allow HTTP traffic
 EXPOSE 3000
 
-# Start Next.js standalone server
-CMD ["node", "server.js"]
+# Apply any pending migrations, then start Next.js standalone server
+CMD ["sh", "-c", "npx prisma migrate deploy && exec node server.js"]
