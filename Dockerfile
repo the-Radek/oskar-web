@@ -38,9 +38,6 @@ FROM node:${NODE_VERSION} AS builder
 # Set working directory
 WORKDIR /app
 
-# Prisma's query engine needs OpenSSL on Debian slim images
-# RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
-
 # Copy project dependencies from dependencies stage
 COPY --from=dependencies /app/node_modules ./node_modules
 

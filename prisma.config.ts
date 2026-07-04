@@ -10,6 +10,6 @@ export default defineConfig({
     path: 'prisma/migrations',
   },
   datasource: {
-    url: postgresUrl(true),
+    url: postgresUrl(),
   },
 });
