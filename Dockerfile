@@ -122,4 +122,4 @@ USER node
 EXPOSE 3000
 
 # Apply any pending migrations, then start Next.js standalone server
-CMD ["sh", "-c", "cat /run/secrets/db-password && npx prisma migrate deploy && exec node server.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && exec node server.js"]
