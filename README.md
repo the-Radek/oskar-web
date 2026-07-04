@@ -35,7 +35,13 @@ Summer camp Tábor Oskar offers adventure, games and fun in the beautiful nature
 
 ### Startup
 
-Start a server:
+Start services
+
+```bash
+docker compose up
+```
+
+and a server
 
 ```bash
 npm run dev
