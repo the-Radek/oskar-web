@@ -104,7 +104,7 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 # COPY --from=builder --chown=node:node /app/.next/cache ./.next/cache
 
 # Copy Prisma schema + migrations and install Prisma CLI
-COPY --from=builder --chown=node:node /app/prisma/schema.prisma /app/prisma/migrations /prisma
+COPY --from=builder --chown=node:node /app/prisma/schema.prisma /app/prisma/migrations ./prisma/
 RUN npm install prisma --no-save
 
 # Switch to non-root user for security best practices
