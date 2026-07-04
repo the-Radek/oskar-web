@@ -87,6 +87,9 @@ ENV HOSTNAME="0.0.0.0"
 # Learn more here: https://nextjs.org/telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Install OpenSSL for Prisma to work properly
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+
 # Copy production assets
 COPY --from=builder --chown=node:node /app/public ./public
 
@@ -104,6 +107,7 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 # COPY --from=builder --chown=node:node /app/.next/cache ./.next/cache
 
 # Copy Prisma schema + migrations and install Prisma CLI
+COPY --from=builder --chown=node:node /app/prisma.config.ts ./
 COPY --from=builder --chown=node:node /app/prisma/schema.prisma /app/prisma/migrations ./prisma/
 RUN npm install prisma --no-save
 
