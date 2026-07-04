@@ -53,6 +53,12 @@ services:
       - "127.0.0.1:3000:3000"
     volumes:
       - gallery:/app/public/galerie
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
 
 secrets:
   db_password:
