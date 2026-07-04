@@ -38,6 +38,9 @@ FROM node:${NODE_VERSION} AS builder
 # Set working directory
 WORKDIR /app
 
+# Prisma's query engine needs OpenSSL on Debian slim images
+# RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+
 # Copy project dependencies from dependencies stage
 COPY --from=dependencies /app/node_modules ./node_modules
 
@@ -49,6 +52,9 @@ ENV NODE_ENV=production
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Generate the Prisma client (creates @/prisma/client, @/prisma/enums, etc.)
+RUN npx prisma generate
 
 # Build Next.js application
 # If you want to speed up Docker rebuilds, you can cache the build artifacts
@@ -74,6 +80,9 @@ FROM node:${NODE_VERSION} AS runner
 
 # Set working directory
 WORKDIR /app
+
+# Prisma's query engine also needs OpenSSL at runtime, not just at generate/build time
+# RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # Set production environment variables
 ENV NODE_ENV=production
