@@ -3,7 +3,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '@/prisma/client';
 import { postgresUrl } from './utilities/postgres-url';
 
-const connectionString = postgresUrl();
+const connectionString = postgresUrl(true);
 
 const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
