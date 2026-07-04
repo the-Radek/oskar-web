@@ -78,9 +78,6 @@ FROM node:${NODE_VERSION} AS runner
 # Set working directory
 WORKDIR /app
 
-# Prisma's query engine also needs OpenSSL at runtime, not just at generate/build time
-# RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
-
 # Set production environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
