@@ -112,7 +112,10 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
 # Copy Prisma schema + migrations and install Prisma CLI
 COPY --from=builder --chown=node:node /app/prisma.config.mjs ./
-COPY --from=builder --chown=node:node /app/prisma/schema.prisma /app/prisma/migrations ./prisma/
+# Uncomment the following line if the exclude option is supported in your Docker version
+# COPY --from=builder --chown=node:node --exclude='generated' /app/prisma ./prisma/
+COPY --from=builder --chown=node:node /app/prisma/schema.prisma ./prisma/
+COPY --from=builder --chown=node:node /app/prisma/migrations ./prisma/migrations
 RUN npm install prisma --no-save
 
 # Switch to non-root user for security best practices
