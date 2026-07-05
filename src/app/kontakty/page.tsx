@@ -24,7 +24,7 @@ export default function Contacts() {
             Tábor Oskar – Holubí kout
             <br />
             <i>jméno dítěte</i>&nbsp;
-            <Typography component="span" variant="body2" fontWeight="light">
+            <Typography component="span" variant="body2" sx={{ fontWeight: 'light' }}>
               (doplňte číslo oddílu, které se dozvíte při odjezdu)
             </Typography>
             <br />
@@ -59,7 +59,7 @@ export default function Contacts() {
         </section>
         <section aria-label="organizer">
           <Typography variant="h2">Organizátor</Typography>
-          <Typography fontWeight="medium">Přátelé LDT Oskar, z.s.</Typography>
+          <Typography sx={{ fontWeight: 'medium' }}>Přátelé LDT Oskar, z.s.</Typography>
           <DefinitionList>
             <DefinitionListItem label="předseda">Anna Puklová</DefinitionListItem>
             <DefinitionListItem label="kontakt">

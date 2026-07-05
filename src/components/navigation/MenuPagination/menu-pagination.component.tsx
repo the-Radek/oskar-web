@@ -33,6 +33,7 @@ export default function MenuPagination(props: MenuPaginationProps) {
           component={RouterLink}
           href={pages[current - 1]?.href ?? ''}
           disabled={current === 0}
+          nativeButton={false}
         >
           <ArrowBackIcon />
         </Button>
@@ -50,6 +51,7 @@ export default function MenuPagination(props: MenuPaginationProps) {
           component={RouterLink}
           href={pages[current + 1]?.href ?? ''}
           disabled={current === pages.length - 1}
+          nativeButton={false}
         >
           <ArrowForwardIcon />
         </Button>
