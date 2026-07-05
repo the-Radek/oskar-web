@@ -41,19 +41,30 @@ export default function BeforeDeparture() {
           <strong>Cenné věci na tábor nedoporučujeme a neneseme za ně žádnou zodpovědnost.</strong>
         </Typography>
       </section>
-      <section>
-        <Typography variant="h2">Odjezd na tábor</Typography>
-        <Typography>
-          Odjíždět budeme <strong>dne 7. 7.</strong>{' '}
-          <OpenNew href={appConfig.maps.departure}>
-            z točny autobusů v ulici Oistrachova (Praha 13)
-          </OpenNew>{' '}
-          nedaleko zastávky metra Luka (linka B) <strong>ve 12:30h</strong>.
-        </Typography>
-        <Typography>Prosíme o příchod nejpozději 45 minut předem (tzn. 11:45).</Typography>
-        <Typography gutterBottom>Návrat z tábora je na stejné místo v cca 11:30h.</Typography>
-        <MapyCz src={appConfig.maps.departure} />
-      </section>
+      <div className={styles.content}>
+        <section>
+          <Typography id="odjezd" variant="h2">
+            Odjezd na tábor
+          </Typography>
+          <Typography>
+            Odjíždět budeme <strong>dne 13. 7.</strong> a <strong>dne 25. 7.</strong> z točny
+            autobusů v ulici{' '}
+            <OpenNew href={appConfig.maps.departure}>Oistrachova (Praha 13)</OpenNew> nedaleko
+            zastávky metra Luka (linka B) <strong>ve 12:30</strong>. Prosíme o příchod nejpozději 45
+            minut předem (tzn. 11:45).
+          </Typography>
+          <Typography gutterBottom>Návrat z tábora je na stejné místo v cca 11:30.</Typography>
+          <MapyCz src={appConfig.maps.departure} />
+        </section>
+        <section>
+          <Typography variant="h2">Individuální příjezd na tábor</Typography>
+          <Typography gutterBottom>
+            Pokud povezete dítě na tábor, prosíme o příjezd k přední zelené bráně, která je přímo u
+            silnice.
+          </Typography>
+          <MapyCz src={appConfig.maps.gate} className={styles.map} />
+        </section>
+      </div>
     </main>
   );
 }

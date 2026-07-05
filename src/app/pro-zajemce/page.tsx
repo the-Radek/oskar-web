@@ -28,37 +28,16 @@ export default function ForApplicants() {
         <Card variant="outlined">
           <CardContent>
             <Typography component="h2" variant="h2" align="center">
-              TURNUS I.
-            </Typography>
-            <Typography component="p" variant="body2" align="center" color="primary.dark">
-              1. 7. 2025 - 7. 7. 2025
-            </Typography>
-            <Typography align="justify">
-              Na první turnus se letos můžete těšit pod vedením Oskárka.
-            </Typography>
-            <Typography align="center">JIŽ OBSAZEN</Typography>
-          </CardContent>
-          <CardMedia>
-            <Image
-              src={assets.turnus1}
-              alt="Turnus 1"
-              sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
-            />
-          </CardMedia>
-        </Card>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography component="h2" variant="h2" align="center">
               TURNUS II.
             </Typography>
             <Typography component="p" variant="body2" align="center" color="primary.dark">
-              7. 7. 2025 - 19. 7. 2025
+              13. 7. 2026 - 25. 7. 2026
             </Typography>
             <Typography align="justify">
               Na druhý turnus se letos můžete těšit pod vedením Vojty Macháčka, Verči Ilkové, Šárky
               Večerníkové a Kuby Švihlíka.
             </Typography>
-            <Typography align="center">Cena: 7 800,-</Typography>
+            <Typography align="center">Cena: 8 300,-</Typography>
           </CardContent>
           <CardMedia>
             <Image
@@ -74,13 +53,13 @@ export default function ForApplicants() {
               TURNUS III.
             </Typography>
             <Typography component="p" variant="body2" align="center" color="primary.dark">
-              19. 7. 2025 - 31. 7. 2025
+              25. 7. 2026 - 6. 8. 2026
             </Typography>
             <Typography align="justify">
               Na třetí turnus se letos můžete těšit pod vedením Aničky Puklové, Vojty Macháčka, Báry
               Navrátilové a Kačky Weberové.
             </Typography>
-            <Typography align="center">Cena: 7 800,-</Typography>
+            <Typography align="center">Cena: 8 300,-</Typography>
           </CardContent>
           <CardMedia>
             <Image
@@ -133,8 +112,8 @@ export default function ForApplicants() {
         </section>
       </Surface>
       <ButtonGroup variant="contained" size="large" fullWidth className={styles.actions}>
-        <Button component={RouterLink} href="pro-zajemce/pred-odjezdem">
-          Co si zabalit na tábor
+        <Button component={RouterLink} href="/pro-zajemce/pred-odjezdem">
+          Informace před odjezdem
         </Button>
         <Button href="/docs/Bezinfekcnost-GDPR.pdf" target="_blank" startIcon={<DownloadIcon />}>
           Bezinfekčnost a GDPR
