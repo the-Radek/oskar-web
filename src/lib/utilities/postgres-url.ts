@@ -5,7 +5,7 @@ import { loadSecret } from './load-secret';
  * @param suppressError if true, do not throw error if the environment variable is missing
  * @returns the Postgres connection URL
  */
-export function postgresUrl(suppressError: boolean = false): string {
+export function postgresUrl(suppressError: boolean = true): string {
   const user = process.env['DB_USERNAME'];
   const password = loadSecret('DB_PASSWORD_FILE', suppressError);
   const host = process.env['DB_HOST'] || 'localhost';

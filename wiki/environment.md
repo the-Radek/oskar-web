@@ -1,5 +1,9 @@
 # Environment
 
+## Development environment
+
+To override docker settings use `compose.override.yml` file. Eg. you can set password for adminer using the `ADMINER_DEFAULT_PASSWORD` environment variable.
+
 ## Secrets
 
 Secrets belong to the `secrets` directory. During local development, evironment variables for the server or harvester will not be prepared by docker. They will instead be loaded from the `.env` or `.env.local` file - see provided `.env.example`.

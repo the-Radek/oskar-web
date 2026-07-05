@@ -23,3 +23,27 @@
     columns: 1;
   }
 }
+
+.content {
+  column-count: 2;
+  column-gap: calc(4 * var(--mui-spacing, 8px));
+
+  > * {
+    break-inside: avoid;
+    margin-bottom: calc(4 * var(--mui-spacing, 8px));
+  }
+
+  > section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  @media (max-width: 900px) {
+    column-count: 1;
+
+    > section {
+      height: auto;
+    }
+  }
+}

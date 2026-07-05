@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     return new Response('Unauthorized', { status: 401 });
   }
   if (session.user.role !== Role.ADMIN) {
-    // return new Response('Insufficient permissions', { status: 403 });
+    return new Response('Insufficient permissions', { status: 403 });
   }
 
   try {

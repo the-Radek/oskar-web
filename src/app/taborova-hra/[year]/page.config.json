@@ -2,7 +2,12 @@
   "2026": {
     "title": "Oskariel",
     "description": "Slyšeli jste někdy o kouzelném lese Oskariel? Podle pradávných textů a legend v něm vždy žili v pospolitosti lidé a čtyři mocné národy: elfové, trpaslíci, fauni a víly. Právě víly byly od počátku nejmocnějším národem. Jejich magie držela svět v rovnováze a zajišťovala klidné soužití. Něco se ale muselo stát! Přece kouzelné postavy v lese běžně nevídáme. Právě letos v létě přijde ten správný čas se o Oskarielu něco dozvědět. Prozkoumat, co odvěkou rovnováhu magických zákonů narušilo a pokusit se ji obnovit. Pomůžete nám?",
-    "image": null
+    "image": {
+      "src": "/taborova-hra/2026.png",
+      "width": 789,
+      "height": 566,
+      "alt": "Skřítek a faun"
+    }
   },
   "2025": {
     "title": "Po stopách amuletu",
