@@ -1,14 +1,15 @@
 .cards {
   display: flex;
   gap: calc(2 * var(--mui-spacing, 8px));
+  justify-content: space-evenly;
+
+  > * {
+    max-width: 400px;
+  }
 
   @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
-
-    > * {
-      max-width: 400px;
-    }
   }
 
   > * {
