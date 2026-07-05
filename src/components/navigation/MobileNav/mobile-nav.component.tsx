@@ -60,7 +60,11 @@ export default function MobileNav(props: MobileNavProps) {
                       <ListItemText
                         primary={route.label}
                         slotProps={{
-                          primary: { variant: 'h6', align: 'center', fontWeight: 'inherit' },
+                          primary: {
+                            variant: 'h6',
+                            align: 'center',
+                            sx: { fontWeight: 'inherit' },
+                          },
                         }}
                       />
                     </ListItemButton>
