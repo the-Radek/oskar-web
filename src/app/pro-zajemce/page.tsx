@@ -19,10 +19,31 @@ import appConfig from '../app.config.json';
 import metadataJson from './metadata.json';
 import Surface from '@/components/content/Surface';
 import ApplicationButton from '@/components/common/ApplicationButton';
+import ShowIf from '@/components/layout/ShowIf';
 
 export const metadata: Metadata = metadataJson;
 
 export default function ForApplicants() {
+  const actions = (orientation: 'vertical' | 'horizontal') => (
+    <ButtonGroup
+      variant="contained"
+      orientation={orientation}
+      size="large"
+      fullWidth
+      className={styles.actions}
+    >
+      <Button component={RouterLink} href="/pro-zajemce/pred-odjezdem">
+        Informace před odjezdem
+      </Button>
+      <Button href="/docs/Bezinfekcnost-GDPR.pdf" target="_blank" startIcon={<DownloadIcon />}>
+        Bezinfekčnost a GDPR
+      </Button>
+      <Button href="/docs/Lekarsky-posudek.pdf" target="_blank" startIcon={<DownloadIcon />}>
+        Lékařský posudek
+      </Button>
+    </ButtonGroup>
+  );
+
   return (
     <main>
       <ApplicationButton />
@@ -113,17 +134,8 @@ export default function ForApplicants() {
           </Accordion>
         </section>
       </Surface>
-      <ButtonGroup variant="contained" size="large" fullWidth className={styles.actions}>
-        <Button component={RouterLink} href="/pro-zajemce/pred-odjezdem">
-          Informace před odjezdem
-        </Button>
-        <Button href="/docs/Bezinfekcnost-GDPR.pdf" target="_blank" startIcon={<DownloadIcon />}>
-          Bezinfekčnost a GDPR
-        </Button>
-        <Button href="/docs/Lekarsky-posudek.pdf" target="_blank" startIcon={<DownloadIcon />}>
-          Lékařský posudek
-        </Button>
-      </ButtonGroup>
+      <ShowIf above="md">{actions('horizontal')}</ShowIf>
+      <ShowIf below="md">{actions('vertical')}</ShowIf>
     </main>
   );
 }
