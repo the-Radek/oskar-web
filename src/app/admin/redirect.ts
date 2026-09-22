@@ -1,8 +1,8 @@
-import { Redirect } from 'next/dist/lib/load-custom-routes';
+import type { Redirect } from 'next/dist/lib/load-custom-routes';
 
 const redirect: Redirect = {
   source: '/admin',
-  destination: '/api/v1/auth/connect/google',
+  destination: '/api/auth/signin/google',
   permanent: true,
 };
 

@@ -24,7 +24,7 @@ export default function Error({
       <Typography variant="h3" component="h1">
         Došlo k chybě
       </Typography>
-      <p>Jajks! Něco se nepodařilo.</p>
+      <p>Upsík dupsík! Něco se nepodařilo.</p>
       <div className={styles.actions}>
         <Button variant="contained" onClick={() => reset()} startIcon={<RefreshIcon />}>
           Zkusit znovu
