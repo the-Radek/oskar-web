@@ -8,7 +8,7 @@ import metadataJson from './metadata.json';
 import RouterLink from '@/components/navigation/RouterLink';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import List from '@/components/layout/List';
+import List from '@/components/content/List';
 import OpenNew from '@/components/navigation/OpenNew';
 
 export const metadata: Metadata = metadataJson;

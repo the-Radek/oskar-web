@@ -17,7 +17,7 @@ import styles from './page.module.css';
 import * as assets from './page.assets';
 import appConfig from '../app.config.json';
 import metadataJson from './metadata.json';
-import Surface from '@/components/layout/Surface';
+import Surface from '@/components/content/Surface';
 import ApplicationButton from '@/components/common/ApplicationButton';
 
 export const metadata: Metadata = metadataJson;

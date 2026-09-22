@@ -1,19 +1,20 @@
-'use client';
 import Image from 'next/image';
 import MobileNav from '@/components/navigation/MobileNav';
 import DesktopNav from '@/components/navigation/DesktopNav';
 import styles from './header.module.css';
 import banner from '@/assets/img/banner-2026.jpg';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import ShowIf from '@/components/layout/ShowIf';
 
 export default function Header() {
-  const isMobile = useMediaQuery('(max-width: 900px)');
-
   return (
     <>
-      {isMobile && <MobileNav className={styles.mobile} />}
+      <ShowIf below="md">
+        <MobileNav className={styles.mobile} />
+      </ShowIf>
       <header className={styles.root}>
-        {!isMobile && <DesktopNav className={styles.desktop} />}
+        <ShowIf above="md">
+          <DesktopNav className={styles.desktop} />
+        </ShowIf>
         <Image src={banner} alt="OSKAR" sizes="(max-width: 1200px) 100vw, 1200px" priority />
       </header>
     </>

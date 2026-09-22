@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import styles from './page.module.css';
 import * as assets from './page.assets';
 import metadataJson from './metadata.json';
-import Surface from '@/components/layout/Surface';
+import Surface from '@/components/content/Surface';
 
 export const metadata: Metadata = metadataJson;
 
