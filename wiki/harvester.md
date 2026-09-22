@@ -1,6 +1,6 @@
 # Harvester
 
-To harvest images and texts from old Oskar website ([www.tabor-oskar.cz](https://www.tabor-oskar.cz/)) there are Python scripts in `harvester/`.
+To harvest images and texts from old Oskar website ([www.tabor-oskar.cz](https://www.tabor-oskar.cz/)) there are Python scripts in `harvester/`. Code structure notes: `harvester/CLAUDE.md`.
 
 ## Setup virtal environment (recommended)
 
