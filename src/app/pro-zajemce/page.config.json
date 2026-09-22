@@ -1,0 +1,20 @@
+{
+  "turnusy": [
+    {
+      "title": "TURNUS II.",
+      "dateRange": "13. 7. 2026 - 25. 7. 2026",
+      "text": "Na druhý turnus se letos můžete těšit pod vedením Vojty Macháčka, Verči Ilkové, Šárky Večerníkové a Kuby Švihlíka.",
+      "price": "8 300,-",
+      "imageKey": "turnus2",
+      "imageAlt": "Turnus 2"
+    },
+    {
+      "title": "TURNUS III.",
+      "dateRange": "25. 7. 2026 - 6. 8. 2026",
+      "text": "Na třetí turnus se letos můžete těšit pod vedením Aničky Puklové, Vojty Macháčka, Báry Navrátilové a Kačky Weberové.",
+      "price": "8 300,-",
+      "imageKey": "turnus3",
+      "imageAlt": "Turnus 3"
+    }
+  ]
+}

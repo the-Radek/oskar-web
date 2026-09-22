@@ -14,31 +14,13 @@ import styles from './page.module.css';
 import * as assets from './page.assets';
 import appConfig from '../app.config.json';
 import metadataJson from './metadata.json';
+import config from './page.config.json';
 import Surface from '@/components/content/Surface';
 import ApplicationButton from '@/components/common/ApplicationButton';
 import ShowIf from '@/components/layout/ShowIf';
 import OskarCard from '@/components/content/OskarCard';
 
 export const metadata: Metadata = metadataJson;
-
-const turnusy = [
-  {
-    title: 'TURNUS II.',
-    dateRange: '13. 7. 2026 - 25. 7. 2026',
-    text: 'Na druhý turnus se letos můžete těšit pod vedením Vojty Macháčka, Verči Ilkové, Šárky Večerníkové a Kuby Švihlíka.',
-    price: '8 300,-',
-    image: assets.turnus2,
-    imageAlt: 'Turnus 2',
-  },
-  {
-    title: 'TURNUS III.',
-    dateRange: '25. 7. 2026 - 6. 8. 2026',
-    text: 'Na třetí turnus se letos můžete těšit pod vedením Aničky Puklové, Vojty Macháčka, Báry Navrátilové a Kačky Weberové.',
-    price: '8 300,-',
-    image: assets.turnus3,
-    imageAlt: 'Turnus 3',
-  },
-];
 
 export default function ForApplicants() {
   const actions = (orientation: 'vertical' | 'horizontal') => (
@@ -65,8 +47,12 @@ export default function ForApplicants() {
     <main>
       <ApplicationButton />
       <div className={styles.cards}>
-        {turnusy.map((turnus) => (
-          <OskarCard key={turnus.title} {...turnus} />
+        {config.turnusy.map(({ imageKey, ...turnus }) => (
+          <OskarCard
+            key={turnus.title}
+            image={assets[imageKey as keyof typeof assets]}
+            {...turnus}
+          />
         ))}
       </div>
       <Surface className={styles.paper}>
