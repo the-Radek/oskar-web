@@ -9,11 +9,11 @@ export default function Header() {
   return (
     <>
       <ShowIf below="md">
-        <MobileNav className={styles.mobile} />
+        <MobileNav />
       </ShowIf>
       <header className={styles.root}>
         <ShowIf above="md">
-          <DesktopNav className={styles.desktop} />
+          <DesktopNav />
         </ShowIf>
         <Image src={banner} alt="OSKAR" sizes="(max-width: 1200px) 100vw, 1200px" priority />
       </header>
