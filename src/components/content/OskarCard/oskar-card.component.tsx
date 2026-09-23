@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import type { OskarCardProps } from './oskar-card.types';
+import styles from './oskar-card.module.css';
 
 export default function OskarCard({
   title,
@@ -14,18 +15,18 @@ export default function OskarCard({
   imageAlt,
 }: OskarCardProps) {
   return (
-    <Card variant="outlined">
-      <CardContent>
+    <Card variant="outlined" className={styles.root}>
+      <CardContent className={styles.content}>
         <Typography component="h2" variant="h2" align="center">
           {title}
         </Typography>
-        <Typography component="p" variant="body2" align="center" color="primary.dark">
+        <Typography variant="body2" align="center">
           {dateRange}
         </Typography>
         <Typography align="justify">{text}</Typography>
         <Typography align="center">Cena: {price}</Typography>
       </CardContent>
-      <CardMedia>
+      <CardMedia className={styles.media}>
         <Image
           src={image}
           alt={imageAlt}

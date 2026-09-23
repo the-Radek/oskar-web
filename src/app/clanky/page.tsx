@@ -5,9 +5,8 @@ import Button from '@mui/material/Button';
 import metadataJson from './metadata.json';
 import styles from './page.module.css';
 import { getPublishedPosts } from '@/lib/actions/post';
-import PostListItem from '@/components/content/PostListItem';
+import PostRow from '@/components/content/PostRow';
 import PaginationNav from '@/components/navigation/PaginationNav';
-import List from '@mui/material/List';
 import Link from 'next/link';
 
 export const metadata: Metadata = metadataJson;
@@ -35,11 +34,11 @@ export default async function Posts({ searchParams }: PageProps<'/clanky'>) {
   return (
     <main>
       <Typography variant="h1">Články</Typography>
-      <List className={styles.list}>
+      <div className={styles.list}>
         {posts.map((post) => (
-          <PostListItem key={post.id} post={post} />
+          <PostRow key={post.id} post={post} />
         ))}
-      </List>
+      </div>
       <div className={styles.footer}>
         <PaginationNav
           href="/clanky"
