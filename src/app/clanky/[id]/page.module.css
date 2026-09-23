@@ -1,5 +1,13 @@
 .go-back {
-  margin-bottom: calc(2 * var(--mui-spacing, 8px));
+  float: right;
+  margin-left: calc(2 * var(--mui-spacing, 8px));
+
+  @media (max-width: 600px) {
+    display: flex;
+    width: max-content;
+    float: none;
+    margin-left: auto;
+  }
 }
 
 .image {

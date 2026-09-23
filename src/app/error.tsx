@@ -33,7 +33,7 @@ export default function Error({
           Zkusit znovu
         </Button>
         <Button variant="outlined" component={Link} href="/" startIcon={<HomeIcon />}>
-          Zpět domů
+          Jít domů
         </Button>
       </div>
     </main>
