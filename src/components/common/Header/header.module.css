@@ -2,16 +2,3 @@
   color: var(--mui-palette-primary-contrastText);
   background-color: var(--mui-palette-primary-main);
 }
-
-.mobile {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .mobile {
-    display: block;
-  }
-  .desktop {
-    display: none;
-  }
-}

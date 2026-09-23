@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import styles from './error.module.css';
+import Surface from '@/components/content/Surface';
 
 export default function Error({
   error,
@@ -21,10 +22,12 @@ export default function Error({
 
   return (
     <main>
-      <Typography variant="h3" component="h1">
-        Došlo k chybě
-      </Typography>
-      <p>Jajks! Něco se nepodařilo.</p>
+      <Surface component="section" variant="container">
+        <Typography variant="h3" component="h1">
+          Došlo k chybě
+        </Typography>
+        <p>Upsík dupsík! Něco se nepodařilo.</p>
+      </Surface>
       <div className={styles.actions}>
         <Button variant="contained" onClick={() => reset()} startIcon={<RefreshIcon />}>
           Zkusit znovu

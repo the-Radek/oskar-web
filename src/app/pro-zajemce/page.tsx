@@ -6,9 +6,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import DownloadIcon from '@mui/icons-material/Download';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MapyCz from '@/components/geo/MapyCz';
@@ -17,60 +14,46 @@ import styles from './page.module.css';
 import * as assets from './page.assets';
 import appConfig from '../app.config.json';
 import metadataJson from './metadata.json';
-import Surface from '@/components/layout/Surface';
+import config from './page.config.json';
+import Surface from '@/components/content/Surface';
 import ApplicationButton from '@/components/common/ApplicationButton';
+import ShowIf from '@/components/layout/ShowIf';
+import OskarCard from '@/components/content/OskarCard';
 
 export const metadata: Metadata = metadataJson;
 
 export default function ForApplicants() {
+  const actions = (orientation: 'vertical' | 'horizontal') => (
+    <ButtonGroup
+      variant="contained"
+      orientation={orientation}
+      size="large"
+      fullWidth
+      className={styles.actions}
+    >
+      <Button component={RouterLink} href="/pro-zajemce/pred-odjezdem">
+        Informace před odjezdem
+      </Button>
+      <Button href="/docs/Bezinfekcnost-GDPR.pdf" target="_blank" startIcon={<DownloadIcon />}>
+        Bezinfekčnost a GDPR
+      </Button>
+      <Button href="/docs/Lekarsky-posudek.pdf" target="_blank" startIcon={<DownloadIcon />}>
+        Lékařský posudek
+      </Button>
+    </ButtonGroup>
+  );
+
   return (
     <main>
       <ApplicationButton />
       <div className={styles.cards}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography component="h2" variant="h2" align="center">
-              TURNUS II.
-            </Typography>
-            <Typography component="p" variant="body2" align="center" color="primary.dark">
-              13. 7. 2026 - 25. 7. 2026
-            </Typography>
-            <Typography align="justify">
-              Na druhý turnus se letos můžete těšit pod vedením Vojty Macháčka, Verči Ilkové, Šárky
-              Večerníkové a Kuby Švihlíka.
-            </Typography>
-            <Typography align="center">Cena: 8 300,-</Typography>
-          </CardContent>
-          <CardMedia>
-            <Image
-              src={assets.turnus2}
-              alt="Turnus 2"
-              sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
-            />
-          </CardMedia>
-        </Card>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography component="h2" variant="h2" align="center">
-              TURNUS III.
-            </Typography>
-            <Typography component="p" variant="body2" align="center" color="primary.dark">
-              25. 7. 2026 - 6. 8. 2026
-            </Typography>
-            <Typography align="justify">
-              Na třetí turnus se letos můžete těšit pod vedením Aničky Puklové, Vojty Macháčka, Báry
-              Navrátilové a Kačky Weberové.
-            </Typography>
-            <Typography align="center">Cena: 8 300,-</Typography>
-          </CardContent>
-          <CardMedia>
-            <Image
-              src={assets.turnus3}
-              alt="Turnus 3"
-              sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
-            />
-          </CardMedia>
-        </Card>
+        {config.turnusy.map(({ imageKey, ...turnus }) => (
+          <OskarCard
+            key={turnus.title}
+            image={assets[imageKey as keyof typeof assets]}
+            {...turnus}
+          />
+        ))}
       </div>
       <Surface className={styles.paper}>
         <Image
@@ -113,17 +96,8 @@ export default function ForApplicants() {
           </Accordion>
         </section>
       </Surface>
-      <ButtonGroup variant="contained" size="large" fullWidth className={styles.actions}>
-        <Button component={RouterLink} href="/pro-zajemce/pred-odjezdem">
-          Informace před odjezdem
-        </Button>
-        <Button href="/docs/Bezinfekcnost-GDPR.pdf" target="_blank" startIcon={<DownloadIcon />}>
-          Bezinfekčnost a GDPR
-        </Button>
-        <Button href="/docs/Lekarsky-posudek.pdf" target="_blank" startIcon={<DownloadIcon />}>
-          Lékařský posudek
-        </Button>
-      </ButtonGroup>
+      <ShowIf above="md">{actions('horizontal')}</ShowIf>
+      <ShowIf below="md">{actions('vertical')}</ShowIf>
     </main>
   );
 }

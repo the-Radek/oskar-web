@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Typography from '@mui/material/Typography';
 import metadataJson from './metadata.json';
-import Surface from '@/components/layout/Surface';
+import Surface from '@/components/content/Surface';
 
 export const metadata: Metadata = metadataJson;
 

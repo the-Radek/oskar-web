@@ -4,8 +4,8 @@ import config from './page.config.json';
 import Typography from '@mui/material/Typography';
 import { notFound } from 'next/navigation';
 import MenuPagination from '@/components/navigation/MenuPagination';
-import Markdown from '@/components/layout/Markdown/markdown.component';
-import Surface from '@/components/layout/Surface';
+import Markdown from '@/components/content/Markdown';
+import Surface from '@/components/content/Surface';
 
 type Year = keyof typeof config;
 

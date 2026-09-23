@@ -10,8 +10,8 @@ dotenv.load_dotenv("../.env")
 
 
 def db_connect():
-    dbname = os.getenv("DB_NAME", "oskar")
-    user = os.getenv("DB_USER", "oskar")
+    dbname = os.getenv("DB_DATABASE", "oskar")
+    user = os.getenv("DB_USERNAME", "oskar")
     password = open(Path("..") / os.getenv("DB_PASSWORD_FILE", "./secrets/db_password")).read().strip()
     host = os.getenv("DB_HOST", "localhost")
     port = os.getenv("DB_PORT", "5432")

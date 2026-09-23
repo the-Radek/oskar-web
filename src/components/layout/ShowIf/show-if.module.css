@@ -1,0 +1,31 @@
+@media (width > 600px) {
+  .below-sm {
+    display: none;
+  }
+}
+@media (width > 900px) {
+  .below-md {
+    display: none;
+  }
+}
+@media (width > 1200px) {
+  .below-lg {
+    display: none;
+  }
+}
+
+@media (width <= 600px) {
+  .above-sm {
+    display: none;
+  }
+}
+@media (width <= 900px) {
+  .above-md {
+    display: none;
+  }
+}
+@media (width <= 1200px) {
+  .above-lg {
+    display: none;
+  }
+}
