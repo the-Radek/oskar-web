@@ -1,0 +1,19 @@
+.go-back {
+  margin-bottom: calc(2 * var(--mui-spacing, 8px));
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: calc(1 * var(--mui-spacing, 8px));
+}
+
+.thumb {
+  width: 100%;
+  height: auto;
+}

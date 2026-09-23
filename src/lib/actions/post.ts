@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { prisma } from '../prisma';
 import z from 'zod';
 import { PostSchema } from '../validators/post';
@@ -23,3 +24,19 @@ export async function createPost(userId: string, input: CreatePostInput) {
     },
   });
 }
+
+export async function getPublishedPosts() {
+  return prisma.post.findMany({
+    where: { published: true, deletedAt: null },
+    orderBy: { createdAt: 'desc' },
+    include: { image: true },
+  });
+}
+
+// cache() dedupes calls within one request: generateMetadata and the page component both need this.
+export const getPublishedPost = cache(async (id: number) => {
+  return prisma.post.findFirst({
+    where: { id, published: true, deletedAt: null },
+    include: { image: true, images: true },
+  });
+});
