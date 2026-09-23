@@ -2,7 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import { MarkdownProps } from './markdown.types';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import Email from '@/components/data/Email';
-import Link from '@mui/material/Link';
 import RouterLink from '@/components/navigation/RouterLink';
 import List from '../List';
 import OpenNew from '@/components/navigation/OpenNew';
@@ -38,7 +37,7 @@ export default function Markdown({ children, headingLevel = 1, ...rest }: Markdo
             if (typeof children === 'string' && children === href.slice(7)) {
               return <Email>{children}</Email>;
             } else {
-              return <Link href={href}>{children}</Link>;
+              return <OpenNew href={href}>{children}</OpenNew>;
             }
           } else if (href.startsWith('http')) {
             return <OpenNew href={href}>{children}</OpenNew>;
