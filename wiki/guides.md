@@ -8,3 +8,5 @@
 - [Prisma](https://www.prisma.io/docs/guides)
 - [Auth.js](https://authjs.dev/guides/debugging)
 - [Zod](https://zod.dev/)
+- [Vitest](https://vitest.dev/guide/)
+- [Testing Library](https://testing-library.com/docs/)

@@ -4,6 +4,7 @@
     "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
-    "prisma.prisma"
+    "prisma.prisma",
+    "vitest.explorer"
   ]
 }
