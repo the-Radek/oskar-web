@@ -25,12 +25,21 @@ export async function createPost(userId: string, input: CreatePostInput) {
   });
 }
 
-export async function getPublishedPosts() {
-  return prisma.post.findMany({
-    where: { published: true, deletedAt: null },
-    orderBy: { createdAt: 'desc' },
-    include: { image: true },
-  });
+export async function getPublishedPosts(page = 1, pageSize = 10) {
+  const where = { published: true, deletedAt: null };
+
+  const [posts, total] = await Promise.all([
+    prisma.post.findMany({
+      where,
+      orderBy: { createdAt: 'desc' },
+      include: { image: true },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    }),
+    prisma.post.count({ where }),
+  ]);
+
+  return { posts, total };
 }
 
 // cache() dedupes calls within one request: generateMetadata and the page component both need this.
