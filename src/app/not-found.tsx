@@ -3,7 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import styles from './error.module.css';
-import Surface from '@/components/content/Surface';
+import Surface from '@/components/layout/Surface';
 import GoBackButton from '@/components/navigation/GoBackButton';
 
 export default function Page404() {

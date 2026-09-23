@@ -4,7 +4,7 @@ import styles from './page.module.css';
 import * as assets from './page.assets';
 import metadataJson from './metadata.json';
 import config from './page.config.json';
-import Surface from '@/components/content/Surface';
+import Surface from '@/components/layout/Surface';
 import Image from 'next/image';
 
 export const metadata: Metadata = metadataJson;

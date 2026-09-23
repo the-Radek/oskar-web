@@ -15,7 +15,7 @@ import * as assets from './page.assets';
 import appConfig from '../app.config.json';
 import metadataJson from './metadata.json';
 import config from './page.config.json';
-import Surface from '@/components/content/Surface';
+import Surface from '@/components/layout/Surface';
 import ApplicationButton from '@/components/common/ApplicationButton';
 import ShowIf from '@/components/layout/ShowIf';
 import OskarCard from '@/components/content/OskarCard';

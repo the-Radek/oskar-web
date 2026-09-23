@@ -3,7 +3,7 @@ import { MarkdownProps } from './markdown.types';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import Email from '@/components/data/Email';
 import RouterLink from '@/components/navigation/RouterLink';
-import List from '../List';
+import List from '@/components/layout/List';
 import OpenNew from '@/components/navigation/OpenNew';
 
 function heading(level: number, shift: number, children: React.ReactNode) {
