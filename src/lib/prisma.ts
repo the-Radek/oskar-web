@@ -1,7 +1,9 @@
-import 'dotenv/config';
+import { loadEnvConfig } from '@next/env';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '@/prisma/client';
 import { postgresUrl } from './utilities/postgres-url';
+
+loadEnvConfig(process.cwd());
 
 const connectionString = postgresUrl();
 
