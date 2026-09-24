@@ -14,7 +14,7 @@ import RouterLink from '@/components/navigation/RouterLink';
 
 export const metadata: Metadata = metadataJson;
 
-export default function Contacts() {
+export default function ContactsPage() {
   return (
     <main className={styles.root}>
       <div className={styles.content}>

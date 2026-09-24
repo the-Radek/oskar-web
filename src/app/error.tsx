@@ -8,7 +8,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import styles from './error.module.css';
 import Surface from '@/components/layout/Surface';
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {

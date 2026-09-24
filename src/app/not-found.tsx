@@ -6,7 +6,7 @@ import styles from './error.module.css';
 import Surface from '@/components/layout/Surface';
 import GoBackButton from '@/components/navigation/GoBackButton';
 
-export default function Page404() {
+export default function NotFoundPage() {
   return (
     <main>
       <Surface component="section" variant="container">

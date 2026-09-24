@@ -22,7 +22,7 @@ import OskarCard from '@/components/content/OskarCard';
 
 export const metadata: Metadata = metadataJson;
 
-export default function ForApplicants() {
+export default function ForApplicantsPage() {
   const actions = (orientation: 'vertical' | 'horizontal') => (
     <ButtonGroup
       variant="contained"

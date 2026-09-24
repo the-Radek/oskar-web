@@ -13,7 +13,7 @@ import OpenNew from '@/components/navigation/OpenNew';
 
 export const metadata: Metadata = metadataJson;
 
-export default function BeforeDeparture() {
+export default function BeforeDeparturePage() {
   return (
     <main>
       <section>

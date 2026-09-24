@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps<'/clanky/[id]'>): P
   return { title: post.title };
 }
 
-export default async function PostDetail({ params }: PageProps<'/clanky/[id]'>) {
+export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]'>) {
   const { id } = await params;
   const post = await getPublishedPost(parseId(id));
   if (!post) notFound();

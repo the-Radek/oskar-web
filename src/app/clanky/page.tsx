@@ -8,12 +8,12 @@ import { getPublishedPosts } from '@/lib/actions/post';
 import PostRow from '@/components/content/PostRow';
 import PaginationNav from '@/components/navigation/PaginationNav';
 import Link from 'next/link';
-import EmptyPage from './empty';
+import PostsEmptyPage from './empty';
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './constants';
 
 export const metadata: Metadata = metadataJson;
 
-export default async function Posts({ searchParams }: PageProps<'/clanky'>) {
+export default async function PostsPage({ searchParams }: PageProps<'/clanky'>) {
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
   const pageSize = Number(params.pageSize) || DEFAULT_PAGE_SIZE;
@@ -21,7 +21,7 @@ export default async function Posts({ searchParams }: PageProps<'/clanky'>) {
   const { posts, total } = await getPublishedPosts(page, pageSize);
   const pageCount = Math.max(1, Math.ceil(total / pageSize));
 
-  if (posts.length === 0) return <EmptyPage />;
+  if (posts.length === 0) return <PostsEmptyPage />;
 
   return (
     <main>

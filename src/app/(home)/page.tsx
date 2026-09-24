@@ -3,7 +3,7 @@ import ApplicationButton from '@/components/common/ApplicationButton';
 import RouterLink from '@/components/navigation/RouterLink';
 import Typography from '@mui/material/Typography';
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <main>
       <ApplicationButton />

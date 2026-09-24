@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = metadataJson;
 
-export default function About() {
+export default function AboutPage() {
   return (
     <main>
       <Surface variant="container" aria-label="Tábor Oskar">

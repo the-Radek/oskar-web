@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';
 import Link from 'next/link';
 
-export default function EmptyPage() {
+export default function PostsEmptyPage() {
   return (
     <main>
       <Surface component="section" variant="container">

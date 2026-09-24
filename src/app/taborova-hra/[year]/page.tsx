@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   return Object.keys(config).map((year) => ({ year }));
 }
 
-export default async function ThemedYearGame({ params }: PageProps<'/taborova-hra/[year]'>) {
+export default async function ThemedYearGamePage({ params }: PageProps<'/taborova-hra/[year]'>) {
   const { year } = await params;
   assertValidYear(year);
 
