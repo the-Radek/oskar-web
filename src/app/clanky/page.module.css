@@ -22,7 +22,7 @@
 
 .skeletonRow {
   display: flex;
-  height: 200px;
+  height: 202px;
   gap: calc(3 * var(--mui-spacing, 8px));
   border: 2px solid var(--mui-palette-divider);
   border-radius: var(--border-radius, 8px);

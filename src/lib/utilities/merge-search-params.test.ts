@@ -11,9 +11,14 @@ describe('mergeSearchParams', () => {
     expect(mergeSearchParams(new URLSearchParams('page=1'), { page: 3 })).toBe('page=3');
   });
 
-  it.each([null, undefined, ''])('removes a param set to %j', (value) => {
+  it.each([null, ''])('removes a param set to %j', (value) => {
     const result = mergeSearchParams(new URLSearchParams('page=2&pageSize=10'), { page: value });
     expect(result).toBe('pageSize=10');
+  });
+
+  it('leaves a param untouched when its update is undefined', () => {
+    const result = mergeSearchParams(new URLSearchParams('page=2'), { page: undefined });
+    expect(result).toBe('page=2');
   });
 
   it('stringifies numbers and booleans', () => {

@@ -1,19 +1,40 @@
+import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
-import Surface from '@/components/content/Surface';
+import clsx from 'clsx';
+import Surface from '@/components/layout/Surface';
 import styles from './page.module.css';
+
+const PARAGRAPH_LINES = [7, 6];
+const GALLERY_ITEMS = 10;
 
 export default function PostDetailLoading() {
   return (
     <main>
-      <Skeleton variant="rounded" width={160} height={36} className={styles['go-back']} />
-      <Surface component="article" variant="container">
-        <Skeleton variant="rounded" height={300} className={styles.image} />
-        <Skeleton variant="text" width="60%" height={48} />
-        <Skeleton variant="text" width="30%" />
-        <Skeleton variant="text" />
-        <Skeleton variant="text" />
-        <Skeleton variant="text" width="80%" />
+      <Surface component="article" variant="container" className={styles.article}>
+        <Skeleton variant="rounded" className={clsx(styles.image, styles.skeletonImage)} />
+        <Typography variant="h1">
+          <Skeleton width="40%" className={styles.skeletonLine} />
+        </Typography>
+        <Typography variant="body2" gutterBottom>
+          <Skeleton width="30%" className={styles.skeletonLine} />
+        </Typography>
+        {PARAGRAPH_LINES.map((lines, paragraph) => (
+          <Typography key={paragraph} align="justify" gutterBottom>
+            {Array.from({ length: lines }, (_, line) => (
+              <Skeleton
+                key={line}
+                width={line === lines - 1 ? '60%' : undefined}
+                className={styles.skeletonLine}
+              />
+            ))}
+          </Typography>
+        ))}
       </Surface>
+      <div className={styles.gallery}>
+        {Array.from({ length: GALLERY_ITEMS }, (_, index) => (
+          <Skeleton key={index} variant="rectangular" className={styles.skeletonThumb} />
+        ))}
+      </div>
     </main>
   );
 }

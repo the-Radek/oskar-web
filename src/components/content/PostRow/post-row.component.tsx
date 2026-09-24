@@ -20,8 +20,9 @@ export default function PostRow({ post }: PostRowProps) {
             <Image
               src={post.image.src}
               alt={post.image.alt}
-              fill
-              sizes="(max-width: 600px) 120px, 280px"
+              width={post.image.width}
+              height={post.image.height}
+              sizes="200px"
             />
           ) : (
             <IconImage />

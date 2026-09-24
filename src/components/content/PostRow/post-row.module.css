@@ -7,7 +7,7 @@
 
 .row {
   display: flex;
-  height: 200px;
+  height: 202px;
   align-items: stretch;
   gap: calc(3 * var(--mui-spacing, 8px));
 }
