@@ -9,11 +9,9 @@ import PostRow from '@/components/content/PostRow';
 import PaginationNav from '@/components/navigation/PaginationNav';
 import Link from 'next/link';
 import EmptyPage from './empty';
+import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './constants';
 
 export const metadata: Metadata = metadataJson;
-
-const PAGE_SIZES = [5, 10, 20, 50];
-const DEFAULT_PAGE_SIZE = 5;
 
 export default async function Posts({ searchParams }: PageProps<'/clanky'>) {
   const params = await searchParams;
