@@ -1,0 +1,32 @@
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Skeleton from '@mui/material/Skeleton';
+import Typography from '@mui/material/Typography';
+import styles from './post-row.module.css';
+import clsx from 'clsx';
+
+export default function PostRowSkeleton() {
+  return (
+    <Card variant="outlined" className={clsx(styles.root, styles.skeleton)}>
+      <div className={styles.row}>
+        <CardMedia className={styles.media}>
+          <Skeleton variant="rectangular" width="100%" height="100%" />
+        </CardMedia>
+        <CardContent className={styles.content}>
+          <Typography component="h2" variant="h2">
+            <Skeleton width="40%" />
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            <Skeleton width="20%" />
+          </Typography>
+          <Typography align="justify">
+            <Skeleton />
+            <Skeleton />
+            <Skeleton width="60%" />
+          </Typography>
+        </CardContent>
+      </div>
+    </Card>
+  );
+}

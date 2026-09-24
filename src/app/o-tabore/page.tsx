@@ -4,12 +4,12 @@ import styles from './page.module.css';
 import * as assets from './page.assets';
 import metadataJson from './metadata.json';
 import config from './page.config.json';
-import Surface from '@/components/content/Surface';
-import IconSection from '@/components/content/IconSection';
+import Surface from '@/components/layout/Surface';
+import Image from 'next/image';
 
 export const metadata: Metadata = metadataJson;
 
-export default function About() {
+export default function AboutPage() {
   return (
     <main>
       <Surface variant="container" aria-label="Tábor Oskar">
@@ -24,15 +24,18 @@ export default function About() {
       </Surface>
       <Surface className={styles.paper}>
         {config.sections.map(({ icon, alt, label, title, text }) => (
-          <IconSection
-            key={label}
-            icon={assets[icon as keyof typeof assets]}
-            alt={alt}
-            label={label}
-            title={title}
-          >
-            {text}
-          </IconSection>
+          <section key={label} aria-label={label}>
+            <Image
+              src={assets[icon as keyof typeof assets]}
+              alt={alt}
+              sizes="80px"
+              className={styles.icon}
+            />
+            <Typography variant="h3" color="inherit" gutterBottom={false}>
+              {title}
+            </Typography>
+            <Typography align="justify">{text}</Typography>
+          </section>
         ))}
       </Surface>
     </main>

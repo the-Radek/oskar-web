@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { notFound } from 'next/navigation';
 import MenuPagination from '@/components/navigation/MenuPagination';
 import Markdown from '@/components/content/Markdown';
-import Surface from '@/components/content/Surface';
+import Surface from '@/components/layout/Surface';
 
 type Year = keyof typeof config;
 
@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   return Object.keys(config).map((year) => ({ year }));
 }
 
-export default async function ThemedYearGame({ params }: PageProps<'/taborova-hra/[year]'>) {
+export default async function ThemedYearGamePage({ params }: PageProps<'/taborova-hra/[year]'>) {
   const { year } = await params;
   assertValidYear(year);
 

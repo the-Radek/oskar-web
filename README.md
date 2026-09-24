@@ -56,3 +56,4 @@ npm run dev
 - [Guides](wiki/guides.md)
 - [Harvester](wiki/harvester.md)
 - [Libs](wiki/libs.md)
+- [Testing](wiki/testing.md)

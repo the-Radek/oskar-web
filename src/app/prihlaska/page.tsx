@@ -3,6 +3,6 @@ import metadataJson from './metadata.json';
 
 export const metadata: Metadata = metadataJson;
 
-export default function Application() {
+export default function ApplicationPage() {
   return <div>prihlaska works!</div>;
 }

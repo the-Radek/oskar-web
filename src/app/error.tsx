@@ -6,9 +6,9 @@ import { useEffect } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import styles from './error.module.css';
-import Surface from '@/components/content/Surface';
+import Surface from '@/components/layout/Surface';
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {
@@ -33,7 +33,7 @@ export default function Error({
           Zkusit znovu
         </Button>
         <Button variant="outlined" component={Link} href="/" startIcon={<HomeIcon />}>
-          Zpět domů
+          Jít domů
         </Button>
       </div>
     </main>

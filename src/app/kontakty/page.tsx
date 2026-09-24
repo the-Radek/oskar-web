@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Typography from '@mui/material/Typography';
-import DefinitionList from '@/components/content/DefinitionList';
-import DefinitionListItem from '@/components/content/DefinitionListItem';
+import DefinitionList from '@/components/layout/DefinitionList';
+import DefinitionListItem from '@/components/layout/DefinitionListItem';
 import Phone from '@/components/data/Phone';
 import Email from '@/components/data/Email';
 import styles from './page.module.css';
@@ -14,7 +14,7 @@ import RouterLink from '@/components/navigation/RouterLink';
 
 export const metadata: Metadata = metadataJson;
 
-export default function Contacts() {
+export default function ContactsPage() {
   return (
     <main className={styles.root}>
       <div className={styles.content}>

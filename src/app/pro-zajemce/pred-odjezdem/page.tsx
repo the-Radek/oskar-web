@@ -8,12 +8,12 @@ import metadataJson from './metadata.json';
 import RouterLink from '@/components/navigation/RouterLink';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import List from '@/components/content/List';
+import List from '@/components/layout/List';
 import OpenNew from '@/components/navigation/OpenNew';
 
 export const metadata: Metadata = metadataJson;
 
-export default function BeforeDeparture() {
+export default function BeforeDeparturePage() {
   return (
     <main>
       <section>
@@ -22,7 +22,7 @@ export default function BeforeDeparture() {
           href="/pro-zajemce"
           variant="outlined"
           startIcon={<ArrowBackIcon />}
-          className={styles['go-back']}
+          className={styles.goBack}
         >
           Zpět
         </Button>

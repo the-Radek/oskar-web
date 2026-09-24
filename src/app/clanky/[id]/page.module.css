@@ -1,0 +1,56 @@
+.goBack {
+  float: right;
+  margin-left: calc(2 * var(--mui-spacing, 8px));
+
+  @media (max-width: 900px) {
+    display: flex;
+    width: max-content;
+    float: none;
+    margin-left: auto;
+  }
+}
+
+.article {
+  gap: calc(3 * var(--mui-spacing, 8px));
+
+  > h1 {
+    margin-bottom: 0;
+  }
+}
+
+.image {
+  float: left;
+  flex-shrink: 0;
+  width: 300px;
+  height: auto;
+  border-radius: var(--border-radius, 8px);
+  margin: 0.5em 0;
+  margin-right: calc(4 * var(--mui-spacing, 8px));
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--mui-spacing, 8px);
+}
+
+.thumb {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.skeletonImage {
+  aspect-ratio: 1 / 1;
+}
+
+.skeletonLine {
+  display: flow-root;
+}
+
+.skeletonThumb {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}

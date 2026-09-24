@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mui-spacing, 8px);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: calc(2 * var(--mui-spacing, 8px));
+}
+
+.pagination {
+  grid-column: 2;
+}
+
+.pageSize {
+  grid-column: 3;
+  justify-self: end;
+}

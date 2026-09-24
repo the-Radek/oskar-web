@@ -23,8 +23,8 @@ describe('loadSecret', () => {
     expect(loadSecret('MISSING_FILE')).toBe('');
   });
 
-  it('throws when the env var is missing and suppressError is false', () => {
+  it('throws when the env var is missing and touchy is true', () => {
     vi.stubEnv('MISSING_FILE', undefined);
-    expect(() => loadSecret('MISSING_FILE', false)).toThrow();
+    expect(() => loadSecret('MISSING_FILE', true)).toThrow();
   });
 });
