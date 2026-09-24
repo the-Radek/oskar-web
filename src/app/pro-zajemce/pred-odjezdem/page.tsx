@@ -22,7 +22,7 @@ export default function BeforeDeparture() {
           href="/pro-zajemce"
           variant="outlined"
           startIcon={<ArrowBackIcon />}
-          className={styles['go-back']}
+          className={styles.goBack}
         >
           Zpět
         </Button>

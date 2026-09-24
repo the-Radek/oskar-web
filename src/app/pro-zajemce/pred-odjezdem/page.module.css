@@ -1,4 +1,4 @@
-.go-back {
+.goBack {
   float: right;
   margin-left: calc(2 * var(--mui-spacing, 8px));
 

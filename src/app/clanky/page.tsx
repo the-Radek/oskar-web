@@ -8,6 +8,7 @@ import { getPublishedPosts } from '@/lib/actions/post';
 import PostRow from '@/components/content/PostRow';
 import PaginationNav from '@/components/navigation/PaginationNav';
 import Link from 'next/link';
+import EmptyPage from './empty';
 
 export const metadata: Metadata = metadataJson;
 
@@ -22,14 +23,7 @@ export default async function Posts({ searchParams }: PageProps<'/clanky'>) {
   const { posts, total } = await getPublishedPosts(page, pageSize);
   const pageCount = Math.max(1, Math.ceil(total / pageSize));
 
-  if (posts.length === 0) {
-    return (
-      <main>
-        <Typography variant="h1">Články</Typography>
-        <p>Zatím tu nejsou žádné články.</p>
-      </main>
-    );
-  }
+  if (posts.length === 0) return <EmptyPage />;
 
   return (
     <main>
@@ -40,19 +34,13 @@ export default async function Posts({ searchParams }: PageProps<'/clanky'>) {
         ))}
       </div>
       <div className={styles.footer}>
-        <PaginationNav
-          href="/clanky"
-          page={page}
-          count={pageCount}
-          pageSize={pageSize}
-          className={styles.pagination}
-        />
+        <PaginationNav page={page} count={pageCount} className={styles.pagination} />
         <ButtonGroup size="small" className={styles.pageSize}>
           {PAGE_SIZES.map((size) => (
             <Button
               key={size}
               component={Link}
-              href={`/clanky?page=1&pageSize=${size}`}
+              href={`/clanky?pageSize=${size}`}
               variant={size === pageSize ? 'contained' : 'outlined'}
             >
               {size}

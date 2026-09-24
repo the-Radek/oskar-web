@@ -1,5 +1,49 @@
-.grid {
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mui-spacing, 8px);
+}
+
+.footer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: calc(2 * var(--mui-spacing, 8px));
+}
+
+.pagination {
+  grid-column: 2;
+}
+
+.pageSize {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.skeletonRow {
+  display: flex;
+  height: 200px;
   gap: calc(3 * var(--mui-spacing, 8px));
+  border: 2px solid var(--mui-palette-divider);
+  border-radius: var(--border-radius, 8px);
+}
+
+.skeletonImage {
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  margin: 1px;
+  height: calc(100% - 2px);
+  border-radius: calc(var(--border-radius, 8px) - 1px);
+}
+
+.skeletonContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px;
+  gap: calc(1 * var(--mui-spacing, 8px));
+
+  > :first-child {
+    margin-bottom: 0.5em;
+  }
 }

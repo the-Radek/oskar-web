@@ -3,8 +3,13 @@ import Pagination from '@mui/material/Pagination';
 import type { PaginationNavProps } from './pagination-nav.types';
 import PaginationItem from '@mui/material/PaginationItem';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { mergeSearchParams } from '@/lib/utilities/merge-search-params';
 
-export default function PaginationNav({ href, pageSize, ...rest }: PaginationNavProps) {
+export default function PaginationNav({ ...rest }: PaginationNavProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   return (
     <Pagination
       shape="rounded"
@@ -13,7 +18,7 @@ export default function PaginationNav({ href, pageSize, ...rest }: PaginationNav
       renderItem={(item) => (
         <PaginationItem
           component={Link}
-          href={href + `?page=${item.page}&pageSize=${pageSize}`}
+          href={{ pathname, query: mergeSearchParams(searchParams, { page: item.page }) }}
           {...item}
         />
       )}

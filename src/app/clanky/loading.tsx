@@ -18,9 +18,10 @@ export default function PostsLoading() {
           <div key={index} className={styles.skeletonRow}>
             <Skeleton variant="rounded" className={styles.skeletonImage} />
             <div className={styles.skeletonContent}>
-              <Skeleton variant="text" width="50%" height={40} />
+              <Skeleton variant="text" width="40%" height={40} />
               <Skeleton variant="text" width="90%" />
-              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="90%" />
+              <Skeleton variant="text" width="60%" />
             </div>
           </div>
         ))}
@@ -39,7 +40,7 @@ export default function PostsLoading() {
             <Button
               key={size}
               component={Link}
-              href={`/clanky?page=1&pageSize=${size}`}
+              href={`/clanky?pageSize=${size}`}
               variant={size === DEFAULT_PAGE_SIZE ? 'contained' : 'outlined'}
             >
               {size}

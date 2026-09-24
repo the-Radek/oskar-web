@@ -3,7 +3,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import type { PhoneProps } from './phone.types';
 import IconTooltip from '@/components/reactive/IconTooltip';
 
-export default function Phone({ children, idd = '+420', tooltip = 'before' }: PhoneProps) {
+export default function Phone({ children, idd = '+420', tooltip = 'after' }: PhoneProps) {
   const phone = children.includes('+') ? children : idd + children;
   const href = 'tel:' + phone.replace(/[^\d+]/g, '');
 
