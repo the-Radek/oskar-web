@@ -5,6 +5,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/navigation';
 import type { GoBackButtonProps } from './go-back-button.types';
 
+// the part of the Navigation API we use; the project's TypeScript lib.dom doesn't declare it
+interface NavigationLike {
+  currentEntry: { index: number } | null;
+  entries(): { url: string | null }[];
+}
+
 /**
  * Path of the previous same-origin history entry, via the Navigation API.
  * Unlike document.referrer, it also follows client-side navigations.
@@ -12,7 +18,7 @@ import type { GoBackButtonProps } from './go-back-button.types';
  * @returns the path, or null when there is no previous entry or the API is unsupported
  */
 function previousPathname(): string | null {
-  const navigation = window.navigation;
+  const navigation = (window as { navigation?: NavigationLike }).navigation;
   const index = navigation?.currentEntry?.index;
   const url = index === undefined ? undefined : navigation?.entries()[index - 1]?.url;
   return url ? new URL(url).pathname : null;
