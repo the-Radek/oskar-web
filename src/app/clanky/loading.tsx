@@ -3,7 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
-import { PostRowSkeleton } from '@/components/content/PostRow';
+import { PostListingSkeleton } from '@/components/content/PostListing';
 import styles from './page.module.css';
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './constants';
 
@@ -11,11 +11,7 @@ export default function PostsLoading() {
   return (
     <main>
       <Typography variant="h1">Články</Typography>
-      <div className={styles.list}>
-        {Array.from({ length: DEFAULT_PAGE_SIZE }, (_, index) => (
-          <PostRowSkeleton key={index} />
-        ))}
-      </div>
+      <PostListingSkeleton count={DEFAULT_PAGE_SIZE} />
       <div className={styles.footer}>
         <Pagination
           shape="rounded"
