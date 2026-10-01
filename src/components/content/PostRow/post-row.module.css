@@ -1,15 +1,24 @@
 .root {
+  width: 100%;
   border: 2px solid var(--mui-palette-primary-main);
   border-radius: var(--border-radius, 8px);
   background-color: transparent;
-  overflow: hidden;
 }
 
 .row {
   display: flex;
   height: 202px;
   align-items: stretch;
-  gap: calc(3 * var(--mui-spacing, 8px));
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: 500px;
+  }
+
+  @media (max-width: 600px) {
+    height: auto;
+    max-height: 500px;
+  }
 }
 
 .media {
@@ -23,13 +32,28 @@
   img {
     object-fit: cover;
   }
+
+  @media (max-width: 900px) {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 600px) {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 .content {
   flex: 1;
+  padding-top: 0;
+  overflow: hidden;
+  margin-bottom: 0.5em;
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 1.5em), transparent);
 
   > h2 {
     margin-bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 

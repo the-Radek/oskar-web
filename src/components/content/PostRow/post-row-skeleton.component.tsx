@@ -15,7 +15,7 @@ export default function PostRowSkeleton() {
         </CardMedia>
         <CardContent className={styles.content}>
           <Typography component="h2" variant="h2">
-            <Skeleton width="40%" />
+            <Skeleton width="50%" />
           </Typography>
           <Typography variant="body2" gutterBottom>
             <Skeleton width="20%" />
@@ -23,7 +23,11 @@ export default function PostRowSkeleton() {
           <Typography align="justify">
             <Skeleton />
             <Skeleton />
+            <Skeleton />
             <Skeleton width="60%" />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton width="40%" />
           </Typography>
         </CardContent>
       </div>
