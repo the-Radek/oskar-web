@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import metadataJson from './metadata.json';
 import styles from './page.module.css';
 import { getPublishedPosts } from '@/lib/actions/post';
-import PostRow from '@/components/content/PostRow';
+import PostListing from '@/components/content/PostListing';
 import PaginationNav from '@/components/navigation/PaginationNav';
 import Link from 'next/link';
 import PostsEmptyPage from './empty';
@@ -23,16 +23,17 @@ export default async function PostsPage({ searchParams }: PageProps<'/clanky'>) 
 
   if (posts.length === 0) return <PostsEmptyPage />;
 
+  const pagination = <PaginationNav page={page} count={pageCount} className={styles.pagination} />;
+
   return (
     <main>
-      <Typography variant="h1">Články</Typography>
-      <div className={styles.list}>
-        {posts.map((post) => (
-          <PostRow key={post.id} post={post} />
-        ))}
+      <div className={styles.header}>
+        <Typography variant="h1">Články</Typography>
+        {pagination}
       </div>
+      <PostListing posts={posts} />
       <div className={styles.footer}>
-        <PaginationNav page={page} count={pageCount} className={styles.pagination} />
+        {pagination}
         <ButtonGroup size="small" className={styles.pageSize}>
           {PAGE_SIZES.map((size) => (
             <Button

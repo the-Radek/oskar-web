@@ -39,21 +39,21 @@ export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]
         >
           Zpět na články
         </GoBackButton>
+        <Typography variant="h1">{post.title}</Typography>
+        <Typography variant="body2" gutterBottom>
+          {formatDate(post.createdAt)}
+        </Typography>
         {post.image && (
           <Image
             src={post.image.src}
             alt={post.image.alt}
             width={post.image.width}
             height={post.image.height}
-            sizes="300px"
+            sizes="(max-width: 350px) 100vw, (max-width: 600px) 350px, (max-width: 900px) 200px, 300px"
             priority
             className={styles.image}
           />
         )}
-        <Typography variant="h1">{post.title}</Typography>
-        <Typography variant="body2" gutterBottom>
-          {formatDate(post.createdAt)}
-        </Typography>
         <Markdown>{post.content}</Markdown>
       </Surface>
       {post.images.length > 0 && (
@@ -65,8 +65,7 @@ export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]
               alt={image.alt}
               width={image.width}
               height={image.height}
-              sizes="(max-width: 600px) 50vw, 300px"
-              className={styles.thumb}
+              sizes="300px"
             />
           ))}
         </div>

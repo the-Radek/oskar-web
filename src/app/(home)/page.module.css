@@ -1,0 +1,15 @@
+.showMore {
+  margin-top: calc(2 * var(--mui-spacing, 8px));
+}
+
+.listing {
+  grid-template-rows: auto;
+  grid-auto-rows: 0;
+  overflow: hidden;
+
+  @media (max-width: 600px) {
+    > :last-child {
+      display: none;
+    }
+  }
+}
