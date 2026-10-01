@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import styles from '../error.module.css';
+import styles from '@/app/error.module.css';
 import Surface from '@/components/layout/Surface';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';

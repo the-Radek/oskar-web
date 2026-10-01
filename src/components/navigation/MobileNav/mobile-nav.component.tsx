@@ -43,6 +43,7 @@ export default function MobileNav(props: MobileNavProps) {
             open={open}
             onOpen={toggleDrawer(true)}
             onClose={toggleDrawer(false)}
+            disableSwipeToOpen
             slotProps={{ paper: { component: 'nav' } }}
             classes={{ paper: styles.drawer }}
           >
