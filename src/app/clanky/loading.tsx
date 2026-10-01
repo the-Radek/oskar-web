@@ -8,19 +8,26 @@ import styles from './page.module.css';
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './constants';
 
 export default function PostsLoading() {
+  const pagination = (
+    <Pagination
+      shape="rounded"
+      color="primary"
+      page={1}
+      count={10}
+      className={styles.pagination}
+      disabled
+    />
+  );
+
   return (
     <main>
-      <Typography variant="h1">Články</Typography>
+      <div className={styles.header}>
+        <Typography variant="h1">Články</Typography>
+        {pagination}
+      </div>
       <PostListingSkeleton count={DEFAULT_PAGE_SIZE} />
       <div className={styles.footer}>
-        <Pagination
-          shape="rounded"
-          color="primary"
-          page={1}
-          count={10}
-          className={styles.pagination}
-          disabled
-        />
+        {pagination}
         <ButtonGroup size="small" className={styles.pageSize}>
           {PAGE_SIZES.map((size) => (
             <Button

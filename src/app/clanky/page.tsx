@@ -23,12 +23,17 @@ export default async function PostsPage({ searchParams }: PageProps<'/clanky'>) 
 
   if (posts.length === 0) return <PostsEmptyPage />;
 
+  const pagination = <PaginationNav page={page} count={pageCount} className={styles.pagination} />;
+
   return (
     <main>
-      <Typography variant="h1">Články</Typography>
+      <div className={styles.header}>
+        <Typography variant="h1">Články</Typography>
+        {pagination}
+      </div>
       <PostListing posts={posts} />
       <div className={styles.footer}>
-        <PaginationNav page={page} count={pageCount} className={styles.pagination} />
+        {pagination}
         <ButtonGroup size="small" className={styles.pageSize}>
           {PAGE_SIZES.map((size) => (
             <Button
