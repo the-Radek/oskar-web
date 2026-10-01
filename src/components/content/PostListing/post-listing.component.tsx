@@ -10,10 +10,11 @@ import { formatDate } from '@/lib/utilities/format-date';
 import { excerpt } from '@/lib/utilities/excerpt';
 import type { PostListingProps } from './post-listing.types';
 import styles from './post-listing.module.css';
+import clsx from 'clsx';
 
-export default function PostListing({ posts }: PostListingProps) {
+export default function PostListing({ posts, className }: PostListingProps) {
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, className)}>
       {posts.map((post) => (
         <Card key={post.id} variant="outlined" className={styles.card}>
           <CardActionArea component={Link} href={`/clanky/${post.id}`} className={styles.row}>

@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import styles from './post-listing.module.css';
 
-export function PostListingSkeleton({ count }: { count: number }) {
+export function PostListingSkeleton({ count, className }: { count: number; className?: string }) {
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, className)}>
       {Array.from({ length: count }, (_, index) => (
         <Card key={index} variant="outlined" className={clsx(styles.card, styles.skeleton)}>
           <div className={styles.row}>
