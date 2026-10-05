@@ -17,7 +17,7 @@ export default async function HomePage() {
       <ApplicationButton />
       <section>
         <Typography variant="h1" component="h1">
-          Aktuality
+          Test the deploy hook
         </Typography>
         <PostListing posts={posts} className={styles.listing} />
         <Button
