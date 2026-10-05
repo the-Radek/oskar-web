@@ -1,4 +1,3 @@
-
 services:
   db:
     image: postgres:17-alpine
@@ -11,27 +10,12 @@ services:
     secrets:
       - db_password
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready", "-d", "oskar"]
+      test: ["CMD-SHELL", "pg_isready -U oskar -d oskar"]
       interval: 60s
       timeout: 30s
       retries: 5
     volumes:
       - dbdata:/var/lib/postgresql/data
-
-  adminer:
-    image: ghcr.io/shyim/adminerevo
-    restart: always
-    stop_signal: SIGKILL
-    depends_on:
-      - db
-    environment:
-      ADMINER_DEFAULT_DRIVER: pgsql
-      ADMINER_DEFAULT_SERVER: db
-      ADMINER_DEFAULT_DB: oskar
-    ports:
-      - "127.0.0.1:8080:8080"
-    volumes:
-      - adminer:/tmp
 
   web:
     build: .
@@ -49,6 +33,8 @@ services:
     secrets:
       - db_password
       - google_secret
+    # Swarm ignores 127.0.0.1 and publishes on all interfaces;
+    # external access is blocked by DOCKER-USER rules in /etc/ufw/after.rules
     ports:
       - "127.0.0.1:3000:3000"
     volumes:
@@ -66,5 +52,4 @@ secrets:
     file: '${GOOGLE_SECRET_FILE:-./secrets/google_secret}'
 volumes:
   dbdata:
-  adminer:
   gallery:

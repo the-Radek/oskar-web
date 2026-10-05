@@ -10,7 +10,14 @@ services:
     volumes:
       - dbdata:/var/lib/postgresql/data
   adminer:
+    image: ghcr.io/shyim/adminerevo
+    depends_on:
+      - db
     environment:
+      ADMINER_DEFAULT_DRIVER: pgsql
+      ADMINER_DEFAULT_SERVER: db
+      ADMINER_DEFAULT_DB: oskar
       ADMINER_DEFAULT_USER: oskar
-  web:
-    profiles: ["prod"]
+      ADMINER_DEFAULT_PASSWORD: *****
+    ports:
+      - "127.0.0.1:8080:8080"

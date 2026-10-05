@@ -1,0 +1,20 @@
+# Modify to setup local development
+# do not use `ports` to expose ports to host as Docker Swarm ignores 127.0.0.1 and publishes on all interfaces
+# use `profiles` to disable service (unless explicitly enabled)
+# use `volumes` to specify local data directory
+
+services:
+  db:
+    networks:
+      - default
+      - admin
+  web:
+    image: hub.vecernikovi.cz/oskar/web:latest
+    environment:
+      HOST: oskar.vecernikovi.cz
+    volumes:
+      - /opt/oskar/gallery:/app/public/galerie
+
+networks:
+  admin:
+    attachable: true
