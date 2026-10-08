@@ -30,7 +30,13 @@ export function PostsTotal({ total }: { total: number }) {
   return null;
 }
 
-export function PostsPagination({ page, pageSize }: { page: number; pageSize: number }) {
+interface PostsPaginationProps {
+  page: number;
+  pageSize: number;
+  label: string;
+}
+
+export function PostsPagination({ page, pageSize, label }: PostsPaginationProps) {
   const { total } = useContext(PostsTotalContext);
 
   if (!total) {
@@ -42,6 +48,7 @@ export function PostsPagination({ page, pageSize }: { page: number; pageSize: nu
         count={10}
         className={styles.pagination}
         disabled
+        aria-hidden
       />
     );
   }
@@ -51,6 +58,7 @@ export function PostsPagination({ page, pageSize }: { page: number; pageSize: nu
       page={page}
       count={Math.max(1, Math.ceil(total / pageSize))}
       className={styles.pagination}
+      aria-label={label}
     />
   );
 }

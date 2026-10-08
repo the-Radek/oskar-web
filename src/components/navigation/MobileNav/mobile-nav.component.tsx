@@ -33,7 +33,8 @@ export default function MobileNav(props: MobileNavProps) {
             size="large"
             edge="start"
             color="inherit"
-            aria-label="menu"
+            aria-label="Otevřít menu"
+            aria-expanded={open}
             sx={{ mr: 2 }}
             onClick={toggleDrawer(true)}
           >
@@ -44,7 +45,7 @@ export default function MobileNav(props: MobileNavProps) {
             onOpen={toggleDrawer(true)}
             onClose={toggleDrawer(false)}
             disableSwipeToOpen
-            slotProps={{ paper: { component: 'nav' } }}
+            slotProps={{ paper: { component: 'nav', 'aria-label': 'Hlavní navigace' } }}
             classes={{ paper: styles.drawer }}
           >
             <List>

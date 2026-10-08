@@ -18,7 +18,7 @@ export default function ContactsPage() {
   return (
     <main className={styles.root}>
       <div className={styles.content}>
-        <section aria-label="post address">
+        <section aria-label="Poštovní adresa">
           <Typography variant="h2">Adresa pro dopisy</Typography>
           <address className={styles.address}>
             Tábor Oskar – Holubí kout
@@ -32,7 +32,7 @@ export default function ContactsPage() {
             <br />
           </address>
         </section>
-        <section aria-label="contact details">
+        <section aria-label="Kontaktní údaje">
           <Typography variant="h2">Kontakt</Typography>
           <DefinitionList>
             <DefinitionListItem label="Telefon na tábor">
@@ -43,7 +43,7 @@ export default function ContactsPage() {
             </DefinitionListItem>
           </DefinitionList>
         </section>
-        <section aria-label="camp's phone">
+        <section aria-label="Telefon na táboře">
           <Typography variant="h2">Telefon na tábor</Typography>
           <DefinitionList>
             <DefinitionListItem label="II. turnus">
@@ -57,7 +57,7 @@ export default function ContactsPage() {
             </DefinitionListItem>
           </DefinitionList>
         </section>
-        <section aria-label="organizer">
+        <section aria-label="Pořadatel">
           <Typography variant="h2">Organizátor</Typography>
           <Typography sx={{ fontWeight: 'medium' }}>Přátelé LDT Oskar, z.s.</Typography>
           <DefinitionList>
@@ -67,7 +67,7 @@ export default function ContactsPage() {
             </DefinitionListItem>
           </DefinitionList>
         </section>
-        <section aria-label="map">
+        <section aria-label="Mapa">
           <MapyCz src={appConfig.maps.camp} />
           <p>
             Více informací o odjezdu a příjezdu na tábor{' '}
@@ -75,7 +75,7 @@ export default function ContactsPage() {
           </p>
         </section>
       </div>
-      <section aria-label="sponsors">
+      <section aria-label="Sponzoři">
         <Typography variant="h2">Sponzoři</Typography>
         <div className={styles.sponsors}>
           <Image
@@ -108,7 +108,7 @@ export default function ContactsPage() {
           />
         </div>
       </section>
-      <Paper component="section" className={styles.collab} aria-label="collaboration">
+      <Paper component="section" className={styles.collab} aria-label="Spolupráce">
         <Typography component="h2" variant="body2" align="center" color="primary.dark" gutterBottom>
           Ve spolupráci
         </Typography>

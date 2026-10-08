@@ -21,18 +21,24 @@ export default function PostsView({ page, pageSize, children }: PostsViewProps) 
       <PostsTotalProvider>
         <div className={styles.header}>
           <Typography variant="h2">Články</Typography>
-          <PostsPagination page={page} pageSize={pageSize} />
+          <PostsPagination page={page} pageSize={pageSize} label="Stránkování nahoře" />
         </div>
         {children}
         <div className={styles.footer}>
-          <PostsPagination page={page} pageSize={pageSize} />
-          <ButtonGroup size="small" className={styles.pageSize}>
+          <PostsPagination page={page} pageSize={pageSize} label="Stránkování dole" />
+          <ButtonGroup
+            size="small"
+            className={styles.pageSize}
+            aria-label="Počet článků na stránku"
+          >
             {PAGE_SIZES.map((size) => (
               <Button
                 key={size}
                 component={Link}
                 href={`/clanky?pageSize=${size}`}
                 variant={size === pageSize ? 'contained' : 'outlined'}
+                aria-label={`${size} článků na stránku`}
+                aria-current={size === pageSize || undefined}
               >
                 {size}
               </Button>
