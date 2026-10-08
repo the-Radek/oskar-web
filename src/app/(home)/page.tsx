@@ -14,9 +14,7 @@ export default async function HomePage() {
     <main>
       <ApplicationButton />
       <section>
-        <Typography variant="h1" component="h1">
-          Aktuality
-        </Typography>
+        <Typography variant="h2">Aktuality</Typography>
         <PostListing posts={posts} className={styles.listing} />
         <Button
           component={Link}

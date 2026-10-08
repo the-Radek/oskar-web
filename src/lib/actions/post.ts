@@ -36,6 +36,7 @@ export const getPost = cache(async (id: number) => {
 });
 
 export async function getPostThumbs(page = 1, pageSize = 10) {
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
   const where = { published: true, deletedAt: null };
 
   const [rows, total] = await Promise.all([
