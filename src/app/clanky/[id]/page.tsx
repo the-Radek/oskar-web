@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Surface from '@/components/layout/Surface';
 import Markdown from '@/components/content/Markdown';
-import { getPublishedPost } from '@/lib/actions/post';
+import { getPost } from '@/lib/actions/post';
 import { formatDate } from '@/lib/utilities/format-date';
 import styles from './page.module.css';
 import GoBackButton from '@/components/navigation/GoBackButton';
@@ -18,14 +18,14 @@ function parseId(id: string): number {
 
 export async function generateMetadata({ params }: PageProps<'/clanky/[id]'>): Promise<Metadata> {
   const { id } = await params;
-  const post = await getPublishedPost(parseId(id));
+  const post = await getPost(parseId(id));
   if (!post) notFound();
   return { title: post.title };
 }
 
 export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]'>) {
   const { id } = await params;
-  const post = await getPublishedPost(parseId(id));
+  const post = await getPost(parseId(id));
   if (!post) notFound();
 
   return (

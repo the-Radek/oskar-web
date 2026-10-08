@@ -3,6 +3,7 @@ import { prisma } from '../prisma';
 import z from 'zod';
 import { PostSchema } from '../validators/post';
 import { ImageSchema } from '../validators/image';
+import { excerpt } from '../utilities/excerpt';
 
 const CreatePostInputSchema = z.object({
   post: PostSchema,
@@ -10,6 +11,8 @@ const CreatePostInputSchema = z.object({
 });
 
 export type CreatePostInput = z.infer<typeof CreatePostInputSchema>;
+
+const EXCERPT_LENGTH = 300;
 
 export async function createPost(userId: string, input: CreatePostInput) {
   const result = CreatePostInputSchema.parse(input);
@@ -25,27 +28,40 @@ export async function createPost(userId: string, input: CreatePostInput) {
   });
 }
 
-export async function getPublishedPosts(page = 1, pageSize = 10) {
+export const getPost = cache(async (id: number) => {
+  return prisma.post.findFirst({
+    where: { id, published: true, deletedAt: null },
+    include: { image: true, images: true },
+  });
+});
+
+export async function getPostThumbs(page = 1, pageSize = 10) {
   const where = { published: true, deletedAt: null };
 
-  const [posts, total] = await Promise.all([
+  const [rows, total] = await Promise.all([
     prisma.post.findMany({
       where,
       orderBy: { createdAt: 'desc' },
-      include: { image: true },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        createdAt: true,
+        image: { select: { src: true, alt: true } },
+      },
       skip: (page - 1) * pageSize,
       take: pageSize,
     }),
     prisma.post.count({ where }),
   ]);
 
+  const posts = rows.map(({ content, createdAt, ...post }) => ({
+    ...post,
+    createdAt: createdAt.toISOString(),
+    excerpt: excerpt(content, EXCERPT_LENGTH),
+  }));
+
   return { posts, total };
 }
 
-// cache() dedupes calls within one request: generateMetadata and the page component both need this.
-export const getPublishedPost = cache(async (id: number) => {
-  return prisma.post.findFirst({
-    where: { id, published: true, deletedAt: null },
-    include: { image: true, images: true },
-  });
-});
+export type PostThumb = Awaited<ReturnType<typeof getPostThumbs>>['posts'][number];

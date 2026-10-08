@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import IconImage from '@/components/content/IconImage';
 import { formatDate } from '@/lib/utilities/format-date';
-import { excerpt } from '@/lib/utilities/excerpt';
 import type { PostListingProps } from './post-listing.types';
 import styles from './post-listing.module.css';
 import clsx from 'clsx';
@@ -35,9 +34,9 @@ export default function PostListing({ posts, className }: PostListingProps) {
                 {post.title}
               </Typography>
               <Typography variant="body2" gutterBottom>
-                {formatDate(post.createdAt)}
+                {formatDate(new Date(post.createdAt))}
               </Typography>
-              <Typography align="justify">{excerpt(post.content, 300)}</Typography>
+              <Typography align="justify">{post.excerpt}</Typography>
             </CardContent>
           </CardActionArea>
         </Card>

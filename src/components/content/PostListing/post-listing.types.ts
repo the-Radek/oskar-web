@@ -1,6 +1,6 @@
-import type { getPublishedPosts } from '@/lib/actions/post';
+import type { PostThumb } from '@/lib/actions/post';
 
 export interface PostListingProps {
-  posts: Awaited<ReturnType<typeof getPublishedPosts>>['posts'];
+  posts: PostThumb[];
   className?: string;
 }
