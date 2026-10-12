@@ -22,6 +22,8 @@ export default function PostListing({ posts, className }: PostListingProps) {
                 <Image
                   src={post.image.src}
                   alt={post.image.alt}
+                  placeholder={post.image.blurDataURL ? 'blur' : 'empty'}
+                  blurDataURL={post.image.blurDataURL}
                   fill
                   sizes="(max-width: 600px) 100vw, (max-width: 850px) 50vw, (max-width: 900px) 33vw, 200px"
                 />

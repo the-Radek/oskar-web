@@ -47,6 +47,8 @@ export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]
           <Image
             src={post.image.src}
             alt={post.image.alt}
+            placeholder={post.image.blurDataURL ? 'blur' : 'empty'}
+            blurDataURL={post.image.blurDataURL}
             width={post.image.width}
             height={post.image.height}
             sizes="(max-width: 350px) 100vw, (max-width: 600px) 350px, (max-width: 900px) 200px, 300px"
@@ -63,6 +65,8 @@ export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]
               key={image.id}
               src={image.src}
               alt={image.alt}
+              placeholder={image.blurDataURL ? 'blur' : 'empty'}
+              blurDataURL={image.blurDataURL}
               width={image.width}
               height={image.height}
               sizes="300px"

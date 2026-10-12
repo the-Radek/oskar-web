@@ -4,6 +4,7 @@ import z from 'zod';
 import { PostSchema } from '../validators/post';
 import { ImageSchema } from '../validators/image';
 import { excerpt } from '../utilities/excerpt';
+import { getBlurDataURL } from '../utilities/blur-data-url';
 
 const CreatePostInputSchema = z.object({
   post: PostSchema,
@@ -13,6 +14,10 @@ const CreatePostInputSchema = z.object({
 export type CreatePostInput = z.infer<typeof CreatePostInputSchema>;
 
 const EXCERPT_LENGTH = 300;
+
+async function withBlur<T extends { src: string }>(image: T) {
+  return { ...image, blurDataURL: await getBlurDataURL(image.src, { immutable: true }) };
+}
 
 export async function createPost(userId: string, input: CreatePostInput) {
   const result = CreatePostInputSchema.parse(input);
@@ -29,10 +34,18 @@ export async function createPost(userId: string, input: CreatePostInput) {
 }
 
 export const getPost = cache(async (id: number) => {
-  return prisma.post.findFirst({
+  const post = await prisma.post.findFirst({
     where: { id, published: true, deletedAt: null },
     include: { image: true, images: true },
   });
+  if (!post) return null;
+
+  const [image, images] = await Promise.all([
+    post.image && withBlur(post.image),
+    Promise.all(post.images.map(withBlur)),
+  ]);
+
+  return { ...post, image, images };
 });
 
 export async function getPostThumbs(page = 1, pageSize = 10) {
@@ -56,11 +69,14 @@ export async function getPostThumbs(page = 1, pageSize = 10) {
     prisma.post.count({ where }),
   ]);
 
-  const posts = rows.map(({ content, createdAt, ...post }) => ({
-    ...post,
-    createdAt: createdAt.toISOString(),
-    excerpt: excerpt(content, EXCERPT_LENGTH),
-  }));
+  const posts = await Promise.all(
+    rows.map(async ({ content, createdAt, image, ...post }) => ({
+      ...post,
+      image: image && (await withBlur(image)),
+      createdAt: createdAt.toISOString(),
+      excerpt: excerpt(content, EXCERPT_LENGTH),
+    })),
+  );
 
   return { posts, total };
 }
