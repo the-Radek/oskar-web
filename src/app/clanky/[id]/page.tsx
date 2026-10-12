@@ -9,12 +9,7 @@ import { getPost } from '@/lib/actions/post';
 import { formatDate } from '@/lib/utilities/format-date';
 import styles from './page.module.css';
 import GoBackButton from '@/components/navigation/GoBackButton';
-
-function parseId(id: string): number {
-  const parsed = Number(id);
-  if (!Number.isInteger(parsed)) notFound();
-  return parsed;
-}
+import { parseId } from '@/lib/utilities/parse-id';
 
 export async function generateMetadata({ params }: PageProps<'/clanky/[id]'>): Promise<Metadata> {
   const { id } = await params;
