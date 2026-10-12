@@ -15,7 +15,13 @@ export default function Header() {
         <ShowIf above="md">
           <DesktopNav />
         </ShowIf>
-        <Image src={banner} alt="OSKAR" sizes="(max-width: 1200px) 100vw, 1200px" priority />
+        <Image
+          src={banner}
+          alt="OSKAR"
+          placeholder="blur"
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          priority
+        />
       </header>
     </>
   );

@@ -30,6 +30,7 @@ export default function OskarCard({
         <Image
           src={image}
           alt={imageAlt}
+          placeholder="blur"
           sizes="(max-width: 400px) 100vw, (max-width: 900px) 400px, (max-width: 1200px) 33vw, 400px"
         />
       </CardMedia>
