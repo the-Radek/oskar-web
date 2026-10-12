@@ -8,9 +8,15 @@ import styles from './post-listing.module.css';
 
 export function PostListingSkeleton({ count, className }: { count: number; className?: string }) {
   return (
-    <div className={clsx(styles.root, className)}>
+    <div className={clsx(styles.root, className)} role="status" aria-busy="true">
+      <span className={styles.visuallyHidden}>Načítání článků…</span>
       {Array.from({ length: count }, (_, index) => (
-        <Card key={index} variant="outlined" className={clsx(styles.card, styles.skeleton)}>
+        <Card
+          key={index}
+          variant="outlined"
+          className={clsx(styles.card, styles.skeleton)}
+          aria-hidden="true"
+        >
           <div className={styles.row}>
             <CardMedia className={styles.media}>
               <Skeleton variant="rectangular" width="100%" height="100%" />

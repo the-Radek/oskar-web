@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import styles from './page.module.css';
 import config from './page.config.json';
 import Typography from '@mui/material/Typography';
@@ -33,11 +33,13 @@ export default async function ThemedYearGamePage({ params }: PageProps<'/taborov
   let imageTemplate = null;
 
   if (themedGame.image) {
-    const { alt, ...imgProps } = themedGame.image;
+    const { file, alt } = themedGame.image;
+    const { default: image }: { default: StaticImageData } = await import(`@/assets/game/${file}`);
     imageTemplate = (
       <Image
+        src={image}
         alt={alt}
-        {...imgProps}
+        placeholder="blur"
         sizes="(max-width: 600px) 33vw, (max-width: 900px) 200px, 300px"
         className={styles.img}
       />

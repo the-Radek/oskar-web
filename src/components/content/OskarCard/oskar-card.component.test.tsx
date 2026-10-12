@@ -2,7 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import OskarCard from './oskar-card.component';
 
-const image = { src: '/turnus.png', width: 400, height: 300, blurWidth: 0, blurHeight: 0 };
+const image = {
+  src: '/turnus.png',
+  width: 400,
+  height: 300,
+  blurDataURL: 'data:image/png;base64,AAAA',
+  blurWidth: 0,
+  blurHeight: 0,
+};
 
 describe('OskarCard', () => {
   it('renders title, dates, text and price', () => {

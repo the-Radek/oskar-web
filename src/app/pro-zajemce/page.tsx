@@ -67,7 +67,7 @@ export default function ForApplicantsPage() {
           Pokud jste už vybrali termín, stačí jen vyplnit{' '}
           <RouterLink href="/prihlaska">přihlášku</RouterLink>.
         </p>
-        <section aria-label="price">
+        <section aria-label="Cena">
           <Typography component="h2" variant="h4">
             Cena
           </Typography>
@@ -77,7 +77,7 @@ export default function ForApplicantsPage() {
             výletu.
           </Typography>
         </section>
-        <section aria-label="departure">
+        <section aria-label="Odjezd">
           <Typography component="h2" variant="h4">
             Odjezd
           </Typography>

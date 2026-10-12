@@ -13,6 +13,7 @@ export default function DesktopNav(props: DesktopNavProps) {
   return (
     <Tabs
       component={'nav'}
+      aria-label="Hlavní navigace"
       value={pathname in routes && pathname}
       textColor="inherit"
       variant="fullWidth"

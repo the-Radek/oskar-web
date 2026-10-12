@@ -27,9 +27,9 @@ export default function MenuPagination(props: MenuPaginationProps) {
 
   return (
     <>
-      <ButtonGroup component="nav" {...rest}>
+      <ButtonGroup component="nav" aria-label="Stránkování" {...rest}>
         <Button
-          aria-label="previous"
+          aria-label="Předchozí"
           component={RouterLink}
           href={pages[current - 1]?.href ?? ''}
           disabled={current === 0}
@@ -47,7 +47,7 @@ export default function MenuPagination(props: MenuPaginationProps) {
           {label ?? pages[current].label}
         </Button>
         <Button
-          aria-label="next"
+          aria-label="Další"
           component={RouterLink}
           href={pages[current + 1]?.href ?? ''}
           disabled={current === pages.length - 1}

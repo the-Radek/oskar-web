@@ -8,5 +8,5 @@ export default function MapyCz(props: MapyCzProps) {
   const { className, ...rest } = props;
   const classes = clsx(styles.root, className);
 
-  return <ProgressiveIframe className={classes} icon={<MapIcon />} {...rest} />;
+  return <ProgressiveIframe className={classes} icon={<MapIcon />} title="Mapa" {...rest} />;
 }

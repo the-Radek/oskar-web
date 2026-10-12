@@ -4,10 +4,10 @@ import requests
 from tqdm import tqdm
 from bs4 import BeautifulSoup
 
-from lib.utils import download, hq_image, open_json, save_json, image_dim
+from lib.utils import download, hq_image, open_json, save_json
 
 
-PATH = Path(__file__) / "../../public/taborova-hra"
+PATH = Path(__file__) / "../../src/assets/game"
 CONFIG = Path(__file__) / "../../src/app/taborova-hra/[year]/page.config.json"
 URL = "https://www.tabor-oskar.cz"
 
@@ -35,15 +35,12 @@ def harvest(url, config, path):
         txt = page.select_one("#md1")
         img = page.select_one("img.img-rounded")
         size += download(hq_image(img["src"]), path, f"{year}.jpg")[0]
-        width, height = image_dim(path / f"{year}.jpg")
         metadata |= {
             year: {
                 "title": title,
                 "description": sanitize_text(txt.text),
                 "image": {
-                    "src": f"/taborova-hra/{year}.jpg",
-                    "width": width,
-                    "height": height,
+                    "file": f"{year}.jpg",
                     "alt": img["alt"] or title,
                 },
             }
