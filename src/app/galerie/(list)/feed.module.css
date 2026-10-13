@@ -1,0 +1,20 @@
+.year {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 0 0 var(--mui-spacing, 8px);
+  padding: 0.35em 0;
+  background-color: var(--mui-palette-background-default);
+  border-bottom: 1px solid var(--mui-palette-divider);
+}
+
+.section + .section {
+  margin-top: calc(2 * var(--mui-spacing, 8px));
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  min-height: 3em;
+  padding: calc(2 * var(--mui-spacing, 8px)) 0;
+}
