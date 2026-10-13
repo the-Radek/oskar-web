@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import GalleryLightbox from '@/components/content/GalleryLightbox';
 import { getImage, getImageWindow } from '@/lib/actions/image';
 import { parseId } from '@/lib/utilities/parse-id';
-import { loadGalleryNeighbours } from '@/app/galerie/actions';
 import { LIGHTBOX_CHUNK } from '@/app/galerie/constants';
 
 export default async function ImageModal({ params }: { params: Promise<{ id: string }> }) {
@@ -11,5 +10,5 @@ export default async function ImageModal({ params }: { params: Promise<{ id: str
   if (!image) notFound();
 
   const initial = await getImageWindow(image, LIGHTBOX_CHUNK);
-  return <GalleryLightbox initial={initial} loadNeighbours={loadGalleryNeighbours} />;
+  return <GalleryLightbox initial={initial} />;
 }
