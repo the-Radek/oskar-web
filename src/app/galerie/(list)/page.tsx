@@ -1,12 +1,9 @@
-import type { Metadata } from 'next';
-import metadataJson from './metadata.json';
 import { getImageThumbs } from '@/lib/actions/image';
 import { FEED_CHUNK } from '../constants';
 import GalleryFeed from './feed';
 import Surface from '@/components/layout/Surface';
 import StuckActions from '@/components/layout/StuckActions';
 
-export const metadata: Metadata = metadataJson;
 export const dynamic = 'force-dynamic';
 
 export default async function GalleryPage() {

@@ -1,6 +1,6 @@
 import themedGameRedirect from './taborova-hra/redirect';
 import themedGameMetadata from './taborova-hra/metadata.json';
-import galleryMetadata from './galerie/metadata.json';
+import galleryMetadata from './galerie/(list)/metadata.json';
 import forApplicantsMetadata from './pro-zajemce/metadata.json';
 import aboutCampMetadata from './o-tabore/metadata.json';
 import contactsMetadata from './kontakty/metadata.json';
