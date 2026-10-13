@@ -7,14 +7,11 @@ const year = new Date().getFullYear();
 
 export default function GalleryLoading() {
   return (
-    <main>
-      <Typography variant="h2">Galerie</Typography>
-      <section key={year} className={styles.section} aria-labelledby={`gallery-year-${year}`}>
-        <Typography id={`gallery-year-${year}`} variant="h3" className={styles.year}>
-          {year}
-        </Typography>
-        <GalleryMosaicSkeleton count={FEED_CHUNK} />
-      </section>
-    </main>
+    <section key={year} className={styles.section} aria-labelledby={`gallery-year-${year}`}>
+      <Typography id={`gallery-year-${year}`} variant="h3" className={styles.year}>
+        {year}
+      </Typography>
+      <GalleryMosaicSkeleton count={FEED_CHUNK} />
+    </section>
   );
 }
