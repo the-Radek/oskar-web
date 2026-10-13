@@ -4,18 +4,18 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { PostsPagination, PostsTotalProvider } from './total';
-import styles from './view.module.css';
+import styles from './shell.module.css';
 
 export const PAGE_SIZES = [5, 10, 20, 50];
 export const DEFAULT_PAGE_SIZE = 5;
 
-interface PostsViewProps {
+interface PostsShellProps {
   page: number;
   pageSize: number;
   children: ReactNode;
 }
 
-export default function PostsView({ page, pageSize, children }: PostsViewProps) {
+export default function PostsShell({ page, pageSize, children }: PostsShellProps) {
   return (
     <main>
       <PostsTotalProvider>

@@ -1,10 +1,10 @@
 import { PostListingSkeleton } from '@/components/content/PostListing';
-import PostsView, { DEFAULT_PAGE_SIZE } from './view';
+import PostsShell, { DEFAULT_PAGE_SIZE } from './shell';
 
 export default function PostsLoading() {
   return (
-    <PostsView page={1} pageSize={DEFAULT_PAGE_SIZE}>
+    <PostsShell page={1} pageSize={DEFAULT_PAGE_SIZE}>
       <PostListingSkeleton count={DEFAULT_PAGE_SIZE} />
-    </PostsView>
+    </PostsShell>
   );
 }

@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import metadataJson from './metadata.json';
 import { PostListingSkeleton } from '@/components/content/PostListing';
-import PostsView, { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './view';
+import PostsShell, { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './shell';
 import PostsResults from './results';
 
 export const metadata: Metadata = metadataJson;
@@ -13,10 +13,10 @@ export default async function PostsPage({ searchParams }: PageProps<'/clanky'>) 
   const pageSize = Math.min(Number(params.pageSize) || DEFAULT_PAGE_SIZE, Math.max(...PAGE_SIZES));
 
   return (
-    <PostsView page={page} pageSize={pageSize}>
+    <PostsShell page={page} pageSize={pageSize}>
       <Suspense key={`${page}:${pageSize}`} fallback={<PostListingSkeleton count={pageSize} />}>
         <PostsResults page={page} pageSize={pageSize} />
       </Suspense>
-    </PostsView>
+    </PostsShell>
   );
 }
