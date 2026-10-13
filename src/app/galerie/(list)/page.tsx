@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import metadataJson from '../metadata.json';
+import metadataJson from './metadata.json';
 import { getImageThumbs } from '@/lib/actions/image';
 import { FEED_CHUNK } from '../constants';
 import Typography from '@mui/material/Typography';
