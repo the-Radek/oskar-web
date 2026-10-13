@@ -1,14 +1,7 @@
-import { notFound } from 'next/navigation';
-import GalleryLightbox from '@/components/content/GalleryLightbox';
-import { getImage, getImageWindow } from '@/lib/actions/image';
-import { parseId } from '@/lib/utilities/parse-id';
-import { LIGHTBOX_CHUNK } from '@/app/galerie/constants';
+import Lightbox from '@/components/content/Lightbox';
 
-export default async function ImageModal({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const image = await getImage(parseId(id));
-  if (!image) notFound();
-
-  const initial = await getImageWindow(image, LIGHTBOX_CHUNK);
-  return <GalleryLightbox initial={initial} />;
+// Soft navigation from anywhere already inside the app (root is always mounted): intercepted,
+// so whatever page you're on stays mounted and only this slot's content changes.
+export default function ImageModal({ params }: { params: Promise<{ id: string }> }) {
+  return <Lightbox params={params} />;
 }

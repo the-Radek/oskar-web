@@ -1,12 +1,10 @@
 import { getImageThumbs } from '@/lib/actions/image';
-import { FEED_CHUNK } from '../constants';
+import { FEED_CHUNK } from './constants';
 import GalleryFeed from './feed';
 import Surface from '@/components/layout/Surface';
 import StuckActions from '@/components/layout/StuckActions';
 
-export const dynamic = 'force-dynamic';
-
-export default async function GalleryPage() {
+export default async function GalleryView() {
   const initial = await getImageThumbs(null, FEED_CHUNK);
 
   if (initial.images.length === 0) {

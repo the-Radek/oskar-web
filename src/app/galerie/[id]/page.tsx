@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import GalleryLightbox from '@/components/content/GalleryLightbox';
-import { getImage, getImageWindow } from '@/lib/actions/image';
+import { getImage } from '@/lib/actions/image';
 import { parseId } from '@/lib/utilities/parse-id';
-import { LIGHTBOX_CHUNK } from '../constants';
-import GalleryPage from '../(list)/page';
 
 export async function generateMetadata({ params }: PageProps<'/galerie/[id]'>): Promise<Metadata> {
   const { id } = await params;
@@ -13,19 +10,8 @@ export async function generateMetadata({ params }: PageProps<'/galerie/[id]'>): 
   return { title: image.alt };
 }
 
-/**
- * Direct visit of an image address: the gallery with the lightbox opened over it.
- */
-export default async function GalleryImagePage({ params }: PageProps<'/galerie/[id]'>) {
-  const { id } = await params;
-  const image = await getImage(parseId(id));
-  if (!image) notFound();
-
-  const initial = await getImageWindow(image, LIGHTBOX_CHUNK);
-  return (
-    <>
-      <GalleryPage />
-      <GalleryLightbox initial={initial} standalone />
-    </>
-  );
+// The grid comes from layout.tsx and the lightbox from the @modal slot's [id] variant
+// (standalone, for this exact hard-navigation case); this route has nothing of its own to render.
+export default function GalleryImagePage() {
+  return null;
 }
