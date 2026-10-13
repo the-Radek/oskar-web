@@ -1,4 +1,4 @@
-.actions {
+.root {
   display: flex;
   justify-content: center;
   padding: calc(4 * var(--mui-spacing, 8px)) 0;

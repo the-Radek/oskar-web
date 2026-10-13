@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import styles from './error.module.css';
 import Surface from '@/components/layout/Surface';
+import StuckActions from '@/components/layout/StuckActions';
 
 export default function ErrorPage({
   error,
@@ -28,14 +28,14 @@ export default function ErrorPage({
         </Typography>
         <p>Upsík dupsík! Něco se nepodařilo.</p>
       </Surface>
-      <div className={styles.actions}>
+      <StuckActions>
         <Button variant="contained" onClick={() => reset()} startIcon={<RefreshIcon />}>
           Zkusit znovu
         </Button>
         <Button variant="outlined" component={Link} href="/" startIcon={<HomeIcon />}>
           Jít domů
         </Button>
-      </div>
+      </StuckActions>
     </main>
   );
 }
