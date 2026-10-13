@@ -40,12 +40,7 @@ export default function GalleryFeed({ initial }: { initial: ImageChunk<ImageThum
     <>
       {groups.map(({ year, images }) => (
         <section key={year} className={styles.section} aria-labelledby={`gallery-year-${year}`}>
-          <Typography
-            id={`gallery-year-${year}`}
-            variant="h3"
-            component="h2"
-            className={styles.year}
-          >
+          <Typography id={`gallery-year-${year}`} variant="h3" className={styles.year}>
             {year}
           </Typography>
           <GalleryMosaic images={images} />

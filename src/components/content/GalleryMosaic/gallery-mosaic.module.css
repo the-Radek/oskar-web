@@ -1,0 +1,45 @@
+.root {
+  --row-height: 180px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--mui-spacing, 8px) / 2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  /* Absorbs the leftover space on the last row so it doesn't stretch to fill the width. */
+  &::after {
+    content: '';
+    flex-grow: 1000000;
+  }
+
+  @media (max-width: 600px) {
+    --row-height: 110px;
+  }
+}
+
+.item {
+  position: relative;
+  /* Grows/shrinks by its own aspect ratio, so every item in a row ends up the same height. */
+  flex: calc(var(--ratio) * 100) 1 calc(var(--ratio) * var(--row-height));
+  aspect-ratio: var(--ratio);
+  overflow: hidden;
+  border-radius: calc(var(--border-radius, 8px) / 2);
+  background-color: rgba(128, 128, 128, 0.2);
+
+  img {
+    object-fit: cover;
+    transition: transform 0.25s;
+  }
+
+  &:hover img,
+  &:focus-within img {
+    transform: scale(1.04);
+  }
+}
+
+.link {
+  position: absolute;
+  inset: 0;
+}
