@@ -29,8 +29,10 @@ const geist = Geist({
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="cs" className={geist.variable} suppressHydrationWarning>
@@ -39,6 +41,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          {modal}
         </MuiProvider>
       </body>
     </html>
