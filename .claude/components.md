@@ -6,11 +6,13 @@
 - `<kebab-name>.types.ts` — named export(s), typically `<PascalName>Props`.
 - `<kebab-name>.module.css` — CSS module, only if the component has styles.
 - `<kebab-name>.component.test.tsx` — optional, see `.claude/testing.md`.
+- `<kebab-name>.skeleton.tsx` — optional, a loading placeholder for the component, named export (e.g. `<PascalName>Skeleton`).
 - `index.ts` — barrel:
   ```ts
   export { default } from './<kebab-name>.component';
   export type * from './<kebab-name>.types';
   ```
+  Re-export a skeleton the same way: `export { <PascalName>Skeleton } from './<kebab-name>.skeleton';`
 
 Import elsewhere as `@/components/<category>/<PascalName>`.
 
