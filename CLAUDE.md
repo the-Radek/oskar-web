@@ -2,6 +2,8 @@
 
 Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres, Auth.js (Google only), iron-session, Zod.
 
+New session: first ask whether to run the `getting-started` skill.
+
 ## Map
 
 - `src/app/` — routes. Per-route files: `page.tsx`, `metadata.json` (`{title}`, imported in `src/app/routes.ts` for nav labels), `page.module.css`, `page.assets.ts` (re-exports from `src/assets`), `page.config.json` (page copy/data, edited by non-devs or harvester).
@@ -24,6 +26,7 @@ Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres
 - Auth check pattern: `auth()` from `src/lib/auth.ts` + `session.user.role !== Role.ADMIN` (`Role` from `@/prisma/enums`) — see `src/app/api/post/new/route.ts`.
 - Prettier: singleQuote, printWidth 100. Lint: `next/core-web-vitals` + `next/typescript`, unused-vars is a warning only.
 - No comments unless behavior is genuinely non-obvious. Keep it DRY; prefer existing helpers over new abstractions.
+- Be brief. Caveman style ok, no polished English. Esp. comments and agent-only files (CLAUDE.md, `.claude/`, skills).
 
 ## Commands
 
