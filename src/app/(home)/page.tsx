@@ -1,7 +1,7 @@
 import GoogleButton from '@/components/auth/GoogleButton';
 import ApplicationButton from '@/components/common/ApplicationButton';
 import PostListing from '@/components/content/PostListing';
-import { getPostThumbs } from '@/lib/actions/post';
+import { getPostSummaries } from '@/lib/data/post/posts';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ import styles from './page.module.css';
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
-  const { posts } = await getPostThumbs(1, 3);
+  const { posts } = await getPostSummaries(1, 3);
 
   return (
     <main>

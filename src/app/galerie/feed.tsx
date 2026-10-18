@@ -3,11 +3,11 @@ import { useCallback, useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
-import type { ImageChunk, ImageThumb } from '@/lib/actions/image';
+import type { ImageChunk, ImageThumb } from '@/lib/data/image/types';
 import GalleryMosaic from '@/components/content/GalleryMosaic';
 import InfiniteScroll from '@/components/reactive/InfiniteScroll';
 import styles from './feed.module.css';
-import { loadFeedChunk } from './feed.actions';
+import { loadThumbChunk } from './actions';
 
 /**
  * Splits images (already ordered newest first) into consecutive runs of the same year.
@@ -31,7 +31,7 @@ export default function GalleryFeed({ initial }: { initial: ImageChunk<ImageThum
 
   const handleLoadMore = useCallback(async () => {
     if (!last) return;
-    const chunk = await loadFeedChunk({ createdAt: last.createdAt, id: last.id });
+    const chunk = await loadThumbChunk({ createdAt: last.createdAt, id: last.id });
     setImages((current) => [...current, ...chunk.images]);
     setHasMore(chunk.hasMore);
   }, [last]);

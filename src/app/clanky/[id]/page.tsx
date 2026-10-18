@@ -6,7 +6,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Surface from '@/components/layout/Surface';
 import Markdown from '@/components/content/Markdown';
 import GalleryMosaic from '@/components/content/GalleryMosaic';
-import { getPost } from '@/lib/actions/post';
+import { getPost } from '@/lib/data/post/post';
 import { formatDate } from '@/lib/utilities/format-date';
 import styles from './page.module.css';
 import GoBackButton from '@/components/navigation/GoBackButton';

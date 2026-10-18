@@ -1,11 +1,11 @@
-import { getImageThumbs } from '@/lib/actions/image';
+import { getThumbChunk } from '@/lib/data/image/thumbs';
 import { FEED_CHUNK } from './constants';
 import GalleryFeed from './feed';
 import Surface from '@/components/layout/Surface';
 import StuckActions from '@/components/layout/StuckActions';
 
 export default async function GalleryView() {
-  const initial = await getImageThumbs(null, FEED_CHUNK);
+  const initial = await getThumbChunk(null, FEED_CHUNK);
 
   if (initial.images.length === 0) {
     return (

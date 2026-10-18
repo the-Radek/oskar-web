@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import Lightbox from '@/components/content/Lightbox';
 import type { LightboxProps } from '@/components/content/Lightbox';
-import { loadGalleryNeighbours } from './photo.actions';
+import { loadImageChunk } from './actions';
 
 interface PhotoViewProps {
   initial: LightboxProps['initial'];
@@ -19,7 +19,7 @@ export default function PhotoView({ initial, standalone = false, postId }: Photo
     <Lightbox
       initial={initial}
       onLoadMore={(direction, edge) =>
-        loadGalleryNeighbours({ createdAt: edge.createdAt, id: edge.id }, direction, postId)
+        loadImageChunk({ createdAt: edge.createdAt, id: edge.id }, direction, postId)
       }
       // keeps the address in sync with the slide without remounting the lightbox
       onView={(image) => window.history.replaceState(null, '', `/galerie/${image.id}`)}

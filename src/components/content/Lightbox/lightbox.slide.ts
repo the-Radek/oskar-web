@@ -1,5 +1,5 @@
 import type { Slide } from 'yet-another-react-lightbox';
-import type { ImageSummary } from '@/lib/actions/image';
+import type { ImageInfo } from '@/lib/data/image/types';
 import { formatDate } from '@/lib/utilities/format-date';
 
 // allowed sizes for next/image optimization
@@ -10,7 +10,7 @@ function optimized(src: string, width: number) {
   return `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=75`;
 }
 
-export function toSlide(image: ImageSummary): Slide {
+export function toSlide(image: ImageInfo): Slide {
   // getting larger width without height doesn't actually upscale the image
   const larger = WIDTHS.find((width) => width >= image.width) ?? WIDTHS[WIDTHS.length - 1];
   const widths = [...WIDTHS.filter((width) => width < image.width), larger];

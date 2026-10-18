@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getImage } from '@/lib/actions/image';
+import { getImage } from '@/lib/data/image/image';
 import { parseId } from '@/lib/utilities/parse-id';
 
 export async function generateMetadata({ params }: PageProps<'/galerie/[id]'>): Promise<Metadata> {

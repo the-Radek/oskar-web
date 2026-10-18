@@ -48,3 +48,10 @@ export async function getBlurDataURL(src: string, options?: Options): Promise<st
     return undefined;
   }
 }
+
+/**
+ * Adds `blurDataURL` to an image-like object (see `getBlurDataURL`; assumes public, immutable files).
+ */
+export async function withBlurDataURL<T extends { src: string }>(image: T) {
+  return { ...image, blurDataURL: await getBlurDataURL(image.src, { immutable: true }) };
+}

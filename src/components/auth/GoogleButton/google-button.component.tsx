@@ -11,11 +11,7 @@ export default function GoogleButton({ redirectTo = '/', className, ...rest }: G
 
   return (
     <form action={handleSubmit}>
-      <button
-        type="submit"
-        className={clsx(styles['gsi-material-button'], className)}
-        {...rest}
-      >
+      <button type="submit" className={clsx(styles['gsi-material-button'], className)} {...rest}>
         <div className={styles['gsi-material-button-state']}></div>
         <div className={styles['gsi-material-button-content-wrapper']}>
           <div className={styles['gsi-material-button-icon']}>

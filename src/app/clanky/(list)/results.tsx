@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { PostsTotal } from './total';
-import { getPostThumbs } from '@/lib/actions/post';
+import { getPostSummaries } from '@/lib/data/post/posts';
 import PostListing from '@/components/content/PostListing';
 import Surface from '@/components/layout/Surface';
 import StuckActions from '@/components/layout/StuckActions';
@@ -11,7 +11,7 @@ interface PostsResultsProps {
 }
 
 export default async function PostsResults({ page, pageSize }: PostsResultsProps) {
-  const { posts, total } = await getPostThumbs(page, pageSize);
+  const { posts, total } = await getPostSummaries(page, pageSize);
 
   if (total === 0)
     return (

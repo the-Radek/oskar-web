@@ -5,7 +5,7 @@ import type { LoadingBackdropProps } from './loading-backdrop.types';
 export default function LoadingBackdrop({ label }: LoadingBackdropProps) {
   return (
     <Backdrop open sx={{ zIndex: 'modal' }}>
-      <CircularProgress color="inherit" aria-label={label} />
+      <CircularProgress color="secondary" aria-label={label} />
     </Backdrop>
   );
 }

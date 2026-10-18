@@ -67,4 +67,4 @@ Gallery now:
 - `@modal` at app root, so interception works from any page. `(.)galerie/[id]` = soft nav. Plain `galerie/[id]` (`standalone`) = hard nav. `default.tsx` and `[...catchAll]` return null (catch-all stops lightbox sticking open).
 - `Lightbox` (sync, Suspense) → `LightboxPhoto` (async fetch) → `LightboxView` (client UI). `standalone`: close = `push('/galerie')` not `back()`, real `notFound()` not inline message.
 
-Open: clanky post photo should open `/galerie/[id]` (interceptor over article), but lightbox neighbours scoped to post, not whole gallery. Approach not agreed (idea: `?post=` param through `Lightbox`, `getImageWindow`, `loadGalleryNeighbours`). `getChunk`, `getImageThumbs` in `src/lib/actions/image.ts` still have 1s fake delay.
+Open: clanky post photo should open `/galerie/[id]` (interceptor over article), but lightbox neighbours scoped to post, not whole gallery. Approach not agreed (idea: `?post=` param through `Lightbox`, `getImageWindow`, `loadImageChunk`). Fake 1s delays removed from `src/lib/data/image.ts`.
