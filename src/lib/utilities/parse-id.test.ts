@@ -6,7 +6,23 @@ describe('parseId', () => {
     expect(parseId('42')).toBe(42);
   });
 
-  it.each(['abc', '1.5', '0', '-3', ''])('responds with 404 for %j', (id) => {
-    expect(() => parseId(id)).toThrow();
+  it('accepts the largest database id', () => {
+    expect(parseId('2147483647')).toBe(2147483647);
+  });
+
+  it.each([
+    'abc',
+    '1.5',
+    '0',
+    '-3',
+    '',
+    '2147483648',
+    '84848489489',
+    '1e3',
+    '0x10',
+    ' 5',
+    '5 ',
+  ])('returns null for %j', (id) => {
+    expect(parseId(id)).toBeNull();
   });
 });

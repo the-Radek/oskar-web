@@ -1,13 +1,13 @@
-import { notFound } from 'next/navigation';
+import { IdSchema } from '../validators/id';
 
 /**
- * Parse a numeric id route param, responding with 404 when it isn't a positive integer.
+ * Parse a numeric id route param.
  *
  * @param id raw route param
- * @returns the id as a number
+ * @returns the id, or null when it isn't a plain positive integer that fits the database's
+ *   `integer`
  */
-export function parseId(id: string): number {
-  const parsed = Number(id);
-  if (!Number.isInteger(parsed) || parsed < 1) notFound();
-  return parsed;
+export function parseId(id: string): number | null {
+  const parsed = IdSchema.safeParse(/^\d+$/.test(id) ? Number(id) : NaN);
+  return parsed.success ? parsed.data : null;
 }

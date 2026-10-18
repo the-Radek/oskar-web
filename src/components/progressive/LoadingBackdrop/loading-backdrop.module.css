@@ -1,6 +1,5 @@
 .root {
   display: flex;
-  gap: calc(4 * var(--mui-spacing, 8px));
   flex-direction: column;
   z-index: var(--mui-zIndex-modal, 1300);
   color: #fff;

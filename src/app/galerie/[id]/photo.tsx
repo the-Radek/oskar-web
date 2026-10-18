@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { headers } from 'next/headers';
-import { notFound } from 'next/navigation';
 import LoadingBackdrop from '@/components/progressive/LoadingBackdrop';
 import { getImage, isImageInPost } from '@/lib/data/image/image';
 import { getImageWindow } from '@/lib/data/image/images';
 import { parseId } from '@/lib/utilities/parse-id';
+import { postIdFromPath } from '@/lib/utilities/post-id-from-path';
 import { LIGHTBOX_CHUNK } from '../constants';
 import PhotoMissing from './photo.missing';
 import PhotoView from './photo.view';
@@ -16,19 +16,13 @@ interface PhotoProps {
   standalone?: boolean;
 }
 
-function postIdFromPath(path: string | null): number | undefined {
-  const match = path?.match(/^\/clanky\/(\d+)\/?(?:[?#]|$)/);
-  return match ? Number(match[1]) : undefined;
-}
-
 async function PhotoLoader({ params, standalone = false }: PhotoProps) {
   const { id } = await params;
-  const image = await getImage(parseId(id));
+  const imageId = parseId(id);
+  if (imageId === null) return null;
 
-  if (!image) {
-    if (standalone) notFound();
-    return <PhotoMissing standalone={standalone} />;
-  }
+  const image = imageId !== null && (await getImage(imageId));
+  if (!image) return <PhotoMissing standalone={standalone} />;
 
   // soft navigation from a post: walk that post's images instead of the whole gallery
   const origin = standalone ? undefined : postIdFromPath((await headers()).get('next-url'));

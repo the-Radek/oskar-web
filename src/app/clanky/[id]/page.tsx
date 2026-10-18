@@ -14,14 +14,14 @@ import { parseId } from '@/lib/utilities/parse-id';
 
 export async function generateMetadata({ params }: PageProps<'/clanky/[id]'>): Promise<Metadata> {
   const { id } = await params;
-  const post = await getPost(parseId(id));
+  const post = await getPost(parseId(id) ?? notFound());
   if (!post) notFound();
   return { title: post.title };
 }
 
 export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]'>) {
   const { id } = await params;
-  const post = await getPost(parseId(id));
+  const post = await getPost(parseId(id) ?? notFound());
   if (!post) notFound();
 
   return (

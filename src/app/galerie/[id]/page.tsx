@@ -5,8 +5,8 @@ import { parseId } from '@/lib/utilities/parse-id';
 
 export async function generateMetadata({ params }: PageProps<'/galerie/[id]'>): Promise<Metadata> {
   const { id } = await params;
-  const image = await getImage(parseId(id));
-  if (!image) notFound();
+  const image = await getImage(parseId(id) ?? notFound());
+  if (!image) return { title: 'Chybějící obrázek' };
   return { title: image.alt };
 }
 
