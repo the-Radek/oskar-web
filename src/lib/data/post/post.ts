@@ -5,13 +5,16 @@ import { CreatePostSchema } from '../../validators/post';
 import { visible } from '../shared';
 
 /**
- * A published post with its cover image and gallery (newest first), both with blur placeholders,
- * or null when it doesn't exist or isn't published.
+ * A published post with its cover image and gallery (newest first), both with blur
+ * placeholders, or null when it doesn't exist or isn't published.
  */
 export const getPost = cache(async (id: number) => {
   const post = await prisma.post.findFirst({
     where: { ...visible, id },
-    include: { image: true, images: { orderBy: [{ createdAt: 'desc' }, { id: 'desc' }] } },
+    include: {
+      image: true,
+      images: { where: visible, orderBy: [{ createdAt: 'desc' }, { id: 'desc' }] },
+    },
   });
   if (!post) return null;
 
