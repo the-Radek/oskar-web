@@ -84,7 +84,10 @@ export default function Lightbox({ initial, onLoadMore, onView, onClose }: Light
       thumbnails={{ width: 96, height: 64, border: 0, gap: 8, padding: 0, vignette: false }}
       captions={{ descriptionTextAlign: 'center' }}
       styles={{
-        root: { backgroundColor: 'rgba(0, 0, 0, 0.78)', backdropFilter: 'blur(8px)' },
+        root: {
+          backgroundColor: 'var(--overlay-bg)',
+          backdropFilter: 'blur(var(--overlay-blur))',
+        },
         container: { backgroundColor: 'transparent' },
         captionsDescriptionContainer: { background: 'transparent' },
         thumbnailsContainer: { background: 'transparent' },

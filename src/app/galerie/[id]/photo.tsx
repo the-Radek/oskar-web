@@ -1,13 +1,12 @@
 import { Suspense } from 'react';
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
-import Backdrop from '@mui/material/Backdrop';
-import Typography from '@mui/material/Typography';
 import LoadingBackdrop from '@/components/progressive/LoadingBackdrop';
 import { getImage, isImageInPost } from '@/lib/data/image/image';
 import { getImageWindow } from '@/lib/data/image/images';
 import { parseId } from '@/lib/utilities/parse-id';
 import { LIGHTBOX_CHUNK } from '../constants';
+import PhotoMissing from './photo.missing';
 import PhotoView from './photo.view';
 
 interface PhotoProps {
@@ -28,11 +27,7 @@ async function PhotoLoader({ params, standalone = false }: PhotoProps) {
 
   if (!image) {
     if (standalone) notFound();
-    return (
-      <Backdrop open sx={{ zIndex: 'modal' }}>
-        <Typography color="inherit">Fotografie nenalezena.</Typography>
-      </Backdrop>
-    );
+    return <PhotoMissing standalone={standalone} />;
   }
 
   // soft navigation from a post: walk that post's images instead of the whole gallery

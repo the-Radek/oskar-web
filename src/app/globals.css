@@ -1,3 +1,8 @@
+:root {
+  --overlay-bg: rgba(0, 0, 0, 0.78);
+  --overlay-blur: 8px;
+}
+
 html {
   font-size: 18px;
 }
