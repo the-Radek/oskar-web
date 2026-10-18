@@ -148,6 +148,7 @@ export async function getImageWindow(image: ImageSummary, count: number, postId?
   return {
     images: [...newer.images, image, ...older.images],
     index: newer.images.length,
+    hasNewer: newer.hasMore,
     hasOlder: older.hasMore,
   };
 }

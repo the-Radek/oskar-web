@@ -20,6 +20,7 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import type { ImageSummary } from '@/lib/actions/image';
+import type { ImageFeedDirection } from '@/lib/validators/image-feed';
 import { formatDate } from '@/lib/utilities/format-date';
 import { loadGalleryNeighbours } from './actions';
 
@@ -30,6 +31,7 @@ interface LightboxViewProps {
     /** index of the image to open */
     index: number;
     hasOlder: boolean;
+    hasNewer: boolean;
   };
   /** Opened directly (not over the gallery): closing navigates to the gallery instead of back. */
   standalone?: boolean;
@@ -71,14 +73,42 @@ function toSlide(image: ImageSummary): Slide {
 export default function LightboxView({ initial, standalone = false, postId }: LightboxViewProps) {
   const router = useRouter();
   const [images, setImages] = useState(initial.images);
-  const [hasOlder, setHasOlder] = useState(initial.hasOlder);
-  const loading = useRef(false);
+  const [index, setIndex] = useState(initial.index);
+  const [hasMore, setHasMore] = useState({ older: initial.hasOlder, newer: initial.hasNewer });
+  const loading = useRef({ older: false, newer: false });
   const currentId = useRef(initial.images[initial.index].id);
   const slides = useMemo(() => images.map(toSlide), [images]);
 
   const close = () => (standalone ? router.push('/galerie') : router.back());
 
-  async function onView({ index }: { index: number }) {
+  async function loadMore(direction: ImageFeedDirection) {
+    if (!hasMore[direction] || loading.current[direction]) return;
+
+    loading.current[direction] = true;
+    try {
+      const edge = direction === 'older' ? images[images.length - 1] : images[0];
+      const chunk = await loadGalleryNeighbours(
+        { createdAt: edge.createdAt, id: edge.id },
+        direction,
+        postId,
+      );
+      if (direction === 'older') {
+        setImages((current) => [...current, ...chunk.images]);
+      } else {
+        setImages((current) => [...chunk.images, ...current]);
+        // prepending shifts every slide, keep the same one in view
+        setIndex((current) => current + chunk.images.length);
+      }
+      setHasMore((current) => ({ ...current, [direction]: chunk.hasMore }));
+    } catch {
+      // tried again on the next slide change
+    } finally {
+      loading.current[direction] = false;
+    }
+  }
+
+  function onView({ index }: { index: number }) {
+    setIndex(index);
     const image = images[index];
     if (image.id !== currentId.current) {
       currentId.current = image.id;
@@ -86,24 +116,8 @@ export default function LightboxView({ initial, standalone = false, postId }: Li
       window.history.replaceState(null, '', `/galerie/${image.id}`);
     }
 
-    if (!hasOlder || loading.current || index < images.length - PRELOAD_DISTANCE) return;
-
-    // load the next chunk of images
-    loading.current = true;
-    try {
-      const last = images[images.length - 1];
-      const chunk = await loadGalleryNeighbours(
-        { createdAt: last.createdAt, id: last.id },
-        'older',
-        postId,
-      );
-      setImages((current) => [...current, ...chunk.images]);
-      setHasOlder(chunk.hasMore);
-    } catch {
-      // tried again on the next slide change
-    } finally {
-      loading.current = false;
-    }
+    if (index >= images.length - PRELOAD_DISTANCE) loadMore('older');
+    if (index < PRELOAD_DISTANCE) loadMore('newer');
   }
 
   return (
@@ -111,7 +125,7 @@ export default function LightboxView({ initial, standalone = false, postId }: Li
       open
       close={close}
       slides={slides}
-      index={initial.index}
+      index={index}
       plugins={[Captions, Download, Fullscreen, Thumbnails, Zoom]}
       on={{ view: onView }}
       carousel={{ finite: true, preload: 3 }}
