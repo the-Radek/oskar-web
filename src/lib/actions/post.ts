@@ -36,7 +36,7 @@ export async function createPost(userId: string, input: CreatePostInput) {
 export const getPost = cache(async (id: number) => {
   const post = await prisma.post.findFirst({
     where: { id, published: true, deletedAt: null },
-    include: { image: true, images: true },
+    include: { image: true, images: { orderBy: [{ createdAt: 'desc' }, { id: 'desc' }] } },
   });
   if (!post) return null;
 

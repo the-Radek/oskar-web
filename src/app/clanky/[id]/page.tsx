@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Surface from '@/components/layout/Surface';
 import Markdown from '@/components/content/Markdown';
+import GalleryMosaic from '@/components/content/GalleryMosaic';
 import { getPost } from '@/lib/actions/post';
 import { formatDate } from '@/lib/utilities/format-date';
 import styles from './page.module.css';
@@ -53,22 +54,7 @@ export default async function PostDetailPage({ params }: PageProps<'/clanky/[id]
         )}
         <Markdown>{post.content}</Markdown>
       </Surface>
-      {post.images.length > 0 && (
-        <div className={styles.gallery}>
-          {post.images.map((image) => (
-            <Image
-              key={image.id}
-              src={image.src}
-              alt={image.alt}
-              placeholder={image.blurDataURL ? 'blur' : 'empty'}
-              blurDataURL={image.blurDataURL}
-              width={image.width}
-              height={image.height}
-              sizes="300px"
-            />
-          ))}
-        </div>
-      )}
+      {post.images.length > 0 && <GalleryMosaic images={post.images} />}
     </main>
   );
 }

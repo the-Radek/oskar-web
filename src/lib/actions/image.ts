@@ -46,15 +46,24 @@ function after(cursor: ImageFeedCursor | null, direction: ImageFeedDirection) {
   return { OR: [{ createdAt: { [op]: createdAt } }, { createdAt, id: { [op]: cursor.id } }] };
 }
 
+/**
+ * Restricts images to those attached to a published post, or nothing when there's no post.
+ */
+function inPost(postId?: number) {
+  if (!postId) return {};
+  return { posts: { some: { id: postId, published: true, deletedAt: null } } };
+}
+
 async function getChunk(
   cursor: ImageFeedCursor | null,
   direction: ImageFeedDirection,
   limit: number,
+  postId?: number,
 ) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const order = direction === 'older' ? 'desc' : 'asc';
   const rows = await prisma.image.findMany({
-    where: { ...where, ...after(cursor, direction) },
+    where: { ...where, ...inPost(postId), ...after(cursor, direction) },
     orderBy: [{ createdAt: order }, { id: order }],
     select,
     take: limit + 1,
@@ -94,14 +103,23 @@ export async function getImageThumbs(
  * @param cursor image to start from (not included)
  * @param direction `older` continues down the feed, `newer` goes back up
  * @param limit chunk size
+ * @param postId only walk the images of this post
  * @returns images in gallery order (newest first)
  */
 export function getImageNeighbours(
   cursor: ImageFeedCursor,
   direction: ImageFeedDirection,
   limit: number,
+  postId?: number,
 ) {
-  return getChunk(cursor, direction, limit);
+  return getChunk(cursor, direction, limit, postId);
+}
+
+/**
+ * Whether a published image belongs to a published post.
+ */
+export async function isImageInPost(id: number, postId: number) {
+  return (await prisma.image.count({ where: { ...where, ...inPost(postId), id } })) > 0;
 }
 
 /**
@@ -117,13 +135,14 @@ export const getImage = cache(async (id: number) => {
  *
  * @param image the image to open
  * @param count neighbours to load per side
+ * @param postId only walk the images of this post
  * @returns images in gallery order (newest first) and the index of `image` among them
  */
-export async function getImageWindow(image: ImageSummary, count: number) {
+export async function getImageWindow(image: ImageSummary, count: number, postId?: number) {
   const cursor = { createdAt: image.createdAt, id: image.id };
   const [newer, older] = await Promise.all([
-    getImageNeighbours(cursor, 'newer', count),
-    getImageNeighbours(cursor, 'older', count),
+    getImageNeighbours(cursor, 'newer', count, postId),
+    getImageNeighbours(cursor, 'older', count, postId),
   ]);
 
   return {

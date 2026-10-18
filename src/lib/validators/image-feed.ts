@@ -7,5 +7,7 @@ export const ImageFeedCursorSchema = z.object({
 
 export const ImageFeedDirectionSchema = z.enum(['newer', 'older']);
 
+export const ImageFeedPostIdSchema = z.number().int().positive().optional();
+
 export type ImageFeedCursor = z.infer<typeof ImageFeedCursorSchema>;
 export type ImageFeedDirection = z.infer<typeof ImageFeedDirectionSchema>;

@@ -33,6 +33,8 @@ interface LightboxViewProps {
   };
   /** Opened directly (not over the gallery): closing navigates to the gallery instead of back. */
   standalone?: boolean;
+  /** the post whose images are being walked, if opened from one */
+  postId?: number;
 }
 
 const PRELOAD_DISTANCE = 5;
@@ -66,7 +68,7 @@ function toSlide(image: ImageSummary): Slide {
   };
 }
 
-export default function LightboxView({ initial, standalone = false }: LightboxViewProps) {
+export default function LightboxView({ initial, standalone = false, postId }: LightboxViewProps) {
   const router = useRouter();
   const [images, setImages] = useState(initial.images);
   const [hasOlder, setHasOlder] = useState(initial.hasOlder);
@@ -93,6 +95,7 @@ export default function LightboxView({ initial, standalone = false }: LightboxVi
       const chunk = await loadGalleryNeighbours(
         { createdAt: last.createdAt, id: last.id },
         'older',
+        postId,
       );
       setImages((current) => [...current, ...chunk.images]);
       setHasOlder(chunk.hasMore);
@@ -111,7 +114,7 @@ export default function LightboxView({ initial, standalone = false }: LightboxVi
       index={initial.index}
       plugins={[Captions, Download, Fullscreen, Thumbnails, Zoom]}
       on={{ view: onView }}
-      carousel={{ finite: true, preload: 2 }}
+      carousel={{ finite: true, preload: 3 }}
       controller={{ closeOnBackdropClick: true, closeOnPullDown: true }}
       zoom={{ maxZoomPixelRatio: 3, scrollToZoom: true }}
       thumbnails={{ width: 96, height: 64, border: 0, gap: 8, padding: 0, vignette: false }}
