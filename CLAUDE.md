@@ -8,7 +8,7 @@ New session: first ask whether to run the `getting-started` skill.
 
 - `src/app/` — routes. Per-route files: `page.tsx`, `metadata.json` (`{title}`, imported in `src/app/routes.ts` for nav labels), `page.module.css`, `page.assets.ts` (re-exports from `src/assets`), `page.config.json` (page copy/data, edited by non-devs or harvester).
 - `src/assets/` — images imported in code (`import x from '@/assets/...'`). `public/` is for filesystem-served static files (harvested gallery, logos, docs).
-- `src/components/` — all custom components. Strict file pattern, see `.claude/components.md`. Scaffold via `new-component` skill.
+- `src/components/` — all custom components. Strict `<kebab>.<role>.ext` pattern, route-agnostic only (route-bound code lives in `src/app/<route>/`), see `.claude/components.md`. Scaffold via `new-component` skill.
 - `src/lib/actions/` — `'use server'` business logic, called from API routes / forms. Validate input with a schema from `src/lib/validators/`.
 - `src/lib/session/` — iron-session wrapper (`getSession`), separate from Auth.js session. Currently unused (nothing imports it) — confirm still needed before building on it.
 - `src/lib/utilities/` — `loadSecret(envVar)` reads a docker-secret file path from env; `postgresUrl()` builds the DB URL from env+secret.

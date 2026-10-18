@@ -5,7 +5,7 @@ import {
   ImageFeedDirectionSchema,
   ImageFeedPostIdSchema,
 } from '@/lib/validators/image-feed';
-import { LIGHTBOX_CHUNK } from '@/app/galerie/constants';
+import { LIGHTBOX_CHUNK } from '../constants';
 
 export async function loadGalleryNeighbours(
   cursor: unknown,
