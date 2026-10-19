@@ -16,7 +16,7 @@
 
 Rule: every file in a component folder is `<kebab>.<role>.ext`, no exceptions (main file = `.component`, never bare). Extra roles ok (`.slide.ts`, `.skeleton.tsx`), no bare `view.tsx`/`photo.tsx`. Server actions for a component: `<kebab>.actions.ts`.
 
-Route-bound code does NOT belong here: `params`, `notFound()`, `headers()`, hardcoded route URLs. Put it route-local in `src/app/<route>/`: bare names (`feed.tsx`, `photo.tsx`, `actions.ts`), role suffix only for secondary files (`.view.tsx`, `.skeleton.tsx`, `.module.css`). Components never import from `@/app/*`. Example: generic `Lightbox` here, gallery wiring in `src/app/galerie/[id]/photo*.tsx`.
+Component vs route glue: a component takes data and callbacks and may hold real UI logic (hooks, scroll, paging), but knows no URLs, `params`, `notFound()`, `headers()`, `router` paths or server actions of a route. Whatever knows those is route glue, thin, in `src/app/<route>/`: bare names (`feed.tsx`, `photo.tsx`, `actions.ts`), role suffix only for secondary files (`.view.tsx`, `.skeleton.tsx`, `.module.css`). Glue passes server actions in as props. Components never import from `@/app/*`. Large UI belongs here even if used once (split into `.hooks.ts`, `.groups.ts`, ...). Examples: `GalleryFeed` + `Lightbox` here, wiring in `src/app/galerie/feed.tsx` and `[id]/photo*.tsx`. Exception: `[id]/photo*.tsx` stays in the route, it is the page for two `@modal` slots.
 
 Import elsewhere as `@/components/<category>/<PascalName>`.
 

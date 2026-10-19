@@ -6,25 +6,8 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import type { ImageYear } from '@/lib/data/image/types';
-import styles from './feed.module.css';
-
-interface YearNavProps {
-  year: number;
-  /** all available years with images, sorted */
-  years: ImageYear[];
-  /** id used for aria-label */
-  labelId: string;
-  active: boolean;
-  disabled?: boolean;
-  onJump: (year: number) => void;
-}
-
-interface IconControlProps {
-  label: string;
-  target: number | undefined;
-  children: React.ReactNode;
-}
+import type { IconControlProps, YearNavProps } from './year-nav.types';
+import styles from './year-nav.module.css';
 
 export default function YearNav({
   year,
@@ -44,7 +27,7 @@ export default function YearNav({
         aria-label={target ? `${label}: ${target}` : label}
         title={target ? `${target}` : undefined}
         disabled={disabled || target === undefined}
-        onClick={() => target !== undefined && onJump(target)}
+        onClick={() => target !== undefined && onJump?.(target)}
       >
         {children}
       </IconButton>

@@ -1,0 +1,10 @@
+.section + .section {
+  margin-top: calc(2 * var(--mui-spacing, 8px));
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  min-height: 3em;
+  padding: calc(2 * var(--mui-spacing, 8px)) 0;
+}
