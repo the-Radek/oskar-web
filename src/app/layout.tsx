@@ -5,11 +5,12 @@ import Footer from '@/components/common/Footer';
 import Header from '@/components/common/Header';
 import MuiProvider from '@/components/common/MuiProvider';
 import { themeColor } from '@/theme/classic';
+import appConfig from './app.config.json';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Tábor Oskar',
+    template: appConfig.titleTemplate,
     default: 'Tábor Oskar',
   },
   description:
