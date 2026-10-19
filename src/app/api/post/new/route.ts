@@ -1,4 +1,4 @@
-import { createPost } from '@/lib/actions/post';
+import { createPost } from '@/lib/data/post/post';
 import { auth } from '@/lib/auth';
 import { Role } from '@/prisma/enums';
 

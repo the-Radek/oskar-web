@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import Pagination from '@mui/material/Pagination';
 import PaginationNav from '@/components/navigation/PaginationNav';
-import styles from './page.module.css';
+import styles from './total.module.css';
 
 const PostsTotalContext = createContext<{
   total: number | null;

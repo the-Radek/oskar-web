@@ -1,8 +1,10 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import metadataJson from './metadata.json';
 
 export const metadata: Metadata = metadataJson;
 
-export default function GalleryPage() {
-  return <div>galerie works!</div>;
+// The listing lives in layout.tsx (shared with /galerie/[id]); this route has nothing of its
+// own to render.
+export default function GalleryIndexPage() {
+  return null;
 }

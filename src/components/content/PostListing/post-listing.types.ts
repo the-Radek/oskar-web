@@ -1,6 +1,6 @@
-import type { PostThumb } from '@/lib/actions/post';
+import type { PostSummary } from '@/lib/data/post/types';
 
 export interface PostListingProps {
-  posts: PostThumb[];
+  posts: PostSummary[];
   className?: string;
 }

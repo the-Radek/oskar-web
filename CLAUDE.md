@@ -2,12 +2,14 @@
 
 Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres, Auth.js (Google only), iron-session, Zod.
 
+New session: first ask whether to run the `getting-started` skill.
+
 ## Map
 
 - `src/app/` — routes. Per-route files: `page.tsx`, `metadata.json` (`{title}`, imported in `src/app/routes.ts` for nav labels), `page.module.css`, `page.assets.ts` (re-exports from `src/assets`), `page.config.json` (page copy/data, edited by non-devs or harvester).
 - `src/assets/` — images imported in code (`import x from '@/assets/...'`). `public/` is for filesystem-served static files (harvested gallery, logos, docs).
-- `src/components/` — all custom components. Strict file pattern, see `.claude/components.md`. Scaffold via `new-component` skill.
-- `src/lib/actions/` — `'use server'` business logic, called from API routes / forms. Validate input with a schema from `src/lib/validators/`.
+- `src/components/` — all custom components. Strict `<kebab>.<role>.ext` pattern, route-agnostic only (route-bound code lives in `src/app/<route>/`), see `.claude/components.md`. Scaffold via `new-component` skill.
+- `src/lib/data/` — Prisma access per model (`image/`, `post/`: one file per result shape, e.g. `post.ts` one, `posts.ts` list, `thumbs.ts` with blur; `shared.ts` has `visible`/`serialize`; server only) and the plain DTO types they return (`<model>/types.ts`, safe to import from client code). Called from server components, route handlers and route-local `actions.ts` (`'use server'`, which validate untrusted input with `src/lib/validators/`; one per route folder, promote to a shared parent on second consumer, never put the directive on `lib/data`; only async exports, constants go in `constants.ts`).
 - `src/lib/session/` — iron-session wrapper (`getSession`), separate from Auth.js session. Currently unused (nothing imports it) — confirm still needed before building on it.
 - `src/lib/utilities/` — `loadSecret(envVar)` reads a docker-secret file path from env; `postgresUrl()` builds the DB URL from env+secret.
 - `src/lib/validators/` — one Zod schema file per entity (`PostSchema`, `ImageSchema`, `dateSchema`).
@@ -24,6 +26,7 @@ Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres
 - Auth check pattern: `auth()` from `src/lib/auth.ts` + `session.user.role !== Role.ADMIN` (`Role` from `@/prisma/enums`) — see `src/app/api/post/new/route.ts`.
 - Prettier: singleQuote, printWidth 100. Lint: `next/core-web-vitals` + `next/typescript`, unused-vars is a warning only.
 - No comments unless behavior is genuinely non-obvious. Keep it DRY; prefer existing helpers over new abstractions.
+- Be brief. Caveman style ok, no polished English. Esp. comments and agent-only files (CLAUDE.md, `.claude/`, skills).
 
 ## Commands
 

@@ -1,10 +1,6 @@
-import Link from 'next/link';
-import HomeIcon from '@mui/icons-material/Home';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import styles from './error.module.css';
 import Surface from '@/components/layout/Surface';
-import GoBackButton from '@/components/navigation/GoBackButton';
+import StuckActions from '@/components/layout/StuckActions';
 
 export default function NotFoundPage() {
   return (
@@ -15,12 +11,7 @@ export default function NotFoundPage() {
         </Typography>
         <p>Kam pak? Tady nic není.</p>
       </Surface>
-      <div className={styles.actions}>
-        <GoBackButton variant="contained">Vrátit se zpět</GoBackButton>
-        <Button variant="outlined" component={Link} href="/" startIcon={<HomeIcon />}>
-          Jít domů
-        </Button>
-      </div>
+      <StuckActions />
     </main>
   );
 }
