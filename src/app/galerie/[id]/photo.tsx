@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { headers } from 'next/headers';
-import LoadingBackdrop from '@/components/progressive/LoadingBackdrop';
+import OverlayBackdrop from '@/components/layout/OverlayBackdrop';
 import { getImage, isImageInPost } from '@/lib/data/image/image';
 import { getImageWindow } from '@/lib/data/image/images';
 import { parseId } from '@/lib/utilities/parse-id';
@@ -38,7 +38,7 @@ async function PhotoLoader({ params, standalone = false }: PhotoProps) {
  */
 export default function Photo({ params, standalone }: PhotoProps) {
   return (
-    <Suspense fallback={<LoadingBackdrop label="Načítání fotografie" />}>
+    <Suspense fallback={<OverlayBackdrop label="Načítání fotografie" />}>
       <PhotoLoader params={params} standalone={standalone} />
     </Suspense>
   );

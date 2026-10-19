@@ -2,7 +2,7 @@
 import { startTransition, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '@mui/material/Button';
-import LoadingBackdrop from '@/components/progressive/LoadingBackdrop';
+import OverlayBackdrop from '@/components/layout/OverlayBackdrop';
 import StuckActions from '@/components/layout/StuckActions';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import Typography from '@mui/material/Typography';
@@ -31,13 +31,13 @@ export default function ModalError({
   const close = () => (window.history.length > 1 ? router.back() : router.push('/home'));
 
   return (
-    <LoadingBackdrop onClick={close}>
+    <OverlayBackdrop onClick={close}>
       <Typography>Upsík dupsík! Něco se nepodařilo.</Typography>
       <StuckActions>
         <Button variant="contained" onClick={(event) => retry(event)} startIcon={<RefreshIcon />}>
           Zkusit znovu
         </Button>
       </StuckActions>
-    </LoadingBackdrop>
+    </OverlayBackdrop>
   );
 }
