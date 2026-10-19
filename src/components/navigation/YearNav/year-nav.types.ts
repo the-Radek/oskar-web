@@ -3,16 +3,10 @@ import type { ImageYear } from '@/lib/data/image/types';
 export interface YearNavProps {
   year: number;
   /** all available years with images, sorted */
-  years: ImageYear[];
+  years?: ImageYear[];
   /** id used for aria-label */
-  labelId: string;
-  active: boolean;
+  labelId?: string;
+  active?: boolean;
   disabled?: boolean;
   onJump?: (year: number) => void;
-}
-
-export interface IconControlProps {
-  label: string;
-  target: number | undefined;
-  children: React.ReactNode;
 }

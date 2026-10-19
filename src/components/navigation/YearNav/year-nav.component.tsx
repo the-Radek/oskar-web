@@ -6,14 +6,20 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import type { IconControlProps, YearNavProps } from './year-nav.types';
+import type { YearNavProps } from './year-nav.types';
 import styles from './year-nav.module.css';
+
+interface IconControlProps {
+  label: string;
+  target: number | undefined;
+  children: React.ReactNode;
+}
 
 export default function YearNav({
   year,
-  years,
-  labelId,
-  active,
+  years = [],
+  labelId = undefined,
+  active = false,
   disabled = false,
   onJump,
 }: YearNavProps) {

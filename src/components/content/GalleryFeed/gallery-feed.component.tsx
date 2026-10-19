@@ -55,27 +55,34 @@ export default function GalleryFeed({
   });
   const current = useActiveYear({ groups, pending, sections, onChange: onYearChange });
 
-  const section = (year: number, children: React.ReactNode) => (
-    <section
-      key={year}
-      ref={(node) => {
-        if (node) sections.current.set(year, node);
-        else sections.current.delete(year);
-      }}
-      className={styles.section}
-      aria-labelledby={`gallery-year-${year}`}
-    >
-      <YearNav
-        year={year}
-        years={years}
-        labelId={`gallery-year-${year}`}
-        active={pending !== null || year === current}
-        disabled={pending !== null}
-        onJump={(target) => jump(target)}
-      />
-      {children}
-    </section>
-  );
+  const pendingCount = pending
+    ? Math.min(years.find((item) => item.year === pending)?.count ?? 0, MAX_PLACEHOLDERS)
+    : 0;
+
+  function GallerySection({ year, children }: { year: number; children: React.ReactNode }) {
+    const labelId = `gallery-year-${year}`;
+
+    return (
+      <section
+        ref={(node) => {
+          if (node) sections.current.set(year, node);
+          else sections.current.delete(year);
+        }}
+        className={styles.section}
+        aria-labelledby={labelId}
+      >
+        <YearNav
+          year={year}
+          years={years}
+          labelId={labelId}
+          active={pending !== null || year === current}
+          disabled={pending !== null}
+          onJump={(target) => jump(target)}
+        />
+        {children}
+      </section>
+    );
+  }
 
   return (
     <>
@@ -93,17 +100,17 @@ export default function GalleryFeed({
           )}
         </InfiniteScroll>
       )}
-      {pending !== null
-        ? section(
-            pending,
-            <GalleryMosaicSkeleton
-              count={Math.min(
-                years.find((item) => item.year === pending)?.count ?? 0,
-                MAX_PLACEHOLDERS,
-              )}
-            />,
-          )
-        : groups.map(({ year, images }) => section(year, <GalleryMosaic images={images} />))}
+      {pending !== null ? (
+        <GallerySection year={pending}>
+          <GalleryMosaicSkeleton count={pendingCount} />
+        </GallerySection>
+      ) : (
+        groups.map(({ year, images }) => (
+          <GallerySection key={year} year={year}>
+            <GalleryMosaic images={images} />
+          </GallerySection>
+        ))
+      )}
       <InfiniteScroll
         onLoadMore={() => loadMore('older')}
         disabled={!hasMore.older || pending !== null}
