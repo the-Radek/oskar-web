@@ -22,3 +22,20 @@ export interface ImageChunk<T extends ImageInfo = ImageInfo> {
   images: T[];
   hasMore: boolean;
 }
+
+/**
+ * A year that has published images, and how many.
+ */
+export interface ImageYear {
+  year: number;
+  count: number;
+}
+
+/**
+ * A stretch of the gallery feed (newest first) with a flag per end for more beyond it.
+ */
+export interface ImageThumbWindow {
+  images: ImageThumb[];
+  hasNewer: boolean;
+  hasOlder: boolean;
+}

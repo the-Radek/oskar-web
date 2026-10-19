@@ -1,3 +1,4 @@
+import { getImageYears } from '@/lib/data/image/years';
 import { getThumbChunk } from '@/lib/data/image/thumbs';
 import { FEED_CHUNK } from './constants';
 import GalleryFeed from './feed';
@@ -5,7 +6,10 @@ import Surface from '@/components/layout/Surface';
 import StuckActions from '@/components/layout/StuckActions';
 
 export default async function GalleryView() {
-  const initial = await getThumbChunk(null, FEED_CHUNK);
+  const [initial, years] = await Promise.all([
+    getThumbChunk(null, 'older', FEED_CHUNK),
+    getImageYears(),
+  ]);
 
   if (initial.images.length === 0) {
     return (
@@ -18,5 +22,5 @@ export default async function GalleryView() {
     );
   }
 
-  return <GalleryFeed initial={initial} />;
+  return <GalleryFeed initial={initial} years={years} />;
 }

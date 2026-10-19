@@ -10,19 +10,10 @@ describe('parseId', () => {
     expect(parseId('2147483647')).toBe(2147483647);
   });
 
-  it.each([
-    'abc',
-    '1.5',
-    '0',
-    '-3',
-    '',
-    '2147483648',
-    '84848489489',
-    '1e3',
-    '0x10',
-    ' 5',
-    '5 ',
-  ])('returns null for %j', (id) => {
-    expect(parseId(id)).toBeNull();
-  });
+  it.each(['abc', '1.5', '0', '-3', '', '2147483648', '84848489489', '1e3', '0x10', ' 5', '5 '])(
+    'returns null for %j',
+    (id) => {
+      expect(parseId(id)).toBeNull();
+    },
+  );
 });

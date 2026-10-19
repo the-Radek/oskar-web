@@ -2,10 +2,47 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--mui-spacing, 8px);
   margin: 0 0 var(--mui-spacing, 8px);
-  padding: 0.35em 0;
+  padding: 0.15em 0;
   background-color: var(--mui-palette-background-default);
   border-bottom: 1px solid var(--mui-palette-divider);
+}
+
+.title {
+  grid-column: 2;
+  margin: 0;
+  text-align: center;
+}
+
+/* Only shown for the active heading: it appears at once and fades out. Hidden also keeps the
+   buttons out of tab order and screen readers. */
+.controls {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.15s,
+    visibility 0.15s;
+
+  .active & {
+    visibility: visible;
+    opacity: 1;
+    transition: none;
+  }
+}
+
+.controlsStart {
+  grid-column: 1;
+  justify-content: flex-end;
+}
+
+.controlsEnd {
+  grid-column: 3;
+  justify-content: flex-start;
 }
 
 .section + .section {

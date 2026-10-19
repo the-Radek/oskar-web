@@ -11,10 +11,7 @@ export interface LightboxProps {
     hasNewer: boolean;
   };
   /** Next chunk beyond `edge` (the last image for `older`, the first for `newer`). */
-  onLoadMore: (
-    direction: ImageFeedDirection,
-    edge: ImageInfo,
-  ) => Promise<ImageChunk<ImageInfo>>;
+  onLoadMore: (direction: ImageFeedDirection, edge: ImageInfo) => Promise<ImageChunk<ImageInfo>>;
   /** Called when the visible image changes (not for the initial one). */
   onView?: (image: ImageInfo) => void;
   onClose: () => void;

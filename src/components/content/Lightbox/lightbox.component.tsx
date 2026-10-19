@@ -18,7 +18,7 @@ import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
-import type { ImageFeedDirection } from '@/lib/validators/image-feed';
+import { useChunkedWindow } from '@/lib/utilities/use-chunked-window';
 import type { LightboxProps } from './lightbox.types';
 import { toSlide } from './lightbox.slide';
 
@@ -29,34 +29,18 @@ const PRELOAD_DISTANCE = 5;
  * as the user nears it. Knows nothing about where the images come from.
  */
 export default function Lightbox({ initial, onLoadMore, onView, onClose }: LightboxProps) {
-  const [images, setImages] = useState(initial.images);
   const [index, setIndex] = useState(initial.index);
-  const [hasMore, setHasMore] = useState({ older: initial.hasOlder, newer: initial.hasNewer });
-  const loading = useRef({ older: false, newer: false });
+  const { items: images, loadMore } = useChunkedWindow({
+    initial: { items: initial.images, hasOlder: initial.hasOlder, hasNewer: initial.hasNewer },
+    load: async (direction, edge) => {
+      const chunk = await onLoadMore(direction, edge);
+      return { items: chunk.images, hasMore: chunk.hasMore };
+    },
+    // prepending shifts every slide, keep the same one in view
+    onPrepend: (count) => setIndex((current) => current + count),
+  });
   const currentId = useRef(initial.images[initial.index].id);
   const slides = useMemo(() => images.map(toSlide), [images]);
-
-  async function loadMore(direction: ImageFeedDirection) {
-    if (!hasMore[direction] || loading.current[direction]) return;
-
-    loading.current[direction] = true;
-    try {
-      const edge = direction === 'older' ? images[images.length - 1] : images[0];
-      const chunk = await onLoadMore(direction, edge);
-      if (direction === 'older') {
-        setImages((current) => [...current, ...chunk.images]);
-      } else {
-        setImages((current) => [...chunk.images, ...current]);
-        // prepending shifts every slide, keep the same one in view
-        setIndex((current) => current + chunk.images.length);
-      }
-      setHasMore((current) => ({ ...current, [direction]: chunk.hasMore }));
-    } catch {
-      // tried again on the next slide change
-    } finally {
-      loading.current[direction] = false;
-    }
-  }
 
   function handleView({ index }: { index: number }) {
     setIndex(index);
@@ -66,8 +50,9 @@ export default function Lightbox({ initial, onLoadMore, onView, onClose }: Light
       onView?.(image);
     }
 
-    if (index >= images.length - PRELOAD_DISTANCE) loadMore('older');
-    if (index < PRELOAD_DISTANCE) loadMore('newer');
+    // a failed load is tried again on the next slide change
+    if (index >= images.length - PRELOAD_DISTANCE) loadMore('older').catch(() => {});
+    if (index < PRELOAD_DISTANCE) loadMore('newer').catch(() => {});
   }
 
   return (
