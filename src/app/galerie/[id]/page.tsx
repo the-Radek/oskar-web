@@ -5,13 +5,16 @@ import { parseId } from '@/lib/utilities/parse-id';
 
 export async function generateMetadata({ params }: PageProps<'/galerie/[id]'>): Promise<Metadata> {
   const { id } = await params;
-  const image = await getImage(parseId(id) ?? notFound());
+  const imageId = parseId(id);
+  const image = imageId && (await getImage(imageId));
   if (!image) return { title: 'Chybějící obrázek' };
   return { title: image.alt };
 }
 
 // The grid comes from layout.tsx and the lightbox from the @modal slot's [id] variant
-// (standalone, for this exact hard-navigation case); this route has nothing of its own to render.
-export default function GalleryImagePage() {
+// (standalone, for this exact hard-navigation case); this route handles 404, but renders nothing
+export default async function GalleryImagePage({ params }: PageProps<'/galerie/[id]'>) {
+  const { id } = await params;
+  if (!parseId(id)) notFound();
   return null;
 }

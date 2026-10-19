@@ -28,7 +28,7 @@ export default function ModalError({
     });
   }
 
-  const close = () => (window.history.length > 1 ? router.back() : router.push('/home'));
+  const close = () => (window.history.length > 1 ? router.back() : router.push('/'));
 
   return (
     <OverlayBackdrop onClick={close}>
