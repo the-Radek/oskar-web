@@ -25,7 +25,7 @@ New session: first ask whether to run the `getting-started` skill.
 - `'use client'` only when a component actually needs hooks/browser APIs; default server component.
 - Auth check pattern: `auth()` from `src/lib/auth.ts` + `session.user.role !== Role.ADMIN` (`Role` from `@/prisma/enums`) — see `src/app/api/post/new/route.ts`.
 - Prettier: singleQuote, printWidth 100. Lint: `next/core-web-vitals` + `next/typescript`, unused-vars is a warning only.
-- No comments unless behavior is genuinely non-obvious. Keep it DRY; prefer existing helpers over new abstractions.
+- No comments unless behavior is genuinely non-obvious, then say why not what. Simple and readable beats clever: clear names, small single-job functions/hooks. Keep it DRY; prefer existing helpers over new abstractions.
 - Be brief. Caveman style ok, no polished English. Esp. comments and agent-only files (CLAUDE.md, `.claude/`, skills).
 
 ## Commands

@@ -44,3 +44,7 @@ Pick best practice over current project setup. Say so when diverging from conven
 
 - No autonomous run/implement/commit. Ask, user reviews. Follow-up remark not a yes.
 - Sandbox Linux, host Windows: no `node_modules`; test in separate workspace.
+- Code style = simple, readable. Names say what, comments only why (more comments = more to read, can drift). Small single-job hooks, linear async over ref state machines.
+- WIP, not a style reference: `gallery-feed.hooks.ts`.
+- User edits and commits between prompts. Before touching a file: re-read, `git show HEAD:<path>` if unsure. Move code verbatim, change only what the move needs, flag deviations in one line. Never rebuild a file from memory.
+- Next quirks hit here: new `not-found`/`error`/`loading` files on existing routes need dev restart (clear `.next`). `notFound()` inside Suspense can't set 404 status. `@modal` route metadata is ignored, router takes head from `children` slot.

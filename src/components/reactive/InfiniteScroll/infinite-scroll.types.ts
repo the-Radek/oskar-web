@@ -1,11 +1,3 @@
-import type { ReactNode } from 'react';
-
-export interface InfiniteScrollRenderProps {
-  loading: boolean;
-  failed: boolean;
-  retry: () => void;
-}
-
 export interface InfiniteScrollProps {
   /** Called once when the trigger nears the viewport; throw/reject to report failure. */
   onLoadMore: () => Promise<void>;
@@ -14,5 +6,8 @@ export interface InfiniteScrollProps {
   /** How far before entering the viewport to fire, defaults to `'800px'`. */
   rootMargin?: string;
   className?: string;
-  children?: (state: InfiniteScrollRenderProps) => ReactNode;
+  /** Accessible name of the default loading indicator. */
+  loadingLabel?: string;
+  /** Text of the default retry button. */
+  retryText?: string;
 }
