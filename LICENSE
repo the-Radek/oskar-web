@@ -1,0 +1,41 @@
+Copyright (c) 2026 Radek Večerník. All rights reserved.
+
+This repository and its contents (source code, documentation, configuration,
+and any other materials) are made publicly visible for viewing purposes only.
+
+No license or permission is granted to use, copy, modify, merge, publish,
+distribute, sublicense, sell, or create derivative works of this software or
+any part of it, in whole or in part, without prior explicit written
+permission from the copyright holder.
+
+Viewing the source code on GitHub, and any use that GitHub's Terms of Service
+grant to other GitHub users (such as forking within the GitHub platform), is
+not affected by this notice.
+
+Third-party content
+-------------------
+
+The following is NOT licensed by the copyright holder named above. It is
+published in this repository with the permission of Přátelé LDT Oskar, z.s.,
+solely to present the website. Rights to it remain with Přátelé LDT Oskar,
+z.s., the respective authors and other owners:
+
+  - content originating from the former Oskar website (www.tabor-oskar.cz),
+    including articles, texts, photographs and game descriptions;
+  - names, logos and trademarks of Tábor Oskar, Přátelé LDT Oskar, z.s. and
+    third parties, including sponsors (public/logo/, src/assets/);
+  - documents in public/docs/ and page copy and data in
+    src/app/**/page.config.json;
+  - personal data (names, contact details, images of persons) contained in
+    any of the above.
+
+No right to use, copy, modify or distribute such content is granted to
+anyone by this repository. Permission must be obtained from its respective
+owners. Requests for removal: radekvecernik@seznam.cz.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
