@@ -1,6 +1,6 @@
 ---
 name: new-component
-description: Scaffold a new React component in src/components following this repo's fixed file pattern (folder + .component.tsx + .types.ts + optional .module.css + index.ts barrel). Use whenever asked to create/add a new component in oskar-web.
+description: Scaffold a new React component in src/components following this repo's fixed file pattern (folder + .component.tsx + .types.ts + optional .module.css + index.ts barrel). Use whenever the user asks for a new component, a new UI piece, or to extract/split JSX into its own component in oskar-web, even if they don't say "component" or name the skill.
 ---
 
 Full pattern reference: `.claude/components.md`.
