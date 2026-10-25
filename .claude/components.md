@@ -24,4 +24,25 @@ Categories in use: `auth`, `common`, `content`, `data`, `geo`, `layout`, `naviga
 
 `'use client'` at the top of `.component.tsx` only if it uses hooks/browser APIs — otherwise leave it a server component.
 
-Scaffold new components with the `new-component` skill instead of doing this by hand.
+## Scaffold
+
+1. Route glue? (knows URLs, `params`, `notFound()`, `router`, route server actions) Not a component, put it in `src/app/<route>/`.
+2. Category or name unclear: ask.
+3. `PascalName` = component name, `kebab-name` = kebabbed. Folder `src/components/<category>/<PascalName>/`.
+4. Create files, then fill in props/markup/logic per the request:
+
+`<kebab-name>.types.ts`:
+```ts
+export interface <PascalName>Props {}
+```
+
+`<kebab-name>.component.tsx` (`'use client';` first line only if hooks/browser APIs):
+```tsx
+import type { <PascalName>Props } from './<kebab-name>.types';
+
+export default function <PascalName>(props: <PascalName>Props) {
+  return null;
+}
+```
+
+`<kebab-name>.module.css` only if styled, otherwise skip and don't import it. `.skeleton.tsx` and `.component.test.tsx` only if asked. `index.ts`: barrel above.

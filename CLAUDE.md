@@ -6,7 +6,7 @@ Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres
 
 - `src/app/` — routes. Per-route files: `page.tsx`, `metadata.json` (`{title}`, imported in `src/app/routes.ts` for nav labels), `page.module.css`, `page.assets.ts` (re-exports from `src/assets`), `page.config.json` (page copy/data, edited by non-devs or harvester).
 - `src/assets/` — images imported in code (`import x from '@/assets/...'`). `public/` is for filesystem-served static files (harvested gallery, logos, docs).
-- `src/components/` — all custom components. Strict `<kebab>.<role>.ext` pattern, route-agnostic only (route-bound code lives in `src/app/<route>/`), see `.claude/components.md`. Scaffold via `new-component` skill.
+- `src/components/` — all custom components. Strict `<kebab>.<role>.ext` pattern, route-agnostic only (route-bound code lives in `src/app/<route>/`), see `.claude/components.md`. New component: scaffold steps in `.claude/components.md`.
 - `src/lib/data/` — Prisma access per model (`image/`, `post/`: one file per result shape, e.g. `post.ts` one, `posts.ts` list, `thumbs.ts` with blur; `shared.ts` has `visible`/`serialize`; server only) and the plain DTO types they return (`<model>/types.ts`, safe to import from client code). Called from server components, route handlers and route-local `actions.ts` (`'use server'`, which validate untrusted input with `src/lib/validators/`; one per route folder, promote to a shared parent on second consumer, never put the directive on `lib/data`; only async exports, constants go in `constants.ts`).
 - `src/lib/session/` — iron-session wrapper (`getSession`), separate from Auth.js session. Currently unused (nothing imports it) — confirm still needed before building on it.
 - `src/lib/utilities/` — `loadSecret(envVar)` reads a docker-secret file path from env; `postgresUrl()` builds the DB URL from env+secret.
@@ -26,6 +26,15 @@ Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres
 - No comments unless behavior is genuinely non-obvious, then say why not what. Simple and readable beats clever: clear names, small single-job functions/hooks. Keep it DRY; prefer existing helpers over new abstractions.
 - Be brief, no padding. Caveman style ok in comments and agent-only files (CLAUDE.md, `.claude/`, skills); chat explanations = clear full sentences.
 - Prefer best practice over current project setup; say so when diverging from convention.
+
+## Working style
+
+- Unclear or several readings: state the assumption or ask, don't pick silently.
+- Surgical: touch only what the task needs, match surrounding style. Adjacent issue or dead code: one line, don't fix.
+- New feature/design: first look for reuse, in order: does it need to exist, is it already in the repo (helper, component, hook), does an installed dep (MUI, Next, Prisma, Zod) or the platform cover it. Say what was checked. Only then write the minimum.
+- No speculative features, abstractions or config.
+- Define how to verify (`tsc`, `eslint`, test, repro) and run it after the change.
+- Non-trivial design: ask all currently independent questions per round, each with recommended answer, until branches resolved. Then wait for go. Small choice: recommendation + main tradeoff.
 
 ## Commands
 
