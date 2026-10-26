@@ -51,6 +51,7 @@ npm run dev
 
 ## Wiki
 
+- [Agents](wiki/agents.md)
 - [Database](wiki/db.md)
 - [Environment](wiki/environment.md)
 - [Guides](wiki/guides.md)

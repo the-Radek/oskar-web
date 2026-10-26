@@ -24,7 +24,7 @@ Next.js (App Router, TS) site for Tábor Oskar summer camp. MUI, Prisma+Postgres
 - Auth check pattern: `auth()` from `src/lib/auth.ts` + `session.user.role !== Role.ADMIN` (`Role` from `@/prisma/enums`) — see `src/app/api/post/new/route.ts`.
 - Prettier: singleQuote, printWidth 100. Lint: `next/core-web-vitals` + `next/typescript`, unused-vars is a warning only.
 - No comments unless behavior is genuinely non-obvious, then say why not what. Simple and readable beats clever: clear names, small single-job functions/hooks. Keep it DRY; prefer existing helpers over new abstractions.
-- Be brief, no padding. Caveman style ok in comments and agent-only files (CLAUDE.md, `.claude/`, skills); chat explanations = clear full sentences.
+- Be brief, no padding. Caveman style in comments and agent's files (CLAUDE.md, `.claude/`, skills); chat explanations = clear to a human.
 - Prefer best practice over current project setup; say so when diverging from convention.
 
 ## Working style
