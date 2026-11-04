@@ -2,5 +2,10 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "context7@anthropic-plugin-directory": true
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
   }
 }

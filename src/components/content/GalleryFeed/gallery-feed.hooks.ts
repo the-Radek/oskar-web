@@ -1,27 +1,23 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-  type RefCallback,
-} from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
-import type { ImageThumb, ImageThumbWindow } from '@/lib/data/image/types';
-import { useChunkedWindow, type ChunkedWindow } from '@/lib/utilities/use-chunked-window';
-import type { GalleryFeedProps } from './gallery-feed.types';
-import { groupByYear, type YearGroup } from './gallery-feed.groups';
+import type { ImageThumb } from '@/lib/data/image/types';
+import { useChunkedWindow } from '@/lib/utilities/use-chunked-window';
+import type {
+  GalleryFeedProps,
+  SectionRegistry,
+  YearGroup,
+  YearJumpOptions,
+} from './gallery-feed.types';
+import { groupByYear } from './gallery-feed.groups';
 
 // jumps to a year within this many screens are animated, farther ones are instant
 const SMOOTH_SCREENS = 3;
 const TOP_TOLERANCE = 2;
 
-export interface SectionRegistry {
-  register: (year: number) => RefCallback<HTMLElement>;
-  get: (year: number) => HTMLElement | undefined;
-}
-
+/**
+ * Tracks the section element of each year, so the feed can measure and scroll to it. Pass
+ * `register(year)` as the section's ref.
+ */
 export function useSectionRegistry(): SectionRegistry {
   const sections = useRef(new Map<number, HTMLElement>());
 
@@ -120,15 +116,6 @@ function scrollToSection(section: HTMLElement | undefined, animate: boolean) {
     block: 'start',
     behavior: animate && near && !reduced ? 'smooth' : 'auto',
   });
-}
-
-interface YearJumpOptions {
-  groups: YearGroup[];
-  hasNewer: boolean;
-  replace: (window: ChunkedWindow<ImageThumb>) => void;
-  loadYear: (year: number) => Promise<ImageThumbWindow>;
-  sections: SectionRegistry;
-  initialYear?: number;
 }
 
 /**
