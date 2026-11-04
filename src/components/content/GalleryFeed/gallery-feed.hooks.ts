@@ -1,4 +1,12 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useDebugValue,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { flushSync } from 'react-dom';
 import type { ImageThumb } from '@/lib/data/image/types';
 import { useChunkedWindow } from '@/lib/utilities/use-chunked-window';
@@ -18,8 +26,9 @@ const TOP_TOLERANCE = 2;
  * Tracks the section element of each year, so the feed can measure and scroll to it. Pass
  * `register(year)` as the section's ref.
  */
-export function useSectionRegistry(): SectionRegistry {
+function useSectionRegistry(): SectionRegistry {
   const sections = useRef(new Map<number, HTMLElement>());
+  useDebugValue(sections, (ref) => [...ref.current.keys()]);
 
   return useMemo(
     () => ({
@@ -37,7 +46,7 @@ export function useSectionRegistry(): SectionRegistry {
  * Keeps the view in place when images are added above it: call the returned function right before
  * adding them.
  */
-export function useScrollAnchor() {
+function useScrollAnchor() {
   const heightBefore = useRef<number | null>(null);
 
   useLayoutEffect(() => {
@@ -176,6 +185,10 @@ function useYearJump({
   return { pending, jump };
 }
 
+/**
+ * State of the gallery feed: loaded images grouped by year, loading at both ends, jumping to a
+ * year and the year at the top of the view.
+ */
 export function useGalleryFeed({
   initial,
   years,

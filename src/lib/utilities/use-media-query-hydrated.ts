@@ -1,10 +1,10 @@
-import { useSyncExternalStore } from 'react';
+import { useDebugValue, useSyncExternalStore } from 'react';
 
 /**
  * Like useMediaQuery, but returns null on the server and during hydration, so that the initial render is consistent between server and client.
  */
 export function useMediaQueryHydrated(query: string): boolean | null {
-  return useSyncExternalStore(
+  const matches = useSyncExternalStore(
     (onChange) => {
       const mql = window.matchMedia(query);
       mql.addEventListener('change', onChange);
@@ -13,4 +13,6 @@ export function useMediaQueryHydrated(query: string): boolean | null {
     () => window.matchMedia(query).matches,
     () => null,
   );
+  useDebugValue(`${query}: ${matches}`);
+  return matches;
 }

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useDebugValue, useRef, useState } from 'react';
 
 export type ChunkDirection = 'older' | 'newer';
 
@@ -26,6 +26,11 @@ export function useChunkedWindow<T>({ initial, load, onPrepend }: Options<T>) {
   const [hasMore, setHasMore] = useState({ older: initial.hasOlder, newer: initial.hasNewer });
   const loading = useRef({ older: false, newer: false });
   const epoch = useRef(0);
+  useDebugValue({ items, hasMore, loading }, (debug) => ({
+    items: debug.items.length,
+    hasMore: debug.hasMore,
+    loading: debug.loading.current,
+  }));
 
   /**
    * Loads the next chunk in `direction`; rejects when loading failed.
