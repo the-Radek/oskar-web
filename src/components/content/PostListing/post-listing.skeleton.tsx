@@ -19,7 +19,7 @@ export function PostListingSkeleton({ count, className }: { count: number; class
         >
           <div className={styles.row}>
             <CardMedia className={styles.media}>
-              <Skeleton variant="rectangular" width="100%" height="100%" />
+              <Skeleton variant="rectangular" animation="wave" width="100%" height="100%" />
             </CardMedia>
             <CardContent className={styles.content}>
               <Typography component="h2" variant="h2">

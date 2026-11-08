@@ -17,7 +17,11 @@ export default function PostDetailLoading() {
         <Typography variant="body2" gutterBottom>
           <Skeleton width="30%" className={styles.skeletonLine} />
         </Typography>
-        <Skeleton variant="rounded" className={clsx(styles.image, styles.skeletonImage)} />
+        <Skeleton
+          variant="rounded"
+          animation="wave"
+          className={clsx(styles.image, styles.skeletonImage)}
+        />
         {PARAGRAPH_LINES.map((lines, index) => (
           <Typography key={index} align="justify" gutterBottom>
             {Array.from({ length: lines }, (_, line) => (
@@ -32,7 +36,7 @@ export default function PostDetailLoading() {
       </Surface>
       <div className={styles.gallery}>
         {Array.from({ length: GALLERY_ITEMS }, (_, index) => (
-          <Skeleton key={index} variant="rectangular" />
+          <Skeleton key={index} variant="rectangular" animation="wave" />
         ))}
       </div>
     </main>

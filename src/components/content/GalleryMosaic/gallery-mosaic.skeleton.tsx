@@ -17,6 +17,7 @@ export function GalleryMosaicSkeleton({ count, className }: { count: number; cla
         <Skeleton
           key={index}
           variant="rounded"
+          animation="wave"
           className={styles.item}
           style={{ '--ratio': RATIOS[index % RATIOS.length], height: 'auto' } as CSSProperties}
         />
