@@ -1,9 +1,5 @@
 import type { ImageThumb } from '@/lib/data/image/types';
-
-export interface YearGroup {
-  year: number;
-  images: ImageThumb[];
-}
+import type { YearGroup } from './gallery-feed.types';
 
 /**
  * Splits images (already ordered newest first) into consecutive runs of the same UTC year.

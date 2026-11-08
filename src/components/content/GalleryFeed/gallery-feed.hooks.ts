@@ -1,29 +1,34 @@
 import {
   useCallback,
+  useDebugValue,
   useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
   useState,
-  type RefCallback,
 } from 'react';
 import { flushSync } from 'react-dom';
-import type { ImageThumb, ImageThumbWindow } from '@/lib/data/image/types';
-import { useChunkedWindow, type ChunkedWindow } from '@/lib/utilities/use-chunked-window';
-import type { GalleryFeedProps } from './gallery-feed.types';
-import { groupByYear, type YearGroup } from './gallery-feed.groups';
+import type { ImageThumb } from '@/lib/data/image/types';
+import { useChunkedWindow } from '@/lib/utilities/use-chunked-window';
+import type {
+  GalleryFeedProps,
+  SectionRegistry,
+  YearGroup,
+  YearJumpOptions,
+} from './gallery-feed.types';
+import { groupByYear } from './gallery-feed.groups';
 
 // jumps to a year within this many screens are animated, farther ones are instant
 const SMOOTH_SCREENS = 3;
 const TOP_TOLERANCE = 2;
 
-export interface SectionRegistry {
-  register: (year: number) => RefCallback<HTMLElement>;
-  get: (year: number) => HTMLElement | undefined;
-}
-
-export function useSectionRegistry(): SectionRegistry {
+/**
+ * Tracks the section element of each year, so the feed can measure and scroll to it. Pass
+ * `register(year)` as the section's ref.
+ */
+function useSectionRegistry(): SectionRegistry {
   const sections = useRef(new Map<number, HTMLElement>());
+  useDebugValue(sections, (ref) => [...ref.current.keys()]);
 
   return useMemo(
     () => ({
@@ -41,7 +46,7 @@ export function useSectionRegistry(): SectionRegistry {
  * Keeps the view in place when images are added above it: call the returned function right before
  * adding them.
  */
-export function useScrollAnchor() {
+function useScrollAnchor() {
   const heightBefore = useRef<number | null>(null);
 
   useLayoutEffect(() => {
@@ -122,15 +127,6 @@ function scrollToSection(section: HTMLElement | undefined, animate: boolean) {
   });
 }
 
-interface YearJumpOptions {
-  groups: YearGroup[];
-  hasNewer: boolean;
-  replace: (window: ChunkedWindow<ImageThumb>) => void;
-  loadYear: (year: number) => Promise<ImageThumbWindow>;
-  sections: SectionRegistry;
-  initialYear?: number;
-}
-
 /**
  * Going to a year: scrolls to it when it is loaded from its start, else shows a placeholder for it
  * and swaps the feed for the window at that year. `pending` is that year until it has loaded.
@@ -189,6 +185,10 @@ function useYearJump({
   return { pending, jump };
 }
 
+/**
+ * State of the gallery feed: loaded images grouped by year, loading at both ends, jumping to a
+ * year and the year at the top of the view.
+ */
 export function useGalleryFeed({
   initial,
   years,
