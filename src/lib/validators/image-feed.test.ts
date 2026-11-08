@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   ImageFeedCursorSchema,
   ImageFeedDirectionSchema,
+  ImageFeedIdsSchema,
   ImageFeedPostIdSchema,
+  MAX_FEED_IMAGE_IDS,
 } from './image-feed';
 import { MAX_ID } from './id';
 
@@ -48,5 +50,24 @@ describe('ImageFeedPostIdSchema', () => {
 
   it.each([0, -2, 1.5, MAX_ID + 1, '3', null])('rejects %j', (id) => {
     expect(ImageFeedPostIdSchema.safeParse(id).success).toBe(false);
+  });
+});
+
+describe('ImageFeedIdsSchema', () => {
+  it('accepts a list of valid ids up to the limit', () => {
+    const ids = Array.from({ length: MAX_FEED_IMAGE_IDS }, (_, index) => index + 1);
+    expect(ImageFeedIdsSchema.parse(ids)).toEqual(ids);
+  });
+
+  it.each([
+    ['no ids', []],
+    ['too many ids', Array.from({ length: MAX_FEED_IMAGE_IDS + 1 }, (_, index) => index + 1)],
+    ['an invalid id', [1, 0]],
+    ['an id beyond the database range', [MAX_ID + 1]],
+    ['a string id', ['1']],
+    ['a single id', 1],
+    ['null', null],
+  ])('rejects %s', (_, input) => {
+    expect(ImageFeedIdsSchema.safeParse(input).success).toBe(false);
   });
 });

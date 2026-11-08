@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import GalleryFeed from '@/components/content/GalleryFeed';
 import type { GalleryFeedProps } from '@/components/content/GalleryFeed';
-import { loadByYear, loadThumbChunk } from './actions';
+import { loadByYear, loadNewerYear, loadOlderThumbs, loadThumbsByIds } from './actions';
 
 const YEAR_PARAM = 'year';
 
@@ -35,9 +35,9 @@ export default function GalleryFeedView({
       initial={initial}
       years={years}
       initialYear={requested}
-      onLoadMore={(direction, edge) =>
-        loadThumbChunk({ createdAt: edge.createdAt, id: edge.id }, direction)
-      }
+      onLoadOlder={(edge) => loadOlderThumbs({ createdAt: edge.createdAt, id: edge.id })}
+      onLoadNewer={(edge) => loadNewerYear({ createdAt: edge.createdAt, id: edge.id })}
+      onLoadThumbs={loadThumbsByIds}
       onLoadYear={loadByYear}
       onYearChange={handleYearChange}
     />

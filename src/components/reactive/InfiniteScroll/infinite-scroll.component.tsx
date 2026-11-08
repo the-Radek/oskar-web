@@ -15,7 +15,6 @@ export default function InfiniteScroll({
   retryText = 'Zkusit znovu načíst',
 }: InfiniteScrollProps) {
   const sentinel = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
 
   /**
@@ -32,13 +31,10 @@ export default function InfiniteScroll({
       async ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
-        setLoading(true);
         try {
           await onLoadMore();
         } catch {
           if (!cancelled) setFailed(true);
-        } finally {
-          if (!cancelled) setLoading(false);
         }
       },
       { rootMargin },
@@ -48,7 +44,6 @@ export default function InfiniteScroll({
     return () => {
       // cleanup on unmount or when dependencies change
       cancelled = true;
-      setLoading(false);
       observer.disconnect();
     };
   }, [disabled, failed, onLoadMore, rootMargin]);
@@ -57,7 +52,7 @@ export default function InfiniteScroll({
 
   return (
     <div ref={sentinel} className={className} role="status">
-      {loading && <CircularProgress size={28} aria-label={loadingLabel} />}
+      {!disabled && !failed && <CircularProgress size={28} aria-label={loadingLabel} />}
       {failed && <Button onClick={retry}>{retryText}</Button>}
     </div>
   );

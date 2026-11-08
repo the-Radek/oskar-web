@@ -1,10 +1,10 @@
-import type { ImageThumb } from '@/lib/data/image/types';
+import type { ImageSlot } from '@/lib/data/image/types';
 import type { YearGroup } from './gallery-feed.types';
 
 /**
  * Splits images (already ordered newest first) into consecutive runs of the same UTC year.
  */
-export function groupByYear(images: ImageThumb[]) {
+export function groupByYear(images: ImageSlot[]) {
   const groups: YearGroup[] = [];
   for (const image of images) {
     const year = new Date(image.createdAt).getUTCFullYear();

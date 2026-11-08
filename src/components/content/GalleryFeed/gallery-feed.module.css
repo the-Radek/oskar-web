@@ -1,3 +1,8 @@
+/* The feed moves the view itself when it adds years above it, the browser would do it a second time. */
+.feed {
+  overflow-anchor: none;
+}
+
 .section + .section {
   margin-top: calc(2 * var(--mui-spacing, 8px));
 }
@@ -5,6 +10,8 @@
 .status {
   display: flex;
   justify-content: center;
-  min-height: 3em;
+  /* Tall enough for the spinner, so showing it doesn't move what is below. */
+  box-sizing: content-box;
+  min-height: 28px;
   padding: calc(2 * var(--mui-spacing, 8px)) 0;
 }

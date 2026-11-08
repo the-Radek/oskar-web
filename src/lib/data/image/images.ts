@@ -46,6 +46,17 @@ export async function getImageChunk(
 }
 
 /**
+ * The published images among `ids`, in no particular order.
+ */
+export async function getImagesByIds(ids: number[]): Promise<ImageInfo[]> {
+  const rows = await prisma.image.findMany({
+    where: { ...visible, id: { in: ids } },
+    select: imageSelect,
+  });
+  return rows.map(serialize);
+}
+
+/**
  * An image with some of its neighbours on both sides, for the lightbox to start from.
  *
  * @param image the image to open

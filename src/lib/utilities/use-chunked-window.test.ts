@@ -92,4 +92,46 @@ describe('useChunkedWindow', () => {
     expect(result.current.hasMore).toEqual({ older: false, newer: false });
     expect(onPrepend).not.toHaveBeenCalled();
   });
+
+  it('changes the items in place', async () => {
+    const { result } = setup(vi.fn().mockResolvedValue({ items: [5], hasMore: true }));
+    act(() => result.current.updateItems((current) => current.map((item) => item * 10)));
+    expect(result.current.items).toEqual([30, 40]);
+
+    await act(() => result.current.loadMore('older'));
+    expect(result.current.items).toEqual([30, 40, 5]);
+  });
+
+  it('continues from the chunk just loaded when asked again before the next render', async () => {
+    const load = vi
+      .fn()
+      .mockResolvedValueOnce({ items: [1, 2], hasMore: true })
+      .mockResolvedValueOnce({ items: [0], hasMore: false });
+    const { result } = setup(load);
+
+    // the same function twice, as a caller that has not rendered since would have it
+    const { loadMore } = result.current;
+    await act(async () => {
+      await loadMore('newer');
+      await loadMore('newer');
+    });
+
+    expect(load).toHaveBeenNthCalledWith(1, 'newer', 3);
+    expect(load).toHaveBeenNthCalledWith(2, 'newer', 1);
+    expect(result.current.items).toEqual([0, 1, 2, 3, 4]);
+    expect(result.current.hasMore.newer).toBe(false);
+  });
+
+  it('does not load past the end it already knows about', async () => {
+    const load = vi.fn().mockResolvedValue({ items: [1], hasMore: false });
+    const { result } = setup(load);
+
+    const { loadMore } = result.current;
+    await act(async () => {
+      await loadMore('newer');
+      await loadMore('newer');
+    });
+
+    expect(load).toHaveBeenCalledTimes(1);
+  });
 });

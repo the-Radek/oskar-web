@@ -1,7 +1,13 @@
 import type { RefCallback } from 'react';
-import type { ImageChunk, ImageThumb, ImageThumbWindow, ImageYear } from '@/lib/data/image/types';
+import type {
+  ImageChunk,
+  ImageLayout,
+  ImageSlot,
+  ImageSlotWindow,
+  ImageThumb,
+  ImageYear,
+} from '@/lib/data/image/types';
 import type { ChunkedWindow } from '@/lib/utilities/use-chunked-window';
-import type { ImageFeedDirection } from '@/lib/validators/image-feed';
 
 export interface GalleryFeedProps {
   initial: ImageChunk<ImageThumb>;
@@ -9,17 +15,21 @@ export interface GalleryFeedProps {
   years: ImageYear[];
   /** Year to open the feed at instead of the newest; ignored if not listed in `years`. */
   initialYear?: number;
-  /** Loads the images past the oldest (`older`) or newest (`newer`) loaded image `edge`. */
-  onLoadMore: (direction: ImageFeedDirection, edge: ImageThumb) => Promise<ImageChunk<ImageThumb>>;
-  /** Loads the feed from the start of `year`, with a few newer images above it. */
-  onLoadYear: (year: number) => Promise<ImageThumbWindow>;
+  /** Loads the images past the oldest loaded image `edge`. */
+  onLoadOlder: (edge: ImageSlot) => Promise<ImageChunk<ImageThumb>>;
+  /** Loads the layout of the whole nearest year newer than the newest loaded image `edge`. */
+  onLoadNewer: (edge: ImageSlot) => Promise<ImageChunk<ImageLayout>>;
+  /** Loads the images of some of the tiles that are still empty. */
+  onLoadThumbs: (ids: number[]) => Promise<ImageThumb[]>;
+  /** Loads the feed from the start of `year`, the whole year as layout. */
+  onLoadYear: (year: number) => Promise<ImageSlotWindow>;
   /** Reports the year at the top of the view whenever it changes. */
   onYearChange?: (year: number) => void;
 }
 
 export interface YearGroup {
   year: number;
-  images: ImageThumb[];
+  images: ImageSlot[];
 }
 
 export interface SectionRegistry {
@@ -29,9 +39,8 @@ export interface SectionRegistry {
 
 export interface YearJumpOptions {
   groups: YearGroup[];
-  hasNewer: boolean;
-  replace: (window: ChunkedWindow<ImageThumb>) => void;
-  loadYear: (year: number) => Promise<ImageThumbWindow>;
+  replace: (window: ChunkedWindow<ImageSlot>) => void;
+  loadYear: (year: number) => Promise<ImageSlotWindow>;
   sections: SectionRegistry;
   initialYear?: number;
 }

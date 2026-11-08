@@ -6,7 +6,7 @@ export interface InfiniteScrollProps {
   /** How far before entering the viewport to fire, defaults to `'800px'`. */
   rootMargin?: string;
   className?: string;
-  /** Accessible name of the default loading indicator. */
+  /** Accessible name of the default loading indicator, shown for as long as there is more to load. */
   loadingLabel?: string;
   /** Text of the default retry button. */
   retryText?: string;

@@ -1,7 +1,7 @@
 import { withBlurDataURL } from '../../utilities/blur-data-url';
 import type { ImageFeedCursor, ImageFeedDirection } from '../../validators/image-feed';
-import { getImageChunk } from './images';
-import type { ImageChunk, ImageThumb, ImageThumbWindow } from './types';
+import { getImageChunk, getImagesByIds } from './images';
+import type { ImageChunk, ImageThumb } from './types';
 
 /**
  * A chunk of the gallery feed with blur placeholders.
@@ -21,27 +21,8 @@ export async function getThumbChunk(
 }
 
 /**
- * The feed starting at the first image of `year`, with some images of the newer year before it.
- *
- * @param year UTC year to start at
- * @param before images to load before the year starts
- * @param after images to load from the year start on
+ * The published images among `ids` with blur placeholders, in no particular order.
  */
-export async function getThumbWindow(
-  year: number,
-  before: number,
-  after: number,
-): Promise<ImageThumbWindow> {
-  // between `year` and the year after it; id 0 puts an image exactly on the boundary in the newer
-  const cursor = { createdAt: new Date(Date.UTC(year + 1, 0, 1)).toISOString(), id: 0 };
-  const [newer, older] = await Promise.all([
-    getThumbChunk(cursor, 'newer', before),
-    getThumbChunk(cursor, 'older', after),
-  ]);
-
-  return {
-    images: [...newer.images, ...older.images],
-    hasNewer: newer.hasMore,
-    hasOlder: older.hasMore,
-  };
+export async function getThumbsByIds(ids: number[]): Promise<ImageThumb[]> {
+  return Promise.all((await getImagesByIds(ids)).map(withBlurDataURL));
 }

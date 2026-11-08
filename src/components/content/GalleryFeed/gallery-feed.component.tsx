@@ -14,13 +14,14 @@ const MAX_PLACEHOLDERS = 36;
  */
 export default function GalleryFeed(props: GalleryFeedProps) {
   const { years } = props;
-  const { groups, hasMore, loadMore, pending, activeYear, jump, sections } = useGalleryFeed(props);
+  const { feed, groups, hasMore, loadMore, pending, activeYear, jump, sections } =
+    useGalleryFeed(props);
 
   const pendingCount = (pending && years.find((item) => item.year === pending)?.count) ?? 0;
   const section = { years, disabled: pending !== null, sections, onJump: jump };
 
   return (
-    <>
+    <div ref={feed} className={styles.feed}>
       {hasMore.newer && pending === null && (
         <InfiniteScroll
           onLoadMore={() => loadMore('newer')}
@@ -47,6 +48,6 @@ export default function GalleryFeed(props: GalleryFeedProps) {
           className={styles.status}
         />
       )}
-    </>
+    </div>
   );
 }

@@ -1,8 +1,8 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { getThumbChunk, getThumbWindow } from './thumbs';
-import { getImageChunk } from './images';
+import { describe, expect, it, vi } from 'vitest';
+import { getThumbChunk, getThumbsByIds } from './thumbs';
+import { getImageChunk, getImagesByIds } from './images';
 
-vi.mock('./images', () => ({ getImageChunk: vi.fn() }));
+vi.mock('./images', () => ({ getImageChunk: vi.fn(), getImagesByIds: vi.fn() }));
 vi.mock('../../utilities/blur-data-url', () => ({
   withBlurDataURL: async <T>(image: T) => ({ ...image, blurDataURL: 'blur' }),
 }));
@@ -25,25 +25,14 @@ describe('getThumbChunk', () => {
   });
 });
 
-describe('getThumbWindow', () => {
-  beforeEach(() => {
-    vi.mocked(getImageChunk).mockReset();
-  });
-
-  it('starts at the boundary after the year, newer images first', async () => {
-    vi.mocked(getImageChunk).mockImplementation(async (_cursor, direction) =>
-      direction === 'newer'
-        ? { images: [image(1), image(2)], hasMore: true }
-        : { images: [image(3)], hasMore: false },
-    );
-
-    const window = await getThumbWindow(2019, 2, 1);
-
-    const boundary = { createdAt: '2020-01-01T00:00:00.000Z', id: 0 };
-    expect(getImageChunk).toHaveBeenCalledWith(boundary, 'newer', 2);
-    expect(getImageChunk).toHaveBeenCalledWith(boundary, 'older', 1);
-    expect(window.images.map((item) => item.id)).toEqual([1, 2, 3]);
-    expect(window.hasNewer).toBe(true);
-    expect(window.hasOlder).toBe(false);
+describe('getThumbsByIds', () => {
+  it('adds blur placeholders to the images found', async () => {
+    vi.mocked(getImagesByIds).mockResolvedValue([image(2), image(1)]);
+    const thumbs = await getThumbsByIds([1, 2, 3]);
+    expect(getImagesByIds).toHaveBeenCalledWith([1, 2, 3]);
+    expect(thumbs).toEqual([
+      { ...image(2), blurDataURL: 'blur' },
+      { ...image(1), blurDataURL: 'blur' },
+    ]);
   });
 });
